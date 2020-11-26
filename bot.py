@@ -44,7 +44,7 @@ async def log (message):
 @add_command ('chat')
 async def chat (message):
     msg = message.content.split (settings ['prefix'] + 'chat ') [1]
-    req = requests.get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=100000%27')
+    req = requests.get('https://mol-programmist.ru/bot/index.php?str=%' + msg + '&id=100000')
     await message.channel.send (req.text)
 
 
