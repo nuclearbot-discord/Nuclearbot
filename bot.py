@@ -14,7 +14,7 @@ ver = '0.1.6'
 commands_dict = {} #
 rand = [True, True, True, True, True, False, False, False, False, False]
 
-person = Person (fetch_online = True)
+
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
 def add_command (name): #Не трогать: убью
@@ -48,12 +48,6 @@ async def help (message):
 async def info (message):
     await message.channel.send (embed = info_embed)
     
-@add_command('person')
-async def person(message):
-    embed_person = discord.Embed (color = 0xff9900, title = 'Person')
-    embed_person.set_image (person)
-
-    await message.channel.send (embed = embed_person)
 
 @add_command ('log')
 async def log (message):
