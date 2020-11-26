@@ -7,7 +7,7 @@ from txts import *
 
 global commands_dict
 
-ver = '0.1.1'
+ver = '0.1.0'
 commands_dict = {}
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
@@ -43,8 +43,11 @@ async def log (message):
 
 @add_command ('chat')
 async def chat (message):
+    print ('1')
     msg = message.content.split (settings ['prefix'] + 'chat ') [1]
-    req = requests.get('https://mol-programmist.ru/bot/index.php?str=%' + msg + '&id=100000')
+    print (msg)
+    req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=100000%27')
+    print (req)
     await message.channel.send (req.text)
 
 
