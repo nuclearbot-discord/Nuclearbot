@@ -15,7 +15,7 @@ async def on_ready ():
 
     activity = discord.Activity (
         name = 'за тобой',
-        type = discord.ActivityType.watching
+        type = discord.ActivityType.gaming
     )
     await bot.change_presence (activity = activity)
 
