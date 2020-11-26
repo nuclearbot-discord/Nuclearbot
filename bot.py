@@ -9,7 +9,7 @@ from txts import *
 
 global commands_dict
 
-ver = '0.1.1'
+ver = '0.1.5'
 commands_dict = {} #
 rand = [True, True, False, False, False, False, False, False, False, False]
 
@@ -48,12 +48,12 @@ async def info (message):
 
 @add_command ('log')
 async def log (message):
-    await message.channel.send (commands_dict)
+    await message.channel.send (', '.join (list (commands_dict)))
 
 @add_command ('chat')
 async def chat (message):
     msg = message.content.split (settings ['prefix'] + 'chat ') [1]
-    txt = chat_bot (msq)
+    txt = chat_bot (msg)
     await message.channel.send (txt)
 
 
