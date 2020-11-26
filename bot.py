@@ -7,7 +7,7 @@ from txts import *
 
 global commands_dict
 
-ver = '0.1.0'
+ver = '0.1.1'
 commands_dict = {}
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
