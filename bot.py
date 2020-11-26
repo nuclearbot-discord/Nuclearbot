@@ -1,5 +1,7 @@
 from random import choice as choose
-
+from thispersondoesnotexist import Person
+# Initialize with True to automatically get a person from the webpage
+person = Person(fetch_online=True)
 import discord
 from discord.ext import commands
 from requests import get
@@ -45,7 +47,12 @@ async def help (message):
 @add_command ('info')
 async def info (message):
     await message.channel.send (embed = info_embed)
-
+@add_command('person')
+async def person(ctx):
+    embed = discord.Embed (color = 0xff9900, title = 'лиса')
+    embed.set_image (person)
+    
+await ctx.send (embed = embed)
 @add_command ('log')
 async def log (message):
     await message.channel.send (', '.join (list (commands_dict)))
