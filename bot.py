@@ -9,7 +9,7 @@ from txts import *
 
 global commands_dict
 
-ver = '0.1.6'
+ver = '0.1.8'
 commands_dict = {} #
 rand = [True, True, True, True, True, False, False, False, False, False]
 
@@ -27,6 +27,15 @@ def chat_bot (msg):
     req.encoding = 'utf-8'
 
     return req.text
+
+def all_digits (msg):
+    int_str = ''
+
+    for char in msg:
+        if char.isdigit ():
+            int_str += char
+
+    return int (int_str)
         
 @bot.event #Не трогать: убью
 async def on_ready ():
@@ -56,7 +65,10 @@ async def chat (message):
     txt = chat_bot (msg)
     await message.channel.send (txt)
 
-
+@add_command ('clear')
+async def clear (message):
+    amount = all_digits (message.content) 
+    await message.channel.purge (limit = amount)
 
 @bot.event #Не трогать: убью
 async def on_message (message):
@@ -85,6 +97,7 @@ async def on_message (message):
         
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment)))
+            return
             
         if choose (rand):
             await message.channel.send (chat_bot (message.content))
