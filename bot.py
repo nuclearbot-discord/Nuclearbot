@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from requests
+from requests import get
 
 from config import settings
 from txts import *
@@ -45,7 +45,7 @@ async def log (message):
 async def chat (message):
     msg = message.content.split (settings ['prefix'] + 'chat ') [1]
     req = requests.get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=100000%27')
-    message.channel.send (req.text)
+    await message.channel.send (req.text)
 
 
 
