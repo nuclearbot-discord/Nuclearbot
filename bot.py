@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-from config import settings
+from config_ import settings
 
 
 ver = '0.0.1'
@@ -13,10 +13,11 @@ bot = commands.Bot (command_prefix = settings ['prefix'])
 async def on_ready ():
     print (ver)
 
-    activity = discord.Activity (
-        name = 'за тобой',
-        type = discord.ActivityType.gaming
+    game = discord.Game (f'Versition {ver}')
+    await bot.change_presence (
+        status = discord.Status.idle,
+        activity = game
     )
-    await bot.change_presence (activity = activity)
+    
 
 bot.run (settings ['token'])
