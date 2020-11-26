@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from requests import get
+from requests
 
 from config import settings
 from txts import *
