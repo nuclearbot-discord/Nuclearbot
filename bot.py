@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 
 from config import settings
+from txts import *
 
 global commands_dict
 
@@ -23,7 +24,7 @@ def add_command (name): #Не трогать: убью
 async def on_ready ():
     print (ver)
 
-    game = discord.Game (f'Версия: {ver}')
+    game = discord.Game (txt_status_before + ver + txt_status_after)
     await bot.change_presence (
         status = discord.Status.idle, 
         activity = game
@@ -31,7 +32,7 @@ async def on_ready ():
 
 @add_command ('help') #Пример как делать комманды
 async def help (message):
-    await message.channel.send ('HELP TXT')
+    await message.channel.send (embed = help_embed)
  
 
 
@@ -41,7 +42,9 @@ async def on_message (message):
         return
 
     if message.content == 'help':
-        await message.channel.send (f'{settings ["prefix"]}help')
+        await message.channel.send (
+            txt_help_not_command_before + settings ['prefix'] + txt_help_not_command_after
+        )
 
     check = lambda val: message.content.startswith (settings ["prefix"] + val)
 
@@ -53,6 +56,6 @@ async def on_message (message):
                 break
 
         else:
-            await message.channel.send ('Net takoy Commandy')
+            await message.channel.send (txt_no_command)
 
 bot.run (settings ['token'])
