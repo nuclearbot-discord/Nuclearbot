@@ -1,4 +1,4 @@
-from random import choice as choose
+from random import Random
 
 import discord
 from discord.ext import commands
@@ -10,12 +10,12 @@ from txts import *
 global commands_dict
 
 ver = '0.1.8'
-commands_dict = {} #
-rand = [True, True, True, False, False, False, False, False, False, False]
+commands_dict = {} 
+rand = Random ()
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
-def add_command (name): #Не трогать: убью
+def add_command (name): 
     def adder (func):
         commands_dict [name] = func
 
@@ -37,7 +37,7 @@ def all_digits (msg):
 
     return int (int_str)
         
-@bot.event #Не трогать: убью
+@bot.event 
 async def on_ready ():
     print (ver)
 
@@ -75,7 +75,7 @@ async def say (message):
     await message.channel.send (''.join (message.content.split (settings ['prefix'] + 'say ') [1:]))
     await message.delete ()
 
-@bot.event #Не трогать: убью
+@bot.event 
 async def on_message (message):
     if message.author.bot:
         return
@@ -104,7 +104,7 @@ async def on_message (message):
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
             
-        if choose (rand):
+        if choose ((rand () * 100) < 20):
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
 bot.run (settings ['token'])
