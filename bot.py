@@ -2,7 +2,7 @@ from random import choice as choose
 
 import discord
 from discord.ext import commands
-from thispersondoesnotexist import Person
+
 from requests import get
 
 from config import settings
