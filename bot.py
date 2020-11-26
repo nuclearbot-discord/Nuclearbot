@@ -61,7 +61,7 @@ async def log (message):
 
 @add_command ('chat')
 async def chat (message):
-    msg = message.content.split (settings ['prefix'] + 'chat ') [1]
+    msg = ''.join (message.content.split (settings ['prefix'] + 'chat ') [1:])
     txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
 
@@ -69,6 +69,11 @@ async def chat (message):
 async def clear (message):
     amount = all_digits (message.content) 
     await message.channel.purge (limit = amount)
+
+@add_command ('say')
+async def say (message):
+    await message.channel.send (''.join (message.content.split (settings ['prefix'] + 'say ') [1:]))
+    await message.delete ()
 
 @bot.event #Не трогать: убью
 async def on_message (message):
