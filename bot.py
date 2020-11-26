@@ -11,7 +11,7 @@ global commands_dict
 
 ver = '0.1.1'
 commands_dict = {}             #
-rand = [True, True, True, True, False, False, False, False, False, False]
+rand = [True, True, True, True, True, True, True, False, False, False]
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
