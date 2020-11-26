@@ -13,10 +13,9 @@ bot = commands.Bot (command_prefix = settings ['prefix'])
 async def on_ready ():
     print (ver)
 
-    game = discord.Game (f'Versition {ver}')
-    await bot.change_presence (
-        status = discord.Status.idle,
-        activity = game
+    game = discord.Game ('версия:'+ver )
+    await bot.change_presence (status = discord.Status.idle, activity = game)
+
     )
     
 
