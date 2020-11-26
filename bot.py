@@ -4,7 +4,7 @@ from discord.ext import commands
 from config import settings
 
 
-ver = '0.0.3'
+ver = '0.0.4'
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
@@ -18,6 +18,12 @@ async def on_ready ():
         status = discord.Status.idle, 
         activity = game
     )
-    
+
+@bot.event
+async def on_message (message):
+    if message.author.bot:
+        pass #return
+
+    await message.channel.send ('ПУУУк')
 
 bot.run (settings ['token'])
