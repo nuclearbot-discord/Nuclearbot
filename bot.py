@@ -11,7 +11,7 @@ from txts import *
 
 global commands_dict
 
-ver = '0.1.5'
+ver = '0.1.6'
 commands_dict = {} #
 rand = [True, True, True, True, True, False, False, False, False, False]
 
