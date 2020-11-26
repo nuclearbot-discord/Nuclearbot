@@ -11,7 +11,7 @@ global commands_dict
 
 ver = '0.1.1'
 commands_dict = {}             #
-rand = [True, True, True, True, True, True, True, False, False, False]
+rand = [True, True, True, True, False, False, False, False, False, False]
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
@@ -81,6 +81,13 @@ async def on_message (message):
             await message.channel.send (txt_no_command)
 
     else:
+        msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
+        print (message.content)
+        print (msg_part_ment)
+        
+        if len (msg_part_ment) - 1:
+            await message.channel.send (chat_bot (''.join (msg_part_ment)))
+            
         if choose (rand):
             await message.channel.send (chat_bot (message.content))
 
