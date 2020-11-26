@@ -46,7 +46,10 @@ async def chat (message):
     print ('1')
     msg = message.content.split (settings ['prefix'] + 'chat ') [1]
     print (msg)
+
+    
     req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=100000%27')
+    req.encoding='utf-8' 
     print (req)
     await message.channel.send (req.text)
 
