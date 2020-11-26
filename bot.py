@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-from config_ import settings
+from config import settings
 
 
 ver = '0.0.1'
