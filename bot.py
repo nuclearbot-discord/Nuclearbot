@@ -2,7 +2,6 @@ from random import choice as choose
 
 import discord
 from discord.ext import commands
-
 from requests import get
 
 from config import settings
@@ -13,7 +12,6 @@ global commands_dict
 ver = '0.1.6'
 commands_dict = {} #
 rand = [True, True, True, True, True, False, False, False, False, False]
-
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
@@ -47,7 +45,6 @@ async def help (message):
 @add_command ('info')
 async def info (message):
     await message.channel.send (embed = info_embed)
-    
 
 @add_command ('log')
 async def log (message):
