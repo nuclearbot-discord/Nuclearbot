@@ -11,7 +11,7 @@ global commands_dict
 
 ver = '0.1.8'
 commands_dict = {} #
-rand = [True, True, True, True, True, False, False, False, False, False]
+rand = [True, True, True, False, False, False, False, False, False, False]
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
@@ -22,8 +22,8 @@ def add_command (name): #Не трогать: убью
         return func
     return adder
 
-def chat_bot (msg):
-    req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=100000%27')
+def chat_bot (msg, id_):
+    req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=' + id_ [-5:] + '%27')
     req.encoding = 'utf-8'
 
     return req.text
@@ -62,7 +62,7 @@ async def log (message):
 @add_command ('chat')
 async def chat (message):
     msg = message.content.split (settings ['prefix'] + 'chat ') [1]
-    txt = chat_bot (msg)
+    txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
 
 @add_command ('clear')
@@ -96,10 +96,10 @@ async def on_message (message):
         msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
         
         if len (msg_part_ment) - 1:
-            await message.channel.send (chat_bot (''.join (msg_part_ment)))
+            await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
             
         if choose (rand):
-            await message.channel.send (chat_bot (message.content))
+            await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
 bot.run (settings ['token'])
