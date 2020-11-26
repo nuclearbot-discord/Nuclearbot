@@ -14,3 +14,8 @@ help_embed = Embed (
     title = 'help',
     color =  0x45db00
 )
+
+info_embed = Embed (
+    title = 'INFO',
+    color = 0x45db00
+)

@@ -1,14 +1,13 @@
-from functools import wraps
-
 import discord
 from discord.ext import commands
+from requests import get
 
 from config import settings
 from txts import *
 
 global commands_dict
 
-ver = '0.0.6'
+ver = '0.1.0'
 commands_dict = {}
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
@@ -34,6 +33,20 @@ async def on_ready ():
 async def help (message):
     await message.channel.send (embed = help_embed)
  
+@add_command ('info')
+async def info (message):
+    await message.channel.send (embed = info_embed)
+
+@add_command ('log')
+async def log (message):
+    await message.channel.send (commands_dict)
+
+@add_command ('chat')
+async def chat (message):
+    msg = message.content.split (settings ['prefix'] + 'chat ') [1]
+    req = requests.get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=100000%27')
+    message.channel.send (req.text)
+
 
 
 @bot.event #Не трогать: убью
