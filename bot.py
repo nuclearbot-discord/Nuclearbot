@@ -82,8 +82,6 @@ async def on_message (message):
 
     else:
         msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
-        print (message.content)
-        print (msg_part_ment)
         
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment)))
