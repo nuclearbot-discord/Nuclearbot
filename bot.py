@@ -22,8 +22,8 @@ async def on_ready ():
 @bot.event
 async def on_message (message):
     if message.author.bot:
-        pass #return
+        return
 
-    await message.channel.send ('ПУУУк')
+    
 
 bot.run (settings ['token'])
