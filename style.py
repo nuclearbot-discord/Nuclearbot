@@ -7,6 +7,7 @@ txt_status_after            = ' | Working correctly'
 txt_no_command              = 'Uncorrect command'
 txt_help_not_command_before = 'To get help type `'
 txt_help_not_command_after  = 'help`.'
+txt_bot_online              = 'Bot online! <:online:781567439493660713>'
 
 # Embeds
 

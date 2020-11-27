@@ -9,7 +9,7 @@ from style import *
 
 global commands_dict
 
-ver = '0.1.8'
+ver = '0.2.0'
 commands_dict = {} 
 rand = Random ().random
 
@@ -27,6 +27,10 @@ def chat_bot (msg, id_):
     req.encoding = 'utf-8'
 
     return req.text
+
+def get_next (message, command):
+    command_all = settings ['prefix'] + command + ' '
+    return command_all.join (message.content.split (command_all) [1:])
 
 def all_digits (msg):
     int_str = ''
@@ -46,6 +50,11 @@ async def on_ready ():
         status = discord.Status.idle, 
         activity = game
     )
+    await bot.get_channel (settings ['channel']).send (txt_bot_online)
+    
+@bot.event
+async def on_disconnect ():
+    await bot.get_channel (settings ['channel']).send (txt_bot_online)
 
 @add_command ('help') #Пример как делать комманды
 async def help (message):
@@ -61,7 +70,7 @@ async def log (message):
 
 @add_command ('chat')
 async def chat (message):
-    msg = ''.join (message.content.split (settings ['prefix'] + 'chat ') [1:])
+    msg = get_next (message, 'chat')
     txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
 
@@ -72,8 +81,8 @@ async def clear (message):
 
 @add_command ('say')
 async def say (message):
-    await message.channel.send (''.join (message.content.split (settings ['prefix'] + 'say ') [1:]))
     await message.delete ()
+    await message.channel.send (get_next (message, 'say'))
 
 @bot.event 
 async def on_message (message):
