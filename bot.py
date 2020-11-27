@@ -45,8 +45,7 @@ async def on_ready ():
     await bot.change_presence (
         status = discord.Status.idle, 
         activity = game
-    Id = 781550030976450601
-    Channel().get_channel_by_id (id).send ('djjsjfj')
+    
     )
 
 
