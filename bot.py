@@ -11,7 +11,7 @@ global commands_dict
 
 ver = '0.1.8'
 commands_dict = {} 
-rand = Random ()
+rand = Random ().random
 
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
@@ -106,7 +106,7 @@ async def on_message (message):
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
             
-        if choose ((rand () * 100) < 20):
+        if (rand () * 100) < 20:
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
 bot.run (settings ['token'])
