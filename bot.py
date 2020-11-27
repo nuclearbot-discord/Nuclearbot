@@ -51,7 +51,9 @@ async def on_ready ():
         activity = game
     )
     await bot.get_channel (settings ['channel']).send (txt_bot_online)
-    
+@bot.event
+async def on_guild_join(guild):
+    print('позжеее') 
 @bot.event
 async def on_disconnect ():
     await bot.get_channel (settings ['channel']).send (txt_bot_online)
