@@ -5,7 +5,7 @@ from discord.ext import commands
 from requests import get
 
 from config import settings
-from txts import *
+from style import *
 
 global commands_dict
 
@@ -45,9 +45,7 @@ async def on_ready ():
     await bot.change_presence (
         status = discord.Status.idle, 
         activity = game
-    
     )
-
 
 @add_command ('help') #Пример как делать комманды
 async def help (message):
