@@ -45,7 +45,7 @@ def all_digits (msg):
 async def on_ready ():
     print (ver)
 
-    game = discord.Game (txt_status_before + ver + txt_status_after + bot.gulids)
+    game = discord.Game (txt_status_before + ver + txt_status_after + bot.guilds)
     await bot.change_presence (
         status = discord.Status.idle, 
         activity = game
