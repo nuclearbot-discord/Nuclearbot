@@ -1,26 +1,27 @@
 from random import Random
-from firebase import Firebase
+
 import discord
 from discord.ext import commands
 from requests import get
+#from firebase import Firebase
 
 from config import settings
 from style import *
 
-global commands_dict
-
-configfb = {
+'''configfb = {
   "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
   "authDomain": "164893195950.firebaseapp.com",
   "databaseURL": "https://avroraacha.firebaseio.com/",
-  "storageBucket": "avroraacha.appspot.com"
-}
-firebase = Firebase(configfb)
-db = firebase.database()
+  "storageBucket": "avroraacha.appspot.com" 
+}''' # V config nada pihat
+
+
 ver = '0.2.1 FB'
 commands_dict = {} 
 rand = Random ().random
 
+#firebase = Firebase (configfb)
+#db = firebase.database ()
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
 def add_command (name): 
@@ -58,15 +59,7 @@ async def on_ready ():
         status = discord.Status.idle, 
         activity = game
     )
-    await bot.get_channel (settings ['channel']).send (txt_bot_online)
-@bot.event
-async def on_guild_join(guild):
-    print('позжеее') 
-    data = {"shans": "20"}
-    db.child("timeout").child(guild.id).set(data)
-    await bot.get_channel (settings ['channel']).send (guild.id) #миш эт моя работа с файрбейз. тронешь - убью
-@bot.event
-async def on_disconnect ():
+    
     await bot.get_channel (settings ['channel']).send (txt_bot_online)
 
 @add_command ('help') #Пример как делать комманды
@@ -95,16 +88,29 @@ async def clear (message):
 @add_command ('say')
 async def say (message):
     await message.delete ()
-    await message.channel.send (get_next (message, 'say'))  
+    await message.channel.send (get_next (message, 'say'))
+
+'''@bot.event
+async def on_guild_join (guild):
+    data = {"shans": "20"}
+    #db.child("timeout").child(guild.id).set(data)
+    await bot.get_channel (settings ['channel']).send (guild.id)'''
+
+'''@bot.event
+async def on_error (a, b):
+    await bot.get_channel (settings ['channel']).send (txt_bot_online)'''
+    
 @bot.event 
-async def on_message (message):
+async def on_message (message): 
     if message.author.bot:
         return
 
-    if message.content == 'help':
+    if message.content.lower () == 'help':
         await message.channel.send (
             txt_help_not_command_before + settings ['prefix'] + txt_help_not_command_after
         )
+
+        return
 
     check = lambda val: message.content.startswith (settings ["prefix"] + val)
 
@@ -118,14 +124,18 @@ async def on_message (message):
         else:
             await message.channel.send (txt_no_command)
 
+        return
+
     else:
         msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
         
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
-            
+                                        
         if (rand () * 100) < 20:
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
+
+            return
 
 bot.run (settings ['token'])
