@@ -20,8 +20,8 @@ ver = '0.2.1 FB2'
 commands_dict = {} 
 rand = Random ().random
 
-#firebase = Firebase (configfb)
-#db = firebase.database ()
+firebase = Firebase (configfb)
+db = firebase.database ()
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
 def add_command (name): 
