@@ -91,16 +91,16 @@ async def say (message):
     await message.channel.send (get_next (message, 'say'))
 @add_command('dbdb')
 async def dbdb (message):
-    idid=message.guild.id
-    await message.channel.send(idid)
-    all_users = db.child("timeout").get()
+idid=message.guild.id
+await message.channel.send(idid)
+  all_users = db.child("timeout").get()
     for user in all_users.each():
-        kkey=user.key()
-        message.channel.send(kkey)
-        if user.key()==idid:
-            a=user.val()
-            sss=a["shans"]
-            await message.channel.send(sss)
+      kkey=user.key()
+      message.channel.send(kkey)
+      if user.key()==idid:
+        a=user.val()
+        sss=a["shans"]
+        await message.channel.send(sss)
 @bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
