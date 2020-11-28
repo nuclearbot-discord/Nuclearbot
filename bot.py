@@ -95,7 +95,8 @@ async def dbdb (message):
     await message.channel.send(idid)
     all_users = db.child("timeout").get()
     for user in all_users.each():
-        message.channel.send(user.key())
+        kkey=user.key()
+        message.channel.send(kkey)
         if user.key()==idid:
             a=user.val()
             sss=a["shans"]
