@@ -8,12 +8,12 @@ from requests import get
 from config import settings
 from style import *
 
-'''configfb = {
+configfb = {
   "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
   "authDomain": "164893195950.firebaseapp.com",
   "databaseURL": "https://avroraacha.firebaseio.com/",
   "storageBucket": "avroraacha.appspot.com" 
-}''' # V config nada pihat
+} # V config nada pihat
 
 
 ver = '0.2.1 FB'
@@ -96,15 +96,15 @@ async def dbdb (message):
     if user.key()=="781409504435896320":
       a=user.val()
       message.channel.send(a["shans"])
-'''@bot.event
+@bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
     #db.child("timeout").child(guild.id).set(data)
-    await bot.get_channel (settings ['channel']).send (guild.id)'''
+    await bot.get_channel (settings ['channel']).send (guild.id)
 
-'''@bot.event
+@bot.event
 async def on_error (a, b):
-    await bot.get_channel (settings ['channel']).send (txt_bot_online)'''
+    await bot.get_channel (settings ['channel']).send (txt_bot_online)
     
 @bot.event 
 async def on_message (message): 
