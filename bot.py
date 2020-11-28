@@ -99,6 +99,13 @@ async def say (message):
 
 @bot.event 
 async def on_message (message):
+    all_users = db.child("timeout").get()
+        for user in all_users.each():
+            if user.key()==guild.id:
+                a=user.val()
+                await message.channel.send (a["shans"])                                   
+               
+
     if message.author.bot:
         return
 
