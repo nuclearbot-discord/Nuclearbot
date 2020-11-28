@@ -147,8 +147,21 @@ async def on_message (message):
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
-                                        
-        if (rand () * 100) < 20:
+        idid = message.guild.id
+    
+    
+        all_users = db.child ("timeout").get ()
+        for user in all_users.each ():
+            kkey = user.key ()
+        
+        
+            if str (kkey) == str (idid):
+            
+                a = user.val ()
+                sss = a ["shans"]
+                                           
+        if (rand () * 100) < int(sss):
+                                               
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
             return
