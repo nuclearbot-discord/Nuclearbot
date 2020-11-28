@@ -16,7 +16,7 @@ configfb = {
 } # V config nada pihat
 
 
-ver = '0.2.1 FB3'
+ver = '0.2.1 FB4'
 commands_dict = {} 
 rand = Random ().random
 
@@ -92,11 +92,11 @@ async def say (message):
 @add_command('dbdb')
 async def dbdb (message):
     message.channel.send(message.guild.id)
-    all_users = db.child("timeout").get()
+    '''all_users = db.child("timeout").get()
     for user in all_users.each():
         if user.key()==message.guild.id:
             a=user.val()
-            message.channel.send(a["shans"])
+            message.channel.send(a["shans"])'''
 @bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
