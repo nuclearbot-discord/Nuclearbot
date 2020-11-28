@@ -79,6 +79,11 @@ async def chat (message):
     msg = get_next (message, 'chat')
     txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
+@add_command('setchance')
+async def setchance(message, ch):
+    data = {"shans": ch}
+    db.child("timeout").child(message.guild.id).set(data)
+    await message.channel.send("шанс теперь равен"+ch+"%")
 
 @add_command ('clear')
 async def clear (message):
