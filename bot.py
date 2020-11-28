@@ -99,10 +99,10 @@ async def say (message):
 @add_command ('dbdb')
 async def dbdb(message):
     all_users = db.child("timeout").get()
-     for user in all_users.each():
-         if user.key()=="781409504435896320":
-             a=user.val()
-             await message.channel.send (a["shans"])       
+    for user in all_users.each():
+        if user.key()=="781409504435896320":
+            a=user.val()
+            await message.channel.send (a["shans"])       
 @bot.event 
 async def on_message (message):
                                 
