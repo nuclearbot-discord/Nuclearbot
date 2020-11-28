@@ -1,3 +1,5 @@
+#''' # - Эта хрень нужна мне не удаляй *
+
 from firebase import Firebase
 
 configfb = {
@@ -23,3 +25,12 @@ def db_getchance (guild_id):
         if str (kkey) == str (guild_id):    
             a = user.val ()
             return a ["shans"]
+''' # Смотри *
+
+def db_setchance (a, b):
+    pass
+
+def db_getchance (a):
+    return '50'
+
+#'''# Смотри *

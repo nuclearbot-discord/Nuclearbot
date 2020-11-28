@@ -3,25 +3,15 @@ from random import Random
 import discord
 from discord.ext import commands
 from requests import get
-from firebase import Firebase
 
 from config import settings
 from style import *
-
-configfb = {
-  "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
-  "authDomain": "164893195950.firebaseapp.com",
-  "databaseURL": "https://avroraacha.firebaseio.com/",
-  "storageBucket": "avroraacha.appspot.com" 
-} # V config nada pihat
-
+from db import db_setchance, db_getchance
 
 ver = '0.2.1 FB4'
 commands_dict = {} 
 rand = Random ().random
 
-firebase = Firebase (configfb)
-db = firebase.database ()
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
 def add_command (name): 
@@ -81,13 +71,12 @@ async def chat (message):
     await message.channel.send (txt)
     
 @add_command('setchance')
-async def setchance(message):
-    ch = str (all_digits (get_next (message, 'setchance')))
-    
-    data = {"shans": ch}
-    db.child("timeout").child(message.guild.id).set(data)
-    
-    await message.channel.send("шанс теперь равен"+ch+"%")
+async def set_chance(message):
+    chance = str (all_digits (get_next (message, 'setchance')))
+
+    db_setchance (chance, message.guild.id) 
+        
+    await message.channel.send (f'Shance now is {chance}%')
 
 @add_command ('clear')
 async def clear (message):
@@ -99,21 +88,6 @@ async def say (message):
     await message.delete ()
     await message.channel.send (get_next (message, 'say'))
     
-@add_command('dbdb')
-async def dbdb (message):
-    idid = message.guild.id
-    await message.channel.send(idid)
-    
-    all_users = db.child ("timeout").get ()
-    for user in all_users.each ():
-        kkey = user.key ()
-        await message.channel.send(kkey)
-        
-        if str (kkey) == str (idid):
-            await message.channel.send ("звезды сошлись")
-            a = user.val ()
-            sss = a ["shans"]
-            await message.channel.send (sss)
 @bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
@@ -122,7 +96,7 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_error (a, b):
-    await bot.get_channel (settings ['channel']).send (txt_bot_online)
+    await bot.get_channel (settings ['channel']).send (f'Error {a}, {b}')
     
 @bot.event 
 async def on_message (message): 
@@ -156,20 +130,10 @@ async def on_message (message):
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
-        idid = message.guild.id
-    
-    
-        all_users = db.child ("timeout").get ()
-        for user in all_users.each ():
-            kkey = user.key ()
-        
-        
-            if str (kkey) == str (idid):
-            
-                a = user.val ()
-                sss = a ["shans"]
+
+        chance = db_getchance (message.guild.id)
                                            
-        if (rand () * 100) < int(sss):
+        if (rand () * 100) < int(chance):
                                                
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
