@@ -91,7 +91,8 @@ async def say (message):
     await message.channel.send (get_next (message, 'say'))
 @add_command('dbdb')
 async def dbdb (message):
-    message.channel.send(message.guild.id)
+    idid=message.guild.id
+    message.channel.send(idid)
     '''all_users = db.child("timeout").get()
     for user in all_users.each():
         if user.key()==message.guild.id:
