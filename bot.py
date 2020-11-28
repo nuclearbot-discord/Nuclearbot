@@ -97,7 +97,7 @@ async def dbdb (message):
     for user in all_users.each():
         kkey=user.key()
         await message.channel.send(kkey)
-        if kkey==idid:
+        if kkey=idid:
             await message.channel.send("звезды сошлись")
             a=user.val()
             sss=a["shans"]
