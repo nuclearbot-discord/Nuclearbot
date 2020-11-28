@@ -17,7 +17,7 @@ configfb = {
 }
 firebase = Firebase(configfb)
 db = firebase.database()
-ver = '0.2.0'
+ver = '0.2.0 FB'
 commands_dict = {} 
 rand = Random ().random
 
