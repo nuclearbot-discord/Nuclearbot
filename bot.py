@@ -96,14 +96,16 @@ async def clear (message):
 async def say (message):
     await message.delete ()
     await message.channel.send (get_next (message, 'say'))
-
+@add_command ('dbdb')
+async def db(message):
+    all_users = db.child("timeout").get()
+     for user in all_users.each():
+         if user.key()==message.guild.id:
+             a=user.val()
+             await message.channel.send (a["shans"])       
 @bot.event 
 async def on_message (message):
-    all_users = db.child("timeout").get()
-        for user in all_users.each():
-            if user.key()==message.guild.id:
-                a=user.val()
-                await message.channel.send (a["shans"])                                   
+                                
                
     if message.author.bot:
         return
