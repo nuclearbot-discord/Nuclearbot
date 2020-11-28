@@ -12,7 +12,7 @@ configfb = {
 firebase = Firebase (configfb)
 db = firebase.database ()
 
-def db_setchanse (chance, guild_id):
+def db_setchance (chance, guild_id):
     data = {"shans": chance}
     db.child ("timeout").child (guild_id).set (data)
 
