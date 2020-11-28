@@ -1,2 +1,8 @@
 discord.py
 requests
+firebase
+gcloud
+python_jwt
+sseclient
+pycrypto
+requests-toolbelt
