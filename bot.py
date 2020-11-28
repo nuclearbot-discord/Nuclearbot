@@ -12,7 +12,7 @@ from db import db_setchance, db_getchance
 import os
 
 TOKEN = os.environ["TOKEN"]
-ver = '0.2.1 FB4'
+ver = '0.2.1 FB4 NO TOKEN'
 commands_dict = {} 
 rand = Random ().random
 
