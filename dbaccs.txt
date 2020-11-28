@@ -1,0 +1,17 @@
+#give base:
+all_acc = db.child("accs").get()
+#all_acc.val() это считай преобразуй в лист
+#set accs:
+db.child("accs").child ("thisaccemail").set ("thisaccpass")
+#give id of admin:
+adms = db.child("adms").get()
+for iamadmin in adms.each ():
+        kkeyadm = user.key ()
+        
+        if str (kkeyadm) == str (IDDISCORDA):    
+            tatataонадмин
+        else:
+            татата он не админ
+         #IDDISCORDA это id отправителя сообщ
+#добавление админа:
+#фигли. безопасность важна
