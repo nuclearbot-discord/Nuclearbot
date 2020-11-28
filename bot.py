@@ -101,11 +101,10 @@ async def say (message):
 async def on_message (message):
     all_users = db.child("timeout").get()
         for user in all_users.each():
-            if user.key()==guild.id:
+            if user.key()==message.guild.id:
                 a=user.val()
                 await message.channel.send (a["shans"])                                   
                
-
     if message.author.bot:
         return
 
@@ -134,7 +133,7 @@ async def on_message (message):
             return
         all_users = db.child("timeout").get()
         for user in all_users.each():
-            if user.key()==guild.id:
+            if user.key()==message.guild.id:
                 a=user.val()
                 await message.channel.send (a["shans"])                                   
                 if (rand () * 100) < a["shans"]:
