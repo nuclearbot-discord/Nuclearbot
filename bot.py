@@ -98,11 +98,11 @@ async def say (message):
     await message.channel.send (get_next (message, 'say'))
 @add_command ('dbdb')
 async def dbdb(message):
-    all_users = db.child("timeout").get()
-    for user in all_users.each():
-        if user.key()=="781409504435896320":
-            a=user.val()
-            await message.channel.send (a["shans"])       
+  all_users = db.child("timeout").get()
+  for user in all_users.each():
+    if user.key()=="781409504435896320":
+      a=user.val()
+      await message.channel.send (a["shans"])       
 @bot.event 
 async def on_message (message):
                                 
@@ -135,10 +135,10 @@ async def on_message (message):
             return
         all_users = db.child("timeout").get()
         for user in all_users.each():
-            if user.key()==message.guild.id:
-                a=user.val()
-                await message.channel.send (a["shans"])                                   
+          if user.key()==message.guild.id:
+            a=user.val()
+              await message.channel.send (a["shans"])                                   
                 if (rand () * 100) < a["shans"]:
-                    await message.channel.send (chat_bot (message.content, str (message.author.id)))
+                  await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
 bot.run (settings ['token'])
