@@ -97,10 +97,10 @@ async def say (message):
     await message.delete ()
     await message.channel.send (get_next (message, 'say'))
 @add_command ('dbdb')
-async def db(message):
+async def dbdb(message):
     all_users = db.child("timeout").get()
      for user in all_users.each():
-         if user.key()==message.guild.id:
+         if user.key()=="781409504435896320":
              a=user.val()
              await message.channel.send (a["shans"])       
 @bot.event 
