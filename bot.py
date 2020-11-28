@@ -98,8 +98,6 @@ async def say (message):
     await message.channel.send (get_next (message, 'say'))  
 @bot.event 
 async def on_message (message):
-                                
-               
     if message.author.bot:
         return
 
@@ -126,8 +124,8 @@ async def on_message (message):
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
-                                        
-                if (rand () * 100) < 20:
-                  await message.channel.send (chat_bot (message.content, str (message.author.id)))
+            
+        if (rand () * 100) < 20:
+            await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
 bot.run (settings ['token'])
