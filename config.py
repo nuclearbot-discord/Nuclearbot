@@ -1,5 +1,4 @@
 settings = {
-    'token': 'NzgxNDA0OTE1MTQyNDkyMTcx.X79KCQ.vcdevmaaRYCADgMagz0iAJX7VTo',
     'bot': 'NuclearBot',
     'id': 781404915142492171,
     'prefix': '!',
