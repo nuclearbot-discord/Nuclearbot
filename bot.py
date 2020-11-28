@@ -1,4 +1,6 @@
+import json
 from random import Random
+from asyncio import sleep
 
 import discord
 from discord.ext import commands
@@ -87,7 +89,41 @@ async def clear (message):
 async def say (message):
     await message.delete ()
     await message.channel.send (get_next (message, 'say'))
+
+@add_command ('minecraft')
+async def give_minecraft (message):
+    author = message.author.id
+
+    if True: # Todo: проверку пользователя
+        acc = ['ppap@ppap.ppap', 'ppap']
+
+        await message.channel.send ('Later...')
+
+    else:
+        await message.channel.send ('No.')
+
+@add_command ('steam')
+async def give_steam (message):
+    author = message.author.id
+
+    if True: # Todo: проверку пользователя
+        acc = ['ppap@ppap.ppap', 'ppap']
+
+        await message.channel.send ('Later...')
+
+    else:
+        await message.channel.send ('No.')
+
+@add_command ('fox')
+async def fox (message):
+    response = get ('https://some-random-api.ml/img/fox')
+    json_data = json.loads (response.text)
+
+    embed = discord.Embed (color = 0xff9900, title = 'Fox')
+    embed.set_image (url = json_data ['link'])
     
+    await message.channel.send (embed = embed)
+
 @bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
