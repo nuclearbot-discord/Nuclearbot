@@ -3,7 +3,7 @@ from random import Random
 import discord
 from discord.ext import commands
 from requests import get
-#from firebase import Firebase
+from firebase import Firebase
 
 from config import settings
 from style import *
@@ -93,13 +93,13 @@ async def say (message):
 async def dbdb (message):
   all_users = db.child("timeout").get()
   for user in all_users.each():
-    if user.key()=="781409504435896320":
+    if user.key()==781409504435896320:
       a=user.val()
       message.channel.send(a["shans"])
 @bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
-    #db.child("timeout").child(guild.id).set(data)
+    db.child("timeout").child(guild.id).set(data)
     await bot.get_channel (settings ['channel']).send (guild.id)
 
 @bot.event
