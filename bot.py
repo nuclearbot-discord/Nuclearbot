@@ -1,5 +1,5 @@
 from random import Random
-
+from firebase import Firebase
 import discord
 from discord.ext import commands
 from requests import get
@@ -9,6 +9,14 @@ from style import *
 
 global commands_dict
 
+configfb = {
+  "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
+  "authDomain": "164893195950.firebaseapp.com",
+  "databaseURL": "https://avroraacha.firebaseio.com/",
+  "storageBucket": "avroraacha.appspot.com"
+}
+firebase = Firebase(configfb)
+db = firebase.database()
 ver = '0.2.0'
 commands_dict = {} 
 rand = Random ().random
@@ -54,7 +62,9 @@ async def on_ready ():
 @bot.event
 async def on_guild_join(guild):
     print('позжеее') 
-    await bot.get_channel (settings ['channel']).send (guild.id)
+    data = {"shans": "20"}
+    db.child("timeout").child(guild.id).set(data)
+    await bot.get_channel (settings ['channel']).send (guild.id) #миш эт моя работа с файрбейз. тронешь - убью
 @bot.event
 async def on_disconnect ():
     await bot.get_channel (settings ['channel']).send (txt_bot_online)
@@ -115,7 +125,7 @@ async def on_message (message):
         if len (msg_part_ment) - 1:
             await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
             return
-            
+        
         if (rand () * 100) < 20:
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
