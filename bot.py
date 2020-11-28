@@ -8,7 +8,7 @@ from config import settings
 from style import *
 from db import db_setchance, db_getchance
 
-ver = '0.2.1 FB4'
+ver = '0.2.1 FB5, final'
 commands_dict = {} 
 rand = Random ().random
 
