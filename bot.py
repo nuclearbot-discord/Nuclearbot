@@ -9,7 +9,9 @@ from requests import get
 from config import settings
 from style import *
 from db import db_setchance, db_getchance
+import os
 
+TOKEN = os.environ["TOKEN"]
 ver = '0.2.1 FB4'
 commands_dict = {} 
 rand = Random ().random
@@ -175,4 +177,4 @@ async def on_message (message):
 
             return
 
-bot.run (settings ['token'])
+bot.run (TOKEN)
