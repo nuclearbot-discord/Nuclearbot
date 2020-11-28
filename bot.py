@@ -3,7 +3,7 @@ from random import Random
 import discord
 from discord.ext import commands
 from requests import get
-#from firebase import Firebase
+from firebase import Firebase
 
 from config import settings
 from style import *
@@ -20,8 +20,8 @@ ver = '0.2.1 FB4'
 commands_dict = {} 
 rand = Random ().random
 
-#firebase = Firebase (configfb)
-#db = firebase.database ()
+firebase = Firebase (configfb)
+db = firebase.database ()
 bot = commands.Bot (command_prefix = settings ['prefix'])
 
 def add_command (name): 
@@ -91,14 +91,16 @@ async def say (message):
     await message.channel.send (get_next (message, 'say'))
 @add_command('dbdb')
 async def dbdb (message):
-    idid = message.guild.id
-
+    idid=message.guild.id
     await message.channel.send(idid)
-    '''all_users = db.child("timeout").get()
+    all_users = db.child("timeout").get()
     for user in all_users.each():
-        if user.key()==message.guild.id:
+        kkey=user.key()
+        await message.channel.send(kkey)
+        if user.key()==idid:
             a=user.val()
-            message.channel.send(a["shans"])'''
+            sss=a["shans"]
+            await message.channel.send(sss)
 @bot.event
 async def on_guild_join (guild):
     data = {"shans": "20"}
