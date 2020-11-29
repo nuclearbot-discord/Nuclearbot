@@ -106,8 +106,8 @@ async def say (message):
 async def minecraft (message):
     
 
-    '''all_acc1 = db.child("accs").get()
-    accs2=[]
+    all_acc1 = db.child("accs").get()
+    accs2=[]'''
     for user in all_acc1.each():
         accs2.append(user.key()+":"+user.val())
     rnd=random.choice(accs2)
