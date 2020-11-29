@@ -10,7 +10,17 @@ from config import settings
 from style import *
 from db import db_setchance, db_getchance, dbmcget
 import os
+from firebase import Firebase
 
+configfb = {
+  "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
+  "authDomain": "164893195950.firebaseapp.com",
+  "databaseURL": "https://avroraacha.firebaseio.com/",
+  "storageBucket": "avroraacha.appspot.com" 
+}
+
+firebase = Firebase (configfb)
+db = firebase.database ()
 TOKEN = os.environ["TOKEN"]
 ver = '0.2.1 FB4 ADD MINECRAFT'
 commands_dict = {} 
