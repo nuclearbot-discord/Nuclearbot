@@ -114,7 +114,7 @@ async def minecraft (message):
         rnd=random.choice(accs2)
         accitog=rnd.split(":")
         res=str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
-        await message.channel.send(res)
+        await message.channel.send ('No. test')
     else:
         await message.channel.send ('No.')
 
