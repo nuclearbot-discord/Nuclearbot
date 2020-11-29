@@ -75,7 +75,9 @@ async def chat (message):
     msg = get_next (message, 'chat')
     txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
-    
+@add_command('addtobase')
+async def addtobase(message, toadd):
+    message.channel.send(toadd) 
 @add_command('setchance')
 async def set_chance(message):
     chance = str (all_digits (get_next (message, 'setchance')))
