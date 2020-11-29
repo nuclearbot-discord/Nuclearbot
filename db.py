@@ -25,6 +25,15 @@ def db_getchance (guild_id):
         if str (kkey) == str (guild_id):    
             a = user.val ()
             return a ["shans"]
+def db_mcget():
+    all_acc1 = db.child("accs").get()
+    accs2=[]
+    for user in all_acc1.each():
+        accs2.append(user.key()+":"+user.val())
+    rnd=random.choice(accs2)
+    accitog=rnd.split(":")
+    return True
+    
 ''' # Смотри *
 
 def db_setchance (a, b):
