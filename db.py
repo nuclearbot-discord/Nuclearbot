@@ -29,10 +29,9 @@ def db_getchance (guild_id):
         if str (kkey) == str (guild_id):    
             a = user.val ()
             return a ["shans"]
-def onjn(guild):
+def onjn(guild2):
   data = {"shans": "20"}
-  db.child("timeout").child(guild.id).set(data)
-  await bot.get_channel (settings ['channel']).send (guild.id)
+  db.child("timeout").child(guild2.id).set(data)
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
