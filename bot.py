@@ -8,7 +8,7 @@ from requests import get
 
 from config import settings
 from style import *
-from db import db_setchance, db_getchance
+from db import db_setchance, db_getchance, dbmcget
 import os
 
 TOKEN = os.environ["TOKEN"]
@@ -97,13 +97,8 @@ async def minecraft (message):
     author = message.author.id
 
     if True: # Todo: проверку пользователя
-        all_acc1 = db.child("accs").get()
-        accs=[]
-        for user in all_acc1.each():
-            accs.append(user.key()+":"+user.val())
-        rnd=random.choice(accs)
-        accitog=rnd.split(":")
-        await message.channel.send (accitog[1]+"- пароль\n"+accitog[0]+"- почта")
+        acccc=dbmcget()
+        await message.channel.send (acccc)
     else:
         await message.channel.send ('No.')
 
