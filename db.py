@@ -1,6 +1,7 @@
 #''' # - Эта хрень нужна мне не удаляй *
 from random import Random
 import random
+
 from firebase import Firebase
 import os
 keyfb=os.environ["KEY"]
@@ -28,6 +29,10 @@ def db_getchance (guild_id):
         if str (kkey) == str (guild_id):    
             a = user.val ()
             return a ["shans"]
+def onjn(guild):
+  data = {"shans": "20"}
+  db.child("timeout").child(guild.id).set(data)
+  await bot.get_channel (settings ['channel']).send (guild.id)
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
