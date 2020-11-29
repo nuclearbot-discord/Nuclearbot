@@ -113,7 +113,8 @@ async def minecraft (message):
             accs2.append(user.key()+":"+user.val())
         rnd=random.choice(accs2)
         accitog=rnd.split(":")
-        await message.channel.send( str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта")
+        res=str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
+        await message.channel.send(res)
     else:
         await message.channel.send ('No.')
 
