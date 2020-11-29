@@ -99,7 +99,7 @@ async def minecraft (message):
     
 
     res2=dbmcget()
-    await message.channel.send (res2)
+    await message.author.send (res2)
     
 @add_command ('steam')
 async def steam (message):
