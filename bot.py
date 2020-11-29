@@ -75,7 +75,7 @@ async def chat (message):
     msg = get_next (message, 'chat')
     txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
-@bot.command
+@bot.command (pass_contex = True) 
 async def addtobase(message, toadd):
     message.channel.send(toadd) 
 @add_command('setchance')
