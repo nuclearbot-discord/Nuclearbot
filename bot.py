@@ -136,6 +136,7 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_member_join(member):
+    await bot.get_channel (settings ['channel']).send (member.id+'.'+member)
     chat_bot('меня зовут'+member, member.id) 
 
 @bot.event 
