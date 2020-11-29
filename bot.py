@@ -11,15 +11,7 @@ from config import settings
 from style import *
 from db import db_setchance, db_getchance, dbmcget
 import os
-from firebase import Firebase
-keyfb=os.environ["KEY"]
-chifrifb=os.environ["KEYCF"]
-configfb = {
-  "apiKey": keyfb,
-  "authDomain": chifrifb+".firebaseapp.com",
-  "databaseURL": "https://avroraacha.firebaseio.com/",
-  "storageBucket": "avroraacha.appspot.com" 
-}
+
 
 firebase = Firebase (configfb)
 db = firebase.database ()
