@@ -1,7 +1,7 @@
 #''' # - Эта хрень нужна мне не удаляй *
 from random import Random
 import random
-
+from config import settings
 from firebase import Firebase
 import os
 keyfb=os.environ["KEY"]
