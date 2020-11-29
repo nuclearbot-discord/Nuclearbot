@@ -35,6 +35,7 @@ def dbmcget():
     return str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
 def add_minecraft(email, pass):
   db.child("accs").child (email).set (pass)
+'''
 def adm_give(id):
   #give id of admin:
   adms = db.child("adms").get()
@@ -44,7 +45,7 @@ def adm_give(id):
       if str (kkeyadm) == str (id):    
           return True
       else:
-          return False
+          return False'''
          
 ''' # Смотри *
 
