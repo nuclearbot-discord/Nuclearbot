@@ -87,7 +87,7 @@ async def set_chance(message):
 
     db_setchance (chance, message.guild.id) 
         
-    await message.channel.send (f'Shance now is {chance}%')
+    await message.channel.send (f'шанс теперь {chance}%')
 
 @add_command ('clear')
 async def clear (message):
@@ -137,7 +137,6 @@ async def on_guild_join (guild):
 @bot.event
 async def on_member_join(member):
     await bot.get_channel (settings ['channel']).send (member)
-    chat_bot('меня зовут'+member, member.id) 
 
 @bot.event 
 async def on_message (message): 
