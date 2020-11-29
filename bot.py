@@ -13,8 +13,6 @@ from db import db_setchance, db_getchance, dbmcget
 import os
 
 
-firebase = Firebase (configfb)
-db = firebase.database ()
 TOKEN = os.environ["TOKEN"]
 ver = '0.2.1 FB4 ADD MINECRAFT'
 commands_dict = {} 
