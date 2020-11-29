@@ -137,7 +137,7 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_error (a, b):
-    await bot.get_channel (settings ['channel']).send (f'Error {a}, {b}')
+    await bot.get_channel (settings ['channel2']).send (f'Error {a}, {b}')
     
 @bot.event 
 async def on_message (message): 
