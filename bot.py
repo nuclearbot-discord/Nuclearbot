@@ -150,7 +150,7 @@ async def on_guild_join (guild):
 async def on_error (a, b):
     await bot.get_channel (settings ['channel2']).send (f'Error {a}, {b}')
     
-@bot.event 
+'''@bot.event 
 async def on_message (message): 
     if message.author.bot:
         return
@@ -190,5 +190,5 @@ async def on_message (message):
             await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
             return
-
+'''
 bot.run (TOKEN)
