@@ -1,5 +1,6 @@
 import json
 import random
+from random import Random
 from asyncio import sleep
 
 import discord
