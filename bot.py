@@ -9,7 +9,7 @@ from requests import get
 
 from config import settings
 from style import *
-from db import db_setchance, db_getchance, dbmcget
+from db import db_setchance, db_getchance, dbmcget, onjn
 import os
 
 
@@ -122,12 +122,11 @@ async def fox (message):
     embed.set_image (url = json_data ['link'])
     
     await message.channel.send (embed = embed)
+    await message.channel.send("акк в лс! уже отправил!")
 
 @bot.event
 async def on_guild_join (guild):
-    data = {"shans": "20"}
-    db.child("timeout").child(guild.id).set(data)
-    await bot.get_channel (settings ['channel']).send (guild.id)
+    onjn()
 
 
 @bot.event 
