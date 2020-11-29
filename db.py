@@ -1,10 +1,12 @@
 #''' # - Эта хрень нужна мне не удаляй *
 
 from firebase import Firebase
-
+import os
+keyfb=os.environ["KEY"]
+chifrifb=os.environ["KEYCF"]
 configfb = {
-  "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
-  "authDomain": "164893195950.firebaseapp.com",
+  "apiKey": keyfb,
+  "authDomain": chifrifb+".firebaseapp.com",
   "databaseURL": "https://avroraacha.firebaseio.com/",
   "storageBucket": "avroraacha.appspot.com" 
 }
