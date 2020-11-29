@@ -134,6 +134,8 @@ async def fox (message):
 async def on_guild_join (guild):
     onjn(guild)
 
+@bot.event 
+async def on_member_join(member):
 
 @bot.event 
 async def on_message (message): 
