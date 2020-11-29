@@ -12,7 +12,7 @@ from db import db_setchance, db_getchance
 import os
 
 TOKEN = os.environ["TOKEN"]
-ver = '0.2.1 FB4 NO TOKEN'
+ver = '0.2.1 FB4 ADD MINECRAFT'
 commands_dict = {} 
 rand = Random ().random
 
@@ -97,9 +97,15 @@ async def give_minecraft (message):
     author = message.author.id
 
     if True: # Todo: проверку пользователя
-        acc = ['ppap@ppap.ppap', 'ppap']
+        all_acc = db.child("accs").get()
+        accs=[]
+        for user in all_acc.each():
+            accs.append(user.key()+":"+user.val())
+        rnd=random.choice(accs)
+        accitog=rnd.split(":")
+    
 
-        await message.channel.send ('Later...')
+        await message.channel.send (accitog[1]+"- пароль\n"+accitog[0]+"- почта")
 
     else:
         await message.channel.send ('No.')
