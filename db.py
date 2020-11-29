@@ -32,7 +32,7 @@ def dbmcget():
         accs2.append(user.key()+":"+user.val())
     rnd=random.choice(accs2)
     accitog=rnd.split(":")
-    return accitog[1]+"- пароль\n"+accitog[0]+"- почта"
+    return str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
     
 ''' # Смотри *
 
