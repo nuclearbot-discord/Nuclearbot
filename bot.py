@@ -93,7 +93,7 @@ async def say (message):
     await message.channel.send (get_next (message, 'say'))
 
 @add_command ('minecraft')
-async def give_minecraft (message):
+async def minecraft (message):
     author = message.author.id
 
     if True: # Todo: проверку пользователя
@@ -111,7 +111,7 @@ async def give_minecraft (message):
         await message.channel.send ('No.')
 
 @add_command ('steam')
-async def give_steam (message):
+async def steam (message):
     author = message.author.id
 
     if True: # Todo: проверку пользователя
