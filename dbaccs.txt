@@ -1,8 +1,11 @@
-#give base:
-all_acc = db.child("accs").get()
-#all_acc.val() это считай преобразуй в лист
-#set accs:
+
+#ДОБАВЛЕНИЕ ДАННЫХ
 db.child("accs").child ("thisaccemail").set ("thisaccpass")
+
+
+
+
+#-ДОБАВЛЕНИЕ
 #give id of admin:
 adms = db.child("adms").get()
 for iamadmin in adms.each ():
