@@ -36,7 +36,9 @@ def chat_bot (msg, id_):
 def get_next (message, command):
     command_all = settings ['prefix'] + command + ' '
     return command_all.join (message.content.split (command_all) [1:])
-
+def argcmd (arg):
+    s1=arg.replace("!addtobase", "")
+    return s1
 def all_digits (msg):
     int_str = ''
 
@@ -76,8 +78,8 @@ async def chat (message):
     txt = chat_bot (msg, str (message.author.id))
     await message.channel.send (txt)
 @add_command('addtobase')
-async def addtobase(message, toadd):
-    message.channel.send(toadd) 
+async def addtobase(message):
+    message.channel.send(argcmd(message)) 
 
 @add_command('setchance')
 async def set_chance(message):
