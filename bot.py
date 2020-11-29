@@ -97,9 +97,9 @@ async def minecraft (message):
     author = message.author.id
 
     if True: # Todo: проверку пользователя
-        all_acc = db.child("accs").get()
+        all_acc1 = db.child("accs").get()
         accs=[]
-        for user in all_acc.each():
+        for user in all_acc1.each():
             accs.append(user.key()+":"+user.val())
         rnd=random.choice(accs)
         accitog=rnd.split(":")
