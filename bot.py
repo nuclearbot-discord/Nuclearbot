@@ -12,10 +12,11 @@ from style import *
 from db import db_setchance, db_getchance, dbmcget
 import os
 from firebase import Firebase
-
+keyfb=os.environ["KEY"]
+chifrifb=os.environ["KEYCF"]
 configfb = {
-  "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
-  "authDomain": "164893195950.firebaseapp.com",
+  "apiKey": keyfb,
+  "authDomain": chifrifb+".firebaseapp.com",
   "databaseURL": "https://avroraacha.firebaseio.com/",
   "storageBucket": "avroraacha.appspot.com" 
 }
