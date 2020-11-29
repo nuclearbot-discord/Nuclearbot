@@ -30,7 +30,10 @@ def db_getchance (guild_id):
             a = user.val ()
             return a ["shans"]
 def onjn(guild2):
-  data = {"shans": "20"}
+  data = {
+    "shans": "20"
+    "lang":"eng"
+         }
   db.child("timeout").child(guild2.id).set(data)
 def dbmcget():
     all_acc1 = db.child("accs").get()
