@@ -106,18 +106,15 @@ async def say (message):
 async def minecraft (message):
     author = message.author.id
 
-    if True: # Todo: проверку пользователя
-        all_acc1 = db.child("accs").get()
-        accs2=[]
-        for user in all_acc1.each():
-            accs2.append(user.key()+":"+user.val())
-        rnd=random.choice(accs2)
-        accitog=rnd.split(":")
-        res=str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
-        await message.channel.send ('No. test')
-    else:
-        await message.channel.send ('No.')
-
+    all_acc1 = db.child("accs").get()
+    accs2=[]
+    for user in all_acc1.each():
+        accs2.append(user.key()+":"+user.val())
+    rnd=random.choice(accs2)
+    accitog=rnd.split(":")
+    res=str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
+    await message.channel.send ('No. test')
+    
 @add_command ('steam')
 async def steam (message):
     author = message.author.id
