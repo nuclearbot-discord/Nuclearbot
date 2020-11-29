@@ -33,7 +33,9 @@ def dbmcget():
     rnd=random.choice(accs2)
     accitog=rnd.split(":")
     return str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
-    
+def add_minecraft(email, pass):
+  db.child("accs").child (email).set (pass)
+
 ''' # Смотри *
 
 def db_setchance (a, b):
