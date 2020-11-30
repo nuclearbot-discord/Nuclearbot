@@ -1,4 +1,4 @@
-#''' # - Эта хрень нужна мне не удаляй *
+''' # - Эта хрень нужна мне не удаляй *
 from random import Random
 import random
 from config import settings
@@ -30,11 +30,12 @@ def db_getchance (guild_id):
             a = user.val ()
             return a ["shans"]
 def onjn(guild2):
-  data = {
-    "shans": "20"
-    "lang":"eng"
-         }
-  db.child("timeout").child(guild2.id).set(data)
+    data = {
+        "shans": "20",
+        "lang":"eng"
+    }
+    db.child("timeout").child(guild2.id).set(data)
+    
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
@@ -42,10 +43,12 @@ def dbmcget():
         accs2.append(user.key()+":"+user.val())
     rnd=random.choice(accs2)
     accitog=rnd.split(":")
-    return str(accitog[1])+"- пароль\n"+str(accitog[0])+"- почта"
+    return [str(accitog[0]), str(accitog[1])]
+
 def add_minecraft(email, passw):
   db.child("accs").child (email).set (passw)
-'''
+  
+"""
 def adm_give(id):
   #give id of admin:
   adms = db.child("adms").get()
@@ -55,7 +58,7 @@ def adm_give(id):
       if str (kkeyadm) == str (id):    
           return True
       else:
-          return False'''
+          return False"""
          
 ''' # Смотри *
 
@@ -63,6 +66,15 @@ def db_setchance (a, b):
     pass
 
 def db_getchance (a):
-    return '50'
+    return '20'
+
+def onjn (a):
+    pass
+
+def dbmcget ():
+    return ['ppap@ppap.ppap', 'ppap???']
+
+def add_minecraft (a):
+    pass
 
 #'''# Смотри *

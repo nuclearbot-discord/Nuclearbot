@@ -10,11 +10,9 @@ from requests import get
 from config import settings
 from style import *
 from db import db_setchance, db_getchance, dbmcget, onjn
-import os
 
-
-TOKEN = os.environ["TOKEN"]
-ver = '0.2.1 FB4 ADD MINECRAFT'
+TOKEN = settings ['token']
+ver = '0.2.5 (NGC build) No GovnoCod build'
 commands_dict = {} 
 rand = Random ().random
 
