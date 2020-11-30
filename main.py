@@ -9,10 +9,10 @@ from requests import get
 
 from config import settings
 from style import *
-from db import db_setchance, db_getchance, dbmcget, onjn
+from db import db_setchance, db_getchance, dbmcget, onjn, add_minecraft
 
 TOKEN = settings ['token']
-ver = '0.2.5 (NGC build) No GovnoCod build'
+ver = '0.2.5 NGC+ build'
 commands_dict = {} 
 rand = Random ().random
 
@@ -43,18 +43,6 @@ def all_digits (msg):
             int_str += char
 
     return int (int_str)
-        
-@bot.event 
-async def on_ready ():
-    print (ver)
-
-    game = discord.Game (txt_status_before + ver + txt_status_after)
-    await bot.change_presence (
-        status = discord.Status.idle, 
-        activity = game
-    )
-    
-    await bot.get_channel (settings ['channel']).send (txt_bot_online)
 
 @add_command ('help') #Пример как делать комманды
 async def help (message):
@@ -94,11 +82,26 @@ async def say (message):
 
 @add_command ('minecraft')
 async def minecraft (message):
+    acc = dbmcget ()
     
+    await message.author.send (f'Email - "{acc [0]}", pass - "||{acc [1]}||"')
+    await message.channel.send ('Account sended')
 
-    res2=dbmcget()
-    await message.author.send (res2)
-    await message.channel.send("акк в лс, забирай:)!")
+@add_command ('addminecraft')
+async def add_minecraft_ds_command (message):
+    args = get_next (message, 'addminecraft').split (' ')
+
+    if True: #ToDo: роверка пользователя на адменку
+        #try:
+        add_minecraft (args [0], args [1])
+
+        await message.channel.send ('Added')
+
+#except:
+#    await message.channel.send ('Doesn\'t add')
+
+    else:
+        await  message.channel.send ('Havent permisitions')
     
 @add_command ('steam')
 async def steam (message):
@@ -121,12 +124,38 @@ async def fox (message):
     embed.set_image (url = json_data ['link'])
     
     await message.channel.send (embed = embed)
-    await message.channel.send("акк в лс! уже отправил!")
 
 @bot.event
 async def on_guild_join (guild):
-    onjn(guild)
+    onjn (guild)
 
+"""@bot.event
+async def on_member_join (member):
+    print(f'Recognised that a member called {member} joined')
+    await member.send(".")
+    print('Sent message to ' + member.name)
+    
+    '''
+    print (f'Называй меня {member.name}')
+    answ = chat_bot (f'Называй меня {member.name}', member.id)
+
+    TEXT = f'MEMBER JOINED, ANSWER OF BOT "{answ}"'
+    
+    await bot.get_channel (settings ['channel']).send (TEXT)
+    '''
+"""
+        
+@bot.event 
+async def on_ready ():
+    print (ver)
+
+    game = discord.Game (txt_status_before + ver + txt_status_after)
+    await bot.change_presence (
+        status = discord.Status.idle, 
+        activity = game
+    )
+    
+    await bot.get_channel (settings ['channel']).send (txt_bot_online)
 
 @bot.event 
 async def on_message (message): 
@@ -140,7 +169,7 @@ async def on_message (message):
 
         return
 
-    check = lambda val: message.content.startswith (settings ["prefix"] + val)
+    check = lambda val: message.content.lower().startswith (settings ["prefix"] + val)
 
     if check (''):
         for command_name in commands_dict:
