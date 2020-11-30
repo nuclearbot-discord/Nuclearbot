@@ -1,4 +1,4 @@
-''' # - Эта хрень нужна мне не удаляй *
+#''' # - Эта хрень нужна мне не удаляй *
 from random import Random
 import random
 from config import settings
