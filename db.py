@@ -1,16 +1,20 @@
 #''' # - Эта хрень нужна мне не удаляй *
-from random import Random
-import random
-from config import settings
-from firebase import Firebase
 import os
-keyfb=os.environ["KEY"]
-chifrifb=os.environ["KEYCF"]
+import random
+from random import Random
+
+from firebase import Firebase
+
+from config import settings
+
+keyfb = os.environ ["KEY"]
+chifrifb = os.environ ["KEYCF"]
+
 configfb = {
-  "apiKey": keyfb,
-  "authDomain": chifrifb+".firebaseapp.com",
-  "databaseURL": "https://avroraacha.firebaseio.com/",
-  "storageBucket": "avroraacha.appspot.com" 
+    "apiKey": keyfb,
+    "authDomain": chifrifb + ".firebaseapp.com",
+    "databaseURL": "https://avroraacha.firebaseio.com/",
+    "storageBucket": "avroraacha.appspot.com" 
 }
 
 firebase = Firebase (configfb)
@@ -46,20 +50,17 @@ def dbmcget():
     return [str(accitog[0]), str(accitog[1])]
 
 def add_minecraft(email, passw):
-  db.child("accs").child (email).set (passw)
+    db.child("accs").child (email).set (passw)
   
+def adm_give(id_):
+    admins_list = []
+    
+    adms = db.child("adms").get()
+    for iamadmin in adms.each ():
+        amins_list.append (str (iamadmin.key ()))
 
-def adm_give(id):
-  #give id of admin:
-  adms = db.child("adms").get()
-  for iamadmin in adms.each ():
-      kkeyadm = iamadmin.key ()
+    return str (id_) in admins_list
         
-      if str (kkeyadm) == str (id):    
-          return True
-      else:
-          return False
-         
 ''' # Смотри *
 
 def db_setchance (a, b):
@@ -74,7 +75,12 @@ def onjn (a):
 def dbmcget ():
     return ['ppap@ppap.ppap', 'ppap???']
 
-def add_minecraft (a):
+def add_minecraft (a, b):
     pass
 
+def adm_give (id_):
+    return True
+
 #'''# Смотри *
+
+__all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give'] # Сюда добавляй все функции

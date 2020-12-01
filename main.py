@@ -9,14 +9,16 @@ from requests import get
 
 from config import settings
 from style import *
-from db import db_setchance, db_getchance, dbmcget, onjn, add_minecraft
+from db import *
 
 TOKEN = settings ['token']
 ver = '0.2.5 NGC+ build'
 commands_dict = {} 
 rand = Random ().random
 
-bot = commands.Bot (command_prefix = settings ['prefix'])
+#intents = commands.Intents.default ()
+#intents.members = True
+bot = commands.Bot (command_prefix = settings ['prefix']) #, intents = intents)
 
 def add_command (name): 
     def adder (func):
@@ -82,27 +84,29 @@ async def say (message):
 
 @add_command ('minecraft')
 async def minecraft (message):
-    acc = dbmcget () 
-    
-    
-    await message.author.send (f'Email - "{acc [0]}", pass - "||{acc [1]}||"')
-    await message.channel.send ('Account sended')
+    if adm_give (message.author.id):
+        acc = dbmcget ()
+        
+        await message.author.send (f'Email - "{acc [0]}", pass - "||{acc [1]}||"')
+        await message.channel.send ('Account sended')
+
+    else:    
+        await message.channel.send ('Haven\'t permisitions5')
     
 @add_command ('addminecraft')
 async def add_minecraft_ds_command (message):
     args = get_next (message, 'addminecraft').split (' ')
 
-    if True: #ToDo: роверка пользователя на адменку
-        #try:
-        add_minecraft (args [0], args [1])
+    if adm_give (message.author.id): #ToDo: роверка пользователя на адменку
+        try:
+            add_minecraft (args [0], args [1])
+            await message.channel.send ('Added')
 
-        await message.channel.send ('Added')
-
-#except:
-#    await message.channel.send ('Doesn\'t add')
+        except:
+            await message.channel.send ('Doesn\'t add')
 
     else:
-        await  message.channel.send ('Havent permisitions')
+        await  message.channel.send ('Haven\'t permisitions')
     
 @add_command ('steam')
 async def steam (message):
@@ -130,7 +134,7 @@ async def fox (message):
 async def on_guild_join (guild):
     onjn (guild)
 
-"""@bot.event
+@bot.event
 async def on_member_join (member):
     print(f'Recognised that a member called {member} joined')
     await member.send(".")
@@ -144,7 +148,6 @@ async def on_member_join (member):
     
     await bot.get_channel (settings ['channel']).send (TEXT)
     '''
-"""
         
 @bot.event 
 async def on_ready ():
