@@ -16,9 +16,9 @@ ver = '0.2.5 NGC+ build'
 commands_dict = {} 
 rand = Random ().random
 
-#intents = commands.Intents.default ()
-#intents.members = True
-bot = commands.Bot (command_prefix = settings ['prefix']) #, intents = intents)
+intents = discord.Intents.default ()
+intents.members = True
+bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
 
 def add_command (name): 
     def adder (func):
@@ -135,13 +135,8 @@ async def on_guild_join (guild):
     onjn (guild)
 
 @bot.event
-async def on_member_join(member):
-    server = member.guild
-    channel = server.default_channel
-    retStr = str("""```yaml\nПривет!\nДобро пожаловать на наш сервер!\nНадеюсь тебе тут понравится.\nЕсли заблудешься пиши !help,кстати у нас все команды пишутся с !\nДля получения роли зайди в чат получения роли\nудачи тебе```""")
-    embed = discord.Embed(title="Welcome",colour=discord.Colour.blue())
-    embed.add_field(name="Привет",value=retStr)
-    await bot.send_message(channel, embed=embed)
+async def on_member_join (member):
+    await member.user.send ('Hi!')
         
 @bot.event 
 async def on_ready ():
