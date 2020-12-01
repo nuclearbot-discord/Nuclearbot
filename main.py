@@ -136,7 +136,8 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_member_join (member):
-    await member.user.send ('Hi!')
+    await member.author.send ('Hi!')
+    await member.author.send(member.mention)
         
 @bot.event 
 async def on_ready ():
