@@ -83,8 +83,7 @@ async def say (message):
 @add_command ('minecraft')
 async def minecraft (message):
     acc = dbmcget () 
-    adm=adm_give(message.author.id) 
-    if adm:
+    if true: #todo AMD get
     
         await message.author.send (f'Email - "{acc [0]}", pass - "||{acc [1]}||"')
         await message.channel.send ('Account sended')
