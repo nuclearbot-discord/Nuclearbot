@@ -143,10 +143,10 @@ async def on_member_join (member):
 async def on_ready ():
     print (ver)
 
-    game = discord.Game (txt_status_before + bot.guilds+ txt_status_after)
+    game = discord.Game (txt_status_before + ver + txt_status_after)
     await bot.change_presence (
         status = discord.Status.idle, 
-        activity = game
+        activity = stream
     )
     
     await bot.get_channel (settings ['channel']).send (txt_bot_online)
