@@ -151,7 +151,7 @@ async def on_ready ():
     
     await bot.change_presence (
         status = discord.Status.idle, 
-        activity = activ
+        activity = stream
     )
     
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
