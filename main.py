@@ -147,7 +147,8 @@ async def on_member_join (member):
 async def on_ready ():
     print (ver)
 
-    activ = discord.Streaming(name="My Stream", url=https://m.twitch.tv/buster)
+    activ = discord.Streaming (name = txt_status.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
+    
     await bot.change_presence (
         status = discord.Status.idle, 
         activity = activ
