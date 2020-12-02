@@ -138,7 +138,7 @@ async def on_guild_join (guild):
 async def on_member_join (member):
     await member.send ('Hi!')
     await member.send(member.mention)
-    await bot.get_channel (settings ['channel']).send 'всем привет, с вами я,гыылент, кабикооов') 
+    await bot.get_channel (settings ['channel']).send ('всем привет, с вами я,'+member.mention+'гыылент, кабикооов') 
 @bot.event 
 async def on_ready ():
     print (ver)
