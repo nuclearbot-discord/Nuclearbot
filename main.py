@@ -12,7 +12,7 @@ from style import *
 from db import *
 
 TOKEN = settings ['token']
-ver = '0.2.5 NGC+ build'
+ver = '0.3.0 HM build (Hellow Messages)'
 commands_dict = {} 
 rand = Random ().random
 
@@ -70,7 +70,9 @@ async def set_chance(message):
 
     db_setchance (chance, message.guild.id) 
         
-    await message.channel.send (f'Shance now is {chance}%')
+    await message.channel.send (
+        txt_shance_now_before + str (chance) + txt_shance_now_after
+    )
 
 @add_command ('clear')
 async def clear (message):
@@ -87,11 +89,11 @@ async def minecraft (message):
     if adm_give (message.author.id):
         acc = dbmcget ()
         
-        await message.author.send (f'Email - "{acc [0]}", pass - "||{acc [1]}||"')
-        await message.channel.send ('Account sended')
+        await message.author.send (embed = embed_account_minecraft (acc [0], acc [1]))
+        await message.channel.send (txt_account_sended)
 
     else:    
-        await message.channel.send ('Haven\'t permisitions5')
+        await message.channel.send (txt_havent_perms)
     
 @add_command ('addminecraft')
 async def add_minecraft_ds_command (message):
@@ -100,13 +102,13 @@ async def add_minecraft_ds_command (message):
     if adm_give (message.author.id): #ToDo: роверка пользователя на адменку
         try:
             add_minecraft (args [0], args [1])
-            await message.channel.send ('Added')
+            await message.channel.send (txt_mine_add)
 
         except:
-            await message.channel.send ('Doesn\'t add')
+            await message.channel.send (txt_mine_not_add)
 
     else:
-        await  message.channel.send ('Haven\'t permisitions')
+        await  message.channel.send (txt_havent_perms)
     
 @add_command ('steam')
 async def steam (message):
@@ -138,18 +140,21 @@ async def on_guild_join (guild):
 async def on_member_join (member):
     await member.send ('Hi!')
     await member.send(member.mention)
-    await bot.get_channel (settings ['channel']).send ('всем привет, с вами я,'+member.mention+'гыылент, кабикооов') 
+    await bot.get_channel (settings ['channel']) \
+        .send (txt_hi_before + member.mention + txt_hi_after)
+    
 @bot.event 
 async def on_ready ():
     print (ver)
 
-    game = discord.Game (txt_status_before + ver + txt_status_after)
+    activ = discord.Game (txt_status.format (ver, str (len (bot.guilds))))
+    
     await bot.change_presence (
         status = discord.Status.idle, 
-        activity = stream
+        activity = activ
     )
     
-    await bot.get_channel (settings ['channel']).send (txt_bot_online)
+    await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
 
 @bot.event 
 async def on_message (message): 
