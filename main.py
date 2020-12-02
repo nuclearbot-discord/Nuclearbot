@@ -156,7 +156,7 @@ async def on_ready ():
     #activ_stream = discord.Streaming (name = txt_status.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
 
     actv_0 = discord.Streaming (name = '0', url = 'https://m.twitch.tv/buster')
-    actv_1 = discord.Streaming (name = '1', url = 'https://m.twitch.tv/buster')
+    actv_1 = discord.Game (name = '' версия'+ver')
     actv_2 = discord.Streaming (name = '2', url = 'https://m.twitch.tv/buster')
     
     while True:
