@@ -155,9 +155,9 @@ async def on_ready ():
 
     #activ_stream = discord.Streaming (name = txt_status.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
 
-    actv_0 = discord.Streaming (name = '0', url = 'https://m.twitch.tv/buster')
-    actv_1 = discord.Game (txt_status_before + ver + txt_status_after) 
-    actv_2 = discord.Streaming (name = '2', url = 'https://m.twitch.tv/buster')
+    actv_0 = discord.Streaming (name = 'секс', url = 'https://m.twitch.tv/buster')
+    actv_1 = discord.Game (txt_status.format (ver, str (len (bot.guilds))))
+    actv_2 = discord.Activity (type=discord.ActivityType.watching, name = 'за тобой')
     
     while True:
         await bot.change_presence (activity = actv_0)
