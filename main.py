@@ -12,7 +12,7 @@ from style import *
 from db import *
 
 TOKEN = settings ['token']
-ver = '0.3.0 AA+ build (Activity Animation)'
+ver = '0.3.1 AA+ build (Activity Animation)'
 commands_dict = {} 
 rand = Random ().random
 
@@ -131,6 +131,14 @@ async def fox (message):
     embed.set_image (url = json_data ['link'])
     
     await message.channel.send (embed = embed)
+    
+@add_command ('пища_богов')
+async def doshurak (message):
+    embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
+    embed.set_image ('https://raw.githubusercontent.com/Misha-python/photos/main/doshrak.png')
+    
+    await message.channel.send (embed = embed)
+
 
 @bot.event
 async def on_guild_join (guild):
