@@ -1,8 +1,10 @@
 from discord import Embed
 
-# TextID          = Val
+# TextID                    = Val
 # Simple TXTs
-txt_status                  = 'Version {0}, used on {1} guilds'
+txt_status_0                = '!help | Nuclear Bot support'
+txt_status_1                = 'Version {0}'
+txt_status_2.               = 'Listen to {0} guilds'
 txt_no_command              = 'Uncorrect command'
 txt_help_not_command_before = 'To get help type `'
 txt_help_not_command_after  = 'help`.'
