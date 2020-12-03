@@ -157,7 +157,8 @@ async def on_ready ():
 
     actv_0 = discord.Streaming (name = 'NuclearBot support server' , url = 'https://m.twitch.tv/buster')
     actv_1 = discord.Streaming (name = 'версия:'+ver, url = 'https://m.twitch.tv/buster')
-    actv_2 = discord.Streaming (name = len (bot.guilds), url = 'https://m.twitch.tv/buster')
+    srv=len (bot.guilds)
+    actv_2 = discord.Streaming (name = srv, url = 'https://m.twitch.tv/buster')
     
     while True:
         await bot.change_presence (activity = actv_0)
