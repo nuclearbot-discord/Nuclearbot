@@ -135,7 +135,7 @@ async def fox (message):
 @add_command ('пища_богов')
 async def doshurak (message):
     embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
-    embed.set_image ('https://raw.githubusercontent.com/Misha-python/photos/main/doshrak.png')
+    embed.set_image (url = 'https://raw.githubusercontent.com/Misha-python/photos/main/doshrak.png')
     
     await message.channel.send (embed = embed)
 
