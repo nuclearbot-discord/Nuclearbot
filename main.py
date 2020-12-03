@@ -2,6 +2,7 @@ import json
 import random
 from random import Random
 from asyncio import sleep
+from datetime import date
 
 import discord
 from discord.ext import commands
@@ -12,8 +13,9 @@ from style import *
 from db import *
 
 TOKEN = settings ['token']
-ver = '0.3.1 AA+ build (Activity Animation)'
-commands_dict = {} 
+ver = '0.3.2 EE build (Easter Eggs)'
+commands_dict = {}
+egg_dict = {}
 rand = Random ().random
 
 intents = discord.Intents.default ()
@@ -26,6 +28,13 @@ def add_command (name):
 
         return func
     return adder
+
+def add_egg (name): 
+    def adder_ (func):
+        egg_dict [name] = func
+
+        return func
+    return adder_
 
 def chat_bot (msg, id_):
     req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=' + id_ [-5:] + '%27')
@@ -131,14 +140,30 @@ async def fox (message):
     embed.set_image (url = json_data ['link'])
     
     await message.channel.send (embed = embed)
+
+@add_command ('invite')
+async def invite (message):
+    await message.channel.send (settings ['link'])
     
-@add_command ('пища_богов')
+@add_egg ('Пища богов')
 async def doshurak (message):
     embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
     embed.set_image (url = 'https://raw.githubusercontent.com/Misha-python/photos/main/doshrak.png')
     
     await message.channel.send (embed = embed)
 
+@add_egg ('Дрочить?')
+async def NNN (message):
+    m = date.today ().month
+
+    if m == 11:
+        embed = discord.Embed (color = 0xff0000, title = 'Нет, НЕДРОЧАБРЬ')
+        embed.set_image (url = 'https://media.discordapp.net/attachments/782584274394021890/784111335838711818/1606330982048_images.jpg')
+
+        await message.channel.send (embed = embed)
+
+    else:
+        await message.channel.send ('Давай!')
 
 @bot.event
 async def on_guild_join (guild):
@@ -201,18 +226,28 @@ async def on_message (message):
         return
 
     else:
-        msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
+        for egg in egg_dict:
+            if message.content.startswith (egg):
+                await egg_dict [egg] (message)
+
+                return
+            
+    msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
         
-        if len (msg_part_ment) - 1:
-            await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
-            return
+    if len (msg_part_ment) - 1:
+        await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
+        return
 
-        chance = db_getchance (message.guild.id)
+    if not message.guild:
+        await message.channel.send (chat_bot (message.content, str (message.author.id)))
+
+        return
+    
+    chance = db_getchance (message.guild.id)
                                            
-        if (rand () * 100) < int(chance):
-                                               
-            await message.channel.send (chat_bot (message.content, str (message.author.id)))
+    if (rand () * 100) < int(chance):                                       
+        await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
-            return
+        return
 
 bot.run (TOKEN)
