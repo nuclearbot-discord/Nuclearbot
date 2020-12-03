@@ -153,25 +153,18 @@ async def on_ready ():
         status = discord.Status.idle
     )
 
-    #activ_stream = discord.Streaming (name = txt_status.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
-    '''actv_0 = discord.Streaming (name = ver, url = 'https://m.twitch.tv/buster')
-    actv_1 = discord.Streaming (name = '1', url = 'https://m.twitch.tv/buster')
-    actv_2 = discord.Streaming (name = '2', url = 'https://m.twitch.tv/buster')'''
-    actv_22=discord.Streaming (name = 'NuclearBot support', url = 'https://m.twitch.tv/buster')
-    '''
+    #activ_stream = discord.Streaming (name = txt_st atus.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
+    actv_0 = discord.Streaming (name = txt_status_0,                                 url = 'https://m.twitch.tv/buster')
+    actv_1 = discord.Streaming (name = txt_status_1.format (ver),                    url = 'https://m.twitch.tv/buster')
+    actv_2 = discord.Streaming (name = txt_status_2.format (str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
+    
     while True:
         await bot.change_presence (activity = actv_0)
-
         await sleep (5)
-
         await bot.change_presence (activity = actv_1)
-
         await sleep (5)
-
         await bot.change_presence (activity = actv_2)
-
-        await sleep (5)   '''
-    await bot.change_presence (activity = actv_22)
+        await sleep (5)
 
 @bot.event 
 async def on_message (message): 

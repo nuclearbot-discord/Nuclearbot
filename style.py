@@ -4,7 +4,7 @@ from discord import Embed
 # Simple TXTs
 txt_status_0                = '!help | Nuclear Bot support'
 txt_status_1                = 'Version {0}'
-txt_status_2.               = 'Listen to {0} guilds'
+txt_status_2                = 'Listen to {0} guilds'
 txt_no_command              = 'Uncorrect command'
 txt_help_not_command_before = 'To get help type `'
 txt_help_not_command_after  = 'help`.'
@@ -48,3 +48,5 @@ def embed_account_minecraft (email, pasw):
     embed.add_field (name = 'А сколька можно получить лицензий?', value = 'Безлимитно, приглашай людей!', inline = True)
 
     return embed
+
+print (': style.py')
