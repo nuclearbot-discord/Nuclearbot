@@ -13,7 +13,7 @@ from style import *
 from db import *
 
 TOKEN = settings ['token']
-ver = '0.3.5 HT&M build (Helpful Things And Meanings)'
+ver = '0.3.6 *HT&M build (Helpful Things And Meanings)'
 commands_dict = {}
 egg_dict = {}
 rand = Random ().random
@@ -174,6 +174,9 @@ async def all_eggs (message):
     if adm_give (message.author.id):
         p_eggs = ', '.join ([f'`{x}`' for x in list (egg_dict) if x != 'all'])
         await message.author.send (p_eggs)
+        
+    else:
+        await message.author.send ('No')
 
 @add_egg ('log')
 async def logger (msg):
