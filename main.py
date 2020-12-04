@@ -198,7 +198,7 @@ async def on_ready ():
         await sleep (5)
         await bot.change_presence (activity = actv_2)
         await sleep (5)
-
+#test
 @bot.event 
 async def on_message (message): 
     if message.author.bot:
