@@ -145,9 +145,9 @@ async def fox (message):
 async def invite (message):
     await message.channel.send (settings ['link'])
     
-@add_command ('site')
+'''@add_command ('site')
 async def site (message):
-    await message.channel.send (settings ['site'])
+    await message.channel.send (settings ['site'])'''
 
 @add_egg ('Пища богов')
 async def doshurak (message):
