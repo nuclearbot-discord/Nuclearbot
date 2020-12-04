@@ -39,12 +39,12 @@ def onjn(guild2):
         "lang":"eng"
     }
     db.child("timeout").child(guild2.id).set(data)
-Def addadm(idid):
+'''Def addadm(idid):
     data = {
         "adm": "True"
         
     }
-    db.child("adms").child(idid).set(data)
+    db.child("adms").child(idid).set(data)'''
     
 
 def dbmcget():
