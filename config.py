@@ -1,5 +1,4 @@
 settings = {
-    'bot': 'NuclearBot',
     'id': 781404915142492171,
     'prefix': '!',
     'link': 'https://discord.com/oauth2/authorize?client_id=781404915142492171&scope=bot&permissions=8',
