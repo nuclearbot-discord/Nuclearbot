@@ -57,7 +57,7 @@ def adm_give(id_):
     
     adms = db.child("adms").get()
     for iamadmin in adms.each ():
-        amins_list.append (str (iamadmin.key ()))
+        admins_list.append (str (iamadmin.key ()))
 
     return str (id_) in admins_list
         
