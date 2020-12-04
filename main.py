@@ -13,7 +13,7 @@ from style import *
 from db import *
 
 TOKEN = settings ['token']
-ver = '0.3.6 *HT&M build (Helpful Things And Meanings)'
+ver = '0.3.7 S build (Site)'
 commands_dict = {}
 egg_dict = {}
 rand = Random ().random
@@ -145,6 +145,10 @@ async def fox (message):
 async def invite (message):
     await message.channel.send (settings ['link'])
     
+@add_command ('site')
+async def site (message):
+    await message.channel.send (settins ['site'])
+
 @add_egg ('Пища богов')
 async def doshurak (message):
     embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
