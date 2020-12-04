@@ -39,7 +39,14 @@ def onjn(guild2):
         "lang":"eng"
     }
     db.child("timeout").child(guild2.id).set(data)
+Def addadm(idid):
+    data = {
+        "adm": "True"
+        
+    }
+    db.child("adms").child(idid).set(data)
     
+
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
