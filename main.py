@@ -13,7 +13,7 @@ from style import *
 from db import *
 
 TOKEN = settings ['token']
-ver = '0.3.2 EE build (Easter Eggs)'
+ver = '0.3.5 HT&M build (Helpful Things And Meanings)'
 commands_dict = {}
 egg_dict = {}
 rand = Random ().random
@@ -165,6 +165,24 @@ async def NNN (message):
     else:
         await message.channel.send ('Давай!')
 
+@add_egg ('Vim')
+async def vim (message):
+    await message.channel.send ('https://omgubuntu.ru/kak-vyiti-iz-vim-nieskolko-sposobov-zakryt-riedaktor-vim/')
+
+@add_egg ('all')
+async def all_eggs (message):
+    if adm_give (message.author.id):
+        p_eggs = ', '.join ([f'`{x}`' for x in list (egg_dict) if x != 'all'])
+        await message.author.send (p_eggs)
+
+@add_egg ('log')
+async def logger (msg):
+    send = msg.channel.send 
+    
+    await send (msg.content)
+    await send (msg.author.id)
+    await send (msg.channel.id)
+
 @bot.event
 async def on_guild_join (guild):
     onjn (guild)
@@ -175,10 +193,13 @@ async def on_member_join (member):
     await member.send(member.mention)
     await bot.get_channel (settings ['channel']) \
         .send (txt_hi_before + member.mention + txt_hi_after)
-    
+
+    chat_bot (f'Называй меня {memeber.nick}', str (member.id))
+
 @bot.event 
 async def on_ready ():
-    print (ver)
+    print (': main.py')
+    print (f':: {ver}') 
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
 
@@ -198,7 +219,7 @@ async def on_ready ():
         await sleep (5)
         await bot.change_presence (activity = actv_2)
         await sleep (5)
-#test
+
 @bot.event 
 async def on_message (message): 
     if message.author.bot:
