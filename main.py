@@ -147,7 +147,7 @@ async def invite (message):
     
 @add_command ('site')
 async def site (message):
-    await message.channel.send (settins ['site'])
+    await message.channel.send (settings ['site'])
 
 @add_egg ('Пища богов')
 async def doshurak (message):
