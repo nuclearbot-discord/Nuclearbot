@@ -39,6 +39,12 @@ def onjn(guild2):
         "lang":"eng"
     }
     db.child("timeout").child(guild2.id).set(data)
+def onusr(usrid):
+    data = {
+        "coins": "100",
+        "adm":"False"
+    }
+    db.child("users").child(usrid).set(data)
 '''Def addadm(idid):
     data = {
         "adm": "True"
@@ -46,7 +52,12 @@ def onjn(guild2):
     }
     db.child("adms").child(idid).set(data)'''
     
-
+def dbusrget(id):
+    all_usr1 = db.child("users").get()
+    usr2=[]
+    for user in all_usr1.each():
+        usr2.append(user.key()+":"+user.val())
+    return id in usr2
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
@@ -90,4 +101,4 @@ def adm_give (id_):
 
 #'''# Смотри *
 
-__all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give'] # Сюда добавляй все функции
+__all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give', 'onusr', 'dbusrget'] # Сюда добавляй все функции
