@@ -124,7 +124,13 @@ async def add_minecraft_ds_command (message):
 
     else:
         await  message.channel.send (txt_havent_perms)
-    
+@add_command('ban')
+async def ban (message):
+    if message.author.guild_permissions.administrator:
+        args = get_next (message, 'ban').split (' ')
+        await bot.ban(arg)
+        
+        
 @add_command ('steam')
 async def steam (message):
     author = message.author.id
@@ -198,8 +204,6 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_member_join (member):
-    await member.send ('Hi!')
-    await member.send(member.mention)
     await bot.get_channel (settings ['channel']) \
         .send (txt_hi_before + member.mention + txt_hi_after)
 
