@@ -124,13 +124,13 @@ async def add_minecraft_ds_command (message):
 
     else:
         await  message.channel.send (txt_havent_perms)
-@add_command('ban')
+'''@add_command('ban')
 async def ban (message,member : discord.Member, *, reason="No reason provided"):
     #if message.author.guild_permissions.administrator:
         
     await ban(member, *, reason=None, delete_message_days=1)
     await message.channel.send("BANANNN") #ОНО НЕ РОБИТ
-        
+        '''
         
 @add_command ('steam')
 async def steam (message):
