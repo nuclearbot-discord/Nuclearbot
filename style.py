@@ -27,6 +27,7 @@ help_embed = Embed (
 
 info_embed = Embed (
     title = 'Info',
+    description = "help: !log - all commands\n!help - this command\n!chat - 100% chat bot!",
     color = 0x45db00
 )
 
