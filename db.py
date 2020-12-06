@@ -58,6 +58,12 @@ def dbusrget(id):
     for user in all_usr1.each():
         usr2.append(user.key()+":"+user.val())
     return id in usr2
+def usrgetc(id):
+    all_usr11 = db.child("users").get()
+    usr22=[]
+    for user in all_usr11.each():
+        usr22.append(user.key()+":"+user.val())
+    return usr22
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
@@ -101,4 +107,4 @@ def adm_give (id_):
 
 #'''# Смотри *
 
-__all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give', 'onusr', 'dbusrget'] # Сюда добавляй все функции
+__all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give', 'onusr', 'dbusrget', 'usrgetc'] # Сюда добавляй все функции
