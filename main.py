@@ -153,7 +153,13 @@ async def fox (message):
     embed.set_image (url = json_data ['link'])
     
     await message.channel.send (embed = embed)
-
+@add_command('baseusr')
+async def baseusr (message):
+    await message.channel.send('тест команда, проверка наличия юзера в базе и получения его коинов')
+    if dbusrget(message.author.id):
+        spcs=usrgetc(message.author.id)
+        await message.channel.send(spcs[coins])
+    await message.channel.send(
 @add_command ('invite')
 async def invite (message):
     await message.channel.send (settings ['link'])
@@ -205,6 +211,8 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_member_join (member):
+    if !dbusrget(member.id):
+        onusr(member.id)
     await bot.get_channel (settings ['channel']) \
         .send (txt_hi_before + member.mention + txt_hi_after)
 
