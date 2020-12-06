@@ -129,7 +129,7 @@ async def ban (message,member : discord.Member, *, reason="No reason provided"):
     #if message.author.guild_permissions.administrator:
         
     await ban(member, *, reason=None, delete_message_days=1)
-    await message.channel.send("BANANNN")
+    await message.channel.send("BANANNN") #ОНО НЕ РОБИТ
         
         
 @add_command ('steam')
