@@ -75,19 +75,25 @@ async def chat (message):
     
 @add_command('setchance')
 async def set_chance(message):
-    chance = str (all_digits (get_next (message, 'setchance')))
+    if message.author.guild_permissions.administrator:
+        chance = str (all_digits (get_next (message, 'setchance')))
 
-    db_setchance (chance, message.guild.id) 
+        db_setchance (chance, message.guild.id) 
         
-    await message.channel.send (
-        txt_shance_now_before + str (chance) + txt_shance_now_after
-    )
+        await message.channel.send (
+            txt_shance_now_before + str (chance) + txt_shance_now_after
+        )
+    else:
+        await message.channel.send ("ты не админ!")
 
 @add_command ('clear')
 async def clear (message):
-    amount = all_digits (message.content) 
-    await message.channel.purge (limit = amount)
-
+    if message.author.guild_permissions.administrator:
+        amount = all_digits (message.content) 
+        await message.channel.purge (limit = amount)
+    else:
+        await message.channel.send("не админ")
+        
 @add_command ('say')
 async def say (message):
     await message.delete ()
