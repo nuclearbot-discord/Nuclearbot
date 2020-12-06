@@ -22,12 +22,12 @@ txt_hi_after                = '!'
 
 help_embed = Embed (
     title = 'Help',
+    description = "help: !log - all commands\n!help - this command\n!chat - 100% chat bot!",
     color =  0x45db00
 )
 
 info_embed = Embed (
     title = 'Info',
-    description = "help: !log - all commands\n!help - this command\n!chat - 100% chat bot!",
     color = 0x45db00
 )
 
