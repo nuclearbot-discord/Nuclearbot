@@ -149,8 +149,9 @@ async def fox (message, bot):
     await message.channel.send (embed = embed)
     
 @add_command('baseusr')
-async def baseusr (message, bot):
+async def baseusr (message):
     await message.channel.send('тест команда, проверка наличия юзера в базе и получения его коинов')
+    await message.channel.send(message.author.id)
     if dbusrget(message.author.id):
         spcs=usrgetc(message.author.id)
         await message.channel.send(spcs['coins'])
