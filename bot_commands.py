@@ -148,15 +148,14 @@ async def fox (message, bot):
     
     await message.channel.send (embed = embed)
     
-@add_command('baseusr')
-async def baseusr (message, bot):
-    await message.channel.send('тест команда, проверка наличия юзера в базе и получения его коинов')
+@add_command('profile')
+async def profile (message, bot):
     if dbusrget(message.author.id):
         spcs=usrgetc(message.author.id)
-        await message.channel.send(spcs['coins'])
     else:
         onusr(message.author.id)
-        await message.channel.send('пиши еще')
+    await message.channel.send(f'у {member.mention}:n\{spcs['coins']} монетn\админка:{spcs['adm']}.')
+   
     
 @add_command ('invite')
 async def invite (message, bot):
