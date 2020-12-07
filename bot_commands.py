@@ -64,8 +64,12 @@ async def help (message, bot):
     await message.channel.send (embed = help_embed)
 @add_command('connect')
 async def connect (message, bot):
-    vc = message.author.voice.channel
-    await vc.connect()
+    channel = message.author.voice.channel
+    if channel:
+        await message.channel.send(channel.id)
+        await channel.connect(reconnect=False)
+    else:
+        await ctx.send('bruh you arent in a vc')
 @add_command ('info')
 async def info (message, bot):
     await message.channel.send (embed = info_embed)
