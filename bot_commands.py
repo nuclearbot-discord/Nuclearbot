@@ -55,7 +55,7 @@ async def addcoins (message, bot):
      args = get_next (message, 'addcoins').split (' ')
      await message.channel.send(args)
      await message.channel.send(args[0])
-     id = all_digits (arg [0])
+     id = all_digits (args[0])
      await message.channel.send(id)
      await message.channel.send(args[1])
 @add_command ('help') #Пример как делать комманды
