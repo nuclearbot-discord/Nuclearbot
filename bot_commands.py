@@ -67,7 +67,7 @@ async def connect (message, bot):
     channel = message.author.voice.channel
     if channel:
         await message.channel.send(channel.id)
-        await channel.connect(reconnect=False)
+        await connect(channel, reconnect=False)
     else:
         await ctx.send('bruh you arent in a vc')
 @add_command ('info')
