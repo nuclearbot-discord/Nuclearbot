@@ -59,7 +59,7 @@ Def addadm(idid):
 def addcoint(id, coins):
     ctex=usrgetc(id) 
     data = {
-        "coins": str(coins['coins']) + str(ctex),
+        "coins": str(ctex),
         "adm": 'False' 
          
     }
