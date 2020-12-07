@@ -8,7 +8,7 @@ from db import *
 __ver__ = '2.4'
 
 TOKEN = settings ['token']
-ver = '0.4.0 id economy test'
+ver = '0.4.0 id economy test2'
 rand = Random ().random
 
 intents = discord.Intents.default ()
