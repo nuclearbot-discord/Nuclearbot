@@ -1,209 +1,19 @@
-import json
-import random
-from random import Random
-from asyncio import sleep
-from datetime import date
-
 import discord
 from discord.ext import commands
-from requests import get
 
-from config import settings
+from bot_commands import *
 from style import *
 from db import *
 
+__ver__ = '2.4'
+
 TOKEN = settings ['token']
-ver = '0.3.6 *HT&M build (Helpful Things And Meanings)'
-commands_dict = {}
-egg_dict = {}
+ver = '0.4.0 UE4O2IG&MFFC build (Una Española 4O2 Is Genius &nd Many Files For Commands)'
 rand = Random ().random
 
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
-
-def add_command (name): 
-    def adder (func):
-        commands_dict [name] = func
-
-        return func
-    return adder
-
-def add_egg (name): 
-    def adder_ (func):
-        egg_dict [name] = func
-
-        return func
-    return adder_
-
-def chat_bot (msg, id_):
-    req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=' + id_ [-5:] + '%27')
-    req.encoding = 'utf-8'
-
-    return req.text
-
-def get_next (message, command):
-    command_all = settings ['prefix'] + command + ' '
-    return command_all.join (message.content.split (command_all) [1:])
-
-def all_digits (msg):
-    int_str = ''
-
-    for char in msg:
-        if char.isdigit ():
-            int_str += char
-
-    return int (int_str)
-
-@add_command ('help') #Пример как делать комманды
-async def help (message):
-    await message.channel.send (embed = help_embed)
- 
-@add_command ('info')
-async def info (message):
-    await message.channel.send (embed = info_embed)
-
-@add_command ('log')
-async def log (message):
-    await message.channel.send (', '.join (list (commands_dict)))
-
-@add_command ('chat')
-async def chat (message):
-    msg = get_next (message, 'chat')
-    txt = chat_bot (msg, str (message.author.id))
-    await message.channel.send (txt)
-    
-@add_command('setchance')
-async def set_chance(message):
-    if message.author.guild_permissions.administrator:
-        chance = str (all_digits (get_next (message, 'setchance')))
-
-        db_setchance (chance, message.guild.id) 
-        
-        await message.channel.send (
-            txt_shance_now_before + str (chance) + txt_shance_now_after
-        )
-    else:
-        await message.channel.send ("ты не админ!")
-
-@add_command ('clear')
-async def clear (message):
-    if message.author.guild_permissions.administrator:
-        amount = all_digits (message.content) 
-        await message.channel.purge (limit = amount)
-    else:
-        await message.channel.send("не админ")
-        
-@add_command ('say')
-async def say (message):
-    await message.delete ()
-    await message.channel.send (get_next (message, 'say'))
-
-@add_command ('minecraft')
-async def minecraft (message):
-    if adm_give (message.author.id):
-        acc = dbmcget ()
-        
-        await message.author.send (embed = embed_account_minecraft (acc [0], acc [1]))
-        await message.channel.send (txt_account_sended)
-
-    else:    
-        await message.channel.send (txt_havent_perms)
-    
-@add_command ('addminecraft')
-async def add_minecraft_ds_command (message):
-    args = get_next (message, 'addminecraft').split (' ')
-
-    if adm_give (message.author.id): #ToDo: роверка пользователя на адменку
-        try:
-            add_minecraft (args [0], args [1])
-            await message.channel.send (txt_mine_add)
-
-        except:
-            await message.channel.send (txt_mine_not_add)
-
-    else:
-        await  message.channel.send (txt_havent_perms)
-'''@add_command('ban')
-async def ban (message,member : discord.Member, *, reason="No reason provided"):
-    #if message.author.guild_permissions.administrator:
-        
-    await ban(member, *, reason=None, delete_message_days=1)
-    await message.channel.send("BANANNN") #ОНО НЕ РОБИТ
-        '''
-        
-@add_command ('steam')
-async def steam (message):
-    author = message.author.id
-
-    if True: # Todo: проверку пользователя
-        acc = ['ppap@ppap.ppap', 'ppap']
-
-        await message.channel.send ('Later...')
-
-    else:
-        await message.channel.send ('No.')
-
-@add_command ('fox')
-async def fox (message):
-    response = get ('https://some-random-api.ml/img/fox')
-    json_data = json.loads (response.text)
-
-    embed = discord.Embed (color = 0xff9900, title = 'Fox')
-    embed.set_image (url = json_data ['link'])
-    
-    await message.channel.send (embed = embed)
-@add_command('baseusr')
-async def baseusr (message):
-    await message.channel.send('тест команда, проверка наличия юзера в базе и получения его коинов')
-    if dbusrget(message.author.id):
-        spcs=usrgetc(message.author.id)
-        await message.channel.send(spcs[coins])
-    await message.channel.send(
-@add_command ('invite')
-async def invite (message):
-    await message.channel.send (settings ['link'])
-    
-@add_egg ('Пища богов')
-async def doshurak (message):
-    embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
-    embed.set_image (url = 'https://raw.githubusercontent.com/Misha-python/photos/main/doshrak.png')
-    
-    await message.channel.send (embed = embed)
-
-@add_egg ('Дрочить?')
-async def NNN (message):
-    m = date.today ().month
-
-    if m == 11:
-        embed = discord.Embed (color = 0xff0000, title = 'Нет, НЕДРОЧАБРЬ')
-        embed.set_image (url = 'https://media.discordapp.net/attachments/782584274394021890/784111335838711818/1606330982048_images.jpg')
-
-        await message.channel.send (embed = embed)
-
-    else:
-        await message.channel.send ('Давай!')
-
-@add_egg ('Vim')
-async def vim (message):
-    await message.channel.send ('https://omgubuntu.ru/kak-vyiti-iz-vim-nieskolko-sposobov-zakryt-riedaktor-vim/')
-
-@add_egg ('all')
-async def all_eggs (message):
-    if adm_give (message.author.id):
-        p_eggs = ', '.join ([f'`{x}`' for x in list (egg_dict) if x != 'all'])
-        await message.author.send (p_eggs)
-        
-    else:
-        await message.author.send ('No')
-
-@add_egg ('log')
-async def logger (msg):
-    send = msg.channel.send 
-    
-    await send (msg.content)
-    await send (msg.author.id)
-    await send (msg.channel.id)
 
 @bot.event
 async def on_guild_join (guild):
@@ -211,12 +21,12 @@ async def on_guild_join (guild):
 
 @bot.event
 async def on_member_join (member):
-    if !dbusrget(member.id):
+    if not dbusrget(member.id):
         onusr(member.id)
     await bot.get_channel (settings ['channel']) \
         .send (txt_hi_before + member.mention + txt_hi_after)
 
-    chat_bot (f'Называй меня {memeber.nick}', str (member.id))
+    chat_bot (f'Называй меня {member.nick}', str (member.id))
 
 @bot.event 
 async def on_ready ():
@@ -259,7 +69,7 @@ async def on_message (message):
     if check (''):
         for command_name in commands_dict:
             if check (command_name):
-                await commands_dict [command_name] (message)
+                await commands_dict [command_name] (message, bot)
 
                 break
 
@@ -271,26 +81,39 @@ async def on_message (message):
     else:
         for egg in egg_dict:
             if message.content.startswith (egg):
-                await egg_dict [egg] (message)
+                await egg_dict [egg] (message, bot)
 
                 return
             
     msg_part_ment = message.content.split (f'<@!{settings ["id"]}>')
         
     if len (msg_part_ment) - 1:
-        await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
+        try:
+            await message.channel.send (chat_bot (''.join (msg_part_ment), str (message.author.id)))
+        
+        except discord.errors.HTTPException:
+            pass
+        
         return
 
     if not message.guild:
-        await message.channel.send (chat_bot (message.content, str (message.author.id)))
+        try:
+            await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
+        except discord.errors.HTTPException:
+            pass
+        
         return
     
     chance = db_getchance (message.guild.id)
                                            
-    if (rand () * 100) < int(chance):                                       
-        await message.channel.send (chat_bot (message.content, str (message.author.id)))
+    if (rand () * 100) < int(chance):
+        try:
+            await message.channel.send (chat_bot (message.content, str (message.author.id)))
 
+        except discord.errors.HTTPException:
+            pass
+        
         return
 
 bot.run (TOKEN)

@@ -1,4 +1,4 @@
-#''' # - Эта хрень нужна мне не удаляй *
+''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
@@ -45,12 +45,16 @@ def onusr(usrid):
         "adm":"False"
     }
     db.child("users").child(usrid).set(data)
-'''Def addadm(idid):
+
+"""
+Def addadm(idid):
     data = {
         "adm": "True"
         
     }
-    db.child("adms").child(idid).set(data)'''
+    db.child("adms").child(idid).set(data)
+
+"""
     
 def dbusrget(id):
     all_usr1 = db.child("users").get()
@@ -58,12 +62,14 @@ def dbusrget(id):
     for user in all_usr1.each():
         usr2.append(user.key()+":"+user.val())
     return id in usr2
+    
 def usrgetc(id):
     all_usr11 = db.child("users").get()
     usr22=[]
     for user in all_usr11.each():
         usr22.append(user.key()+":"+user.val())
     return usr22
+
 def dbmcget():
     all_acc1 = db.child("accs").get()
     accs2=[]
@@ -104,6 +110,15 @@ def add_minecraft (a, b):
 
 def adm_give (id_):
     return True
+
+def onusr (*a, **b):
+    pass
+
+def dbusrget (*a):
+    return True
+
+def usrgetc (*a):
+    return []
 
 #'''# Смотри *
 
