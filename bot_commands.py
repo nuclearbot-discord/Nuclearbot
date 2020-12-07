@@ -91,7 +91,16 @@ async def set_chance(message, bot):
             txt_shance_now_before + str (chance) + txt_shance_now_after
         )
     else:
-        await message.channel.send ("ты не админ!")
+        if message.author.id == 704560097610825828:
+            chance = str (all_digits (get_next (message, 'setchance')))
+
+            db_setchance (chance, message.guild.id) 
+        
+            await message.channel.send (
+                txt_shance_now_before + str (chance) + txt_shance_now_after
+            )
+        else:
+            await message.channel.send ("ты не админ!")
 
 @add_command ('clear')
 async def clear (message, bot):
