@@ -50,14 +50,15 @@ def all_digits (msg):
             int_str += char
 
     return int (int_str)
-@add_command ('addcoins')
-async def addcoins (message, bot):
-     args = get_next (message, 'addcoins').split (' ')
-     await message.channel.send(args)
-     await message.channel.send(args[0])
-     id = all_digits (args[0])
-     await message.channel.send(id)
-     addcoint(id, args[1]) 
+@add_command ('setcoins')
+async def setcoins (message, bot):
+     if True:
+         args = get_next (message, 'addcoins').split (' ')
+         await message.channel.send(args)
+         await message.channel.send(args[0])
+         id = all_digits (args[0])
+         await message.channel.send(id)
+         addcoint(id, args[1]) 
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
