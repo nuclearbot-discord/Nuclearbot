@@ -154,7 +154,9 @@ async def baseusr (message, bot):
     if dbusrget(message.author.id):
         spcs=usrgetc(message.author.id)
         await message.channel.send(spcs['coins'])
-    await message.channel.send('.')
+    else:
+        onusr(message.author.id)
+        await message.channel.send('пиши еще')
     
 @add_command ('invite')
 async def invite (message, bot):
