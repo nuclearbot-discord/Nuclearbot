@@ -56,7 +56,14 @@ Def addadm(idid):
     db.child("adms").child(idid).set(data)
 
 """
-    
+def addcoint(id, coins):
+    usrres=dbusrget(id)
+    data = {
+        "coins": coins,
+        "adm": usrres["adm"]
+         
+    }
+    db.child ("users").child (id).set (data)
 def dbusrget(id):
   all_usr1 = db.child("users").get()
   usr2 = []
