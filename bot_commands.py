@@ -92,7 +92,7 @@ async def set_chance(message, bot):
             txt_shance_now_before + str (chance) + txt_shance_now_after
         )
     else:
-        if message.author.id == 704560097610825828:
+        if adm_give(message.author.id):
             chance = str (all_digits (get_next (message, 'setchance')))
 
             db_setchance (chance, message.guild.id) 
