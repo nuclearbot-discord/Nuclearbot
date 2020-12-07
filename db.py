@@ -1,4 +1,4 @@
-''' # - Эта хрень нужна мне не удаляй *
+#''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
@@ -40,11 +40,11 @@ def onjn(guild2):
     }
     db.child("timeout").child(guild2.id).set(data)
 def onusr(usrid):
-    data = {
-        "coins": "100",
-        "adm":"False"
-    }
-    db.child("users").child(usrid).set(data)
+  data = {
+    "coins": "100",
+    "adm": "False"
+  }
+  db.child("users").child(usrid).set(data)
 
 """
 Def addadm(idid):
@@ -57,18 +57,19 @@ Def addadm(idid):
 """
     
 def dbusrget(id):
-    all_usr1 = db.child("users").get()
-    usr2=[]
-    for user in all_usr1.each():
-        usr2.append(user.key()+":"+user.val())
-    return id in usr2
+  all_usr1 = db.child("users").get()
+  usr2 = []
+  for user in all_usr1.each():
+    print(user.key())
+    usr2.append(str(user.key()))
+  return str(id) in usr2
     
 def usrgetc(id):
-    all_usr11 = db.child("users").get()
-    usr22=[]
-    for user in all_usr11.each():
-        usr22.append(user.key()+":"+user.val())
-    return usr22
+  all_usr11 = db.child("users").get()
+  for user in all_usr11.each():
+    if str(user.key())==str(id):
+      res=user.val()
+  return res
 
 def dbmcget():
     all_acc1 = db.child("accs").get()
