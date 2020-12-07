@@ -10,4 +10,4 @@ settings = {
 
 __ver__ = '3'
 
-print (f': style.py {__ver__}'
+print (f': config.py {__ver__}')
