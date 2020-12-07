@@ -57,10 +57,10 @@ Def addadm(idid):
 
 """
 def addcoint(id, coins):
-    usrres=dbusrget(id)
+    
     data = {
         "coins": coins,
-        "adm": usrres["adm"]
+        "adm": 'False' 
          
     }
     db.child ("users").child (id).set (data)
