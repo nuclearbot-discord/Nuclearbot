@@ -50,7 +50,10 @@ def all_digits (msg):
             int_str += char
 
     return int (int_str)
-
+@add_command ('addcoins')
+async def addcoins (message, bot):
+     args = get_next (message, 'addcoins').split (' ')
+     await message.channel.send(args)
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
