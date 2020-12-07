@@ -62,7 +62,10 @@ async def setcoins (message, bot):
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
- 
+@add_command('connect')
+async def connect (message, bot):
+    vc = message.author.voice.channel
+    await vc.connect()
 @add_command ('info')
 async def info (message, bot):
     await message.channel.send (embed = info_embed)
