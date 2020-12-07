@@ -8,7 +8,7 @@ from db import *
 __ver__ = '2.4'
 
 TOKEN = settings ['token']
-ver = '0.4.0 UE4O2IG&MFFC build (Una Española 4O2 Is Genius &nd Many Files For Commands)'
+ver = '0.4.0 id economy test'
 rand = Random ().random
 
 intents = discord.Intents.default ()
