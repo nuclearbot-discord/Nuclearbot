@@ -7,3 +7,7 @@ settings = {
     'site': 'https://nuclearbot.ga/',
     'token': 'NzgxNDA0OTE1MTQyNDkyMTcx.X79KCQ.vcdevmaaRYCADgMagz0iAJX7VTo'
 }
+
+__ver__ = '3'
+
+print (f': style.py {__ver__}'
