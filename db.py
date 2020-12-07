@@ -40,11 +40,12 @@ def onjn(guild2):
     }
     db.child("timeout").child(guild2.id).set(data)
 def onusr(usrid):
-  data = {
-    "coins": "100",
-    "adm": "False"
-  }
-  db.child("users").child(usrid).set(data)
+    data = {
+        "coins": "100",
+        "adm": "False"
+    }
+    
+    db.child("users").child(usrid).set(data)
 
 """
 Def addadm(idid):
