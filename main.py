@@ -4,7 +4,7 @@ from discord.ext import commands
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.3 ГМ&П build (Грёбанные Модули & Папки)'
+ver = '0.4.3 ГМ&П build (Грёбанные Модули & Папки (и логи))'
 rand = Random ().random
 
 intents = discord.Intents.default ()
