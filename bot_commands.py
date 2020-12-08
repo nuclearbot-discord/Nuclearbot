@@ -54,7 +54,7 @@ def all_digits (msg):
 @add_command ('setcoins')
 async def setcoins (message, bot):
      if True:
-         args = get_next (message, 'addcoins').split (' ')
+         args = get_next (message, 'setcoins').split (' ')
          await message.channel.send(args)
          await message.channel.send(args[0])
          id = all_digits (args[0])
@@ -103,7 +103,7 @@ async def kiss (message, bot):
     json_data = json.loads (response.text)
         
     
-    embed = discord.Embed (color = 0xff9900, title = f'{message.author.mention} kiss {args[0]}. ')
+    embed = discord.Embed (color = 0xff9900, title = f'{message.author} kiss {args[0]}. ')
     embed.set_image (url = str(json_data["url"]))
     await message.channel.send(args)
     await message.channel.send (embed = embed)    
