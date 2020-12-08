@@ -5,7 +5,7 @@ intents.members = True
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
 
-
+'''
 @add_command('connect')
 async def connect (message, bot):
     voice = message.author.voice
@@ -13,7 +13,7 @@ async def connect (message, bot):
     await message.channel.send("я дошел")
     await connect(voice_channel, timeout=60.0, reconnect=True, cls=<class 'discord.voice_client.VoiceClient'>)
     await message.channel.send("я дошел2")
-# Патом как нибудь
+'''# Патом как нибудь
 @add_command ('say')
 async def say (message, bot):
     await message.delete ()
