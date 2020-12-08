@@ -140,7 +140,16 @@ async def minecraft (message, bot):
 
     else:    
         await message.channel.send (txt_havent_perms)
+@add_command ('yiff')
+async def yiff (message, bot):
+    response = get ('https://api.furry.bot/V2/furry/yiff/gay')
+    json_data = json.loads (response.text)
+    fs=json_data['images']
     
+    embed = discord.Embed (color = 0xff9900, title = 'Fox')
+    embed.set_image (url = str(fs[0]['url']))
+    
+    await message.channel.send (embed = embed)    
 @add_command ('addminecraft')
 async def add_minecraft_ds_command (message, bot):
     args = get_next (message, 'addminecraft').split (' ')
