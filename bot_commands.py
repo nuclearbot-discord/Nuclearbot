@@ -39,8 +39,8 @@ def chat_bot (msg, id_):
     return req.text
 
 def get_next (message, command):
-    command_all = settings ['prefix'] + command + ' '
-    return command_all.join (message.content.split (command_all) [1:])
+    command_all = settings ['prefix'] + command.lover () + ' '
+    return command_all.join (message.content.lover ().split (command_all) [1:])
 
 def all_digits (msg):
     int_str = ''
