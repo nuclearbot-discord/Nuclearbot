@@ -152,7 +152,7 @@ async def yiff (message, bot):
     
         await message.channel.send (embed = embed)    
     else:
-        message.channel.send("не nsfw!")
+        await message.channel.send("не nsfw!")
 @add_command ('addminecraft')
 async def add_minecraft_ds_command (message, bot):
     args = get_next (message, 'addminecraft').split (' ')
