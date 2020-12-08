@@ -146,7 +146,7 @@ async def yiff (message, bot):
     json_data = json.loads (response.text)
     fs=json_data['images']
     
-    embed = discord.Embed (color = 0xff9900, title = 'Fox')
+    embed = discord.Embed (color = 0xff9900, title = 'йифф')
     embed.set_image (url = str(fs[0]['url']))
     
     await message.channel.send (embed = embed)    
