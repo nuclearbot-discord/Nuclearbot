@@ -98,7 +98,7 @@ async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
 @add_command ('kiss')
 async def kiss (message, bot):
-    args = get_next (message, 'kiss').split (' ').lower()
+    args = get_next (message, 'kiss').split (' ')
 
     response = get ('https://nekos.life/api/v2/img/kiss')
     json_data = json.loads (response.text)
