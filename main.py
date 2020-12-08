@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
-
+import datetime
+import time
 from modules.bot_commands.collector import * # Importing ALL
-
+start_time = time.time()
 TOKEN = settings ['token']
 ver = '0.4.3 ГМ&П build (Грёбанные Модули & Папки (и логи))'
 rand = Random ().random
