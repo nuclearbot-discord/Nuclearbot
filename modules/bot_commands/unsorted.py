@@ -11,7 +11,7 @@ async def connect (message, bot):
     voice = message.author.voice
     voice_channel = voice.channel
     await message.channel.send("я дошел")
-    await voice_channel.connect(*, timeout=60.0, reconnect=True, cls=<class 'discord.voice_client.VoiceClient'>)
+    await connect(voice_channel, timeout=60.0, reconnect=True, cls=<class 'discord.voice_client.VoiceClient'>)
     await message.channel.send("я дошел2")
 # Патом как нибудь
 @add_command ('say')
