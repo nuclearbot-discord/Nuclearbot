@@ -95,7 +95,18 @@ async def boobs (message, bot):
 @add_command ('log')
 async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
+@add_command ('kiss')
+async def kiss (message, bot):
+    args = get_next (message, 'kiss').split (' ')
 
+    response = get ('https://nekos.life/api/v2/img/kiss')
+    json_data = json.loads (response.text)
+        
+    
+    embed = discord.Embed (color = 0xff9900, title = f'{message.author.mention} kiss {arg[0]}. ')
+    embed.set_image (url = str(json_data["url"]))
+    
+    await message.channel.send (embed = embed)    
 @add_command ('chat')
 async def chat (message, bot):
     msg = get_next (message, 'chat')
