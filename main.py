@@ -30,7 +30,7 @@ async def on_ready ():
     print (f':: {ver}') 
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
-    await bot.get_channel (settings ['logs']).send ("бот жив")
+    await bot.get_channel (settings ['logs']).send (logson)
     await bot.change_presence (
         status = discord.Status.idle
     )
