@@ -28,16 +28,7 @@ async def info (message, bot):
 async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
 
-@add_command ('chat')
-async def chat (message, bot):
-    msg = get_next (message, 'chat')
-    txt = chat_bot (msg, str (message.author.id))
 
-    try:
-        await message.channel.send (txt)
-
-    except discord.errors.HTTPException:
-        pass
 
 @add_command ('invite')
 async def invite (message, bot):
