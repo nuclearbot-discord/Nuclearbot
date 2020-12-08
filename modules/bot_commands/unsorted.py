@@ -4,16 +4,16 @@ from modules.bot_commands.for_commands import *
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
 
-'''
+
 @add_command('connect')
 async def connect (message, bot):
-    channel = message.author.voice.channel
+    channel = message.author.voice
     if channel:
         await message.channel.send(channel)
-        await 782584272967303209.connect ()
+        await channel.connect ()
     else:
         await ctx.send('bruh you arent in a vc')
- ''' # Патом как нибудь
+# Патом как нибудь
 @add_command ('say')
 async def say (message, bot):
     await message.delete ()
