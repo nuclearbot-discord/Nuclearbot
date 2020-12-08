@@ -41,7 +41,7 @@ async def profile (message, bot):
     else:
         onusr(message.author.id)
         spcs=usrgetc(message.author.id)
-    await message.channel.send(f'у {message.author.mention}:\n {spcs["coins"]} монет\n админка:{spcs["adm"]}.')
+    await message.channel.send(f'у {message.author.mention}:\n {spcs[0]["coins"]} монет\n админка:{spcs[0]["adm"]}.')
    
     
 
