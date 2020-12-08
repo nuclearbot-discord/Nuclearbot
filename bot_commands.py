@@ -79,7 +79,19 @@ async def connect (message, bot):
 @add_command ('info')
 async def info (message, bot):
     await message.channel.send (embed = info_embed)
-
+@add_command ('boobs')
+async def boobs (message, bot):
+    if message.channel.is_nsfw():
+        response = get ('https://nekos.life/api/v2/img/boobs')
+        json_data = json.loads (response.text)
+        
+    
+        embed = discord.Embed (color = 0xff9900, title = 'boobs')
+        embed.set_image (url = str(kson_data["url"]))
+    
+        await message.channel.send (embed = embed)    
+    else:
+        await message.channel.send("не nsfw!")
 @add_command ('log')
 async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
