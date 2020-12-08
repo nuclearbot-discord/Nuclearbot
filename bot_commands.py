@@ -70,8 +70,8 @@ async def help (message, bot):
 async def connect (message, bot):
     channel = message.author.voice.channel
     if channel:
-        await message.channel.send(channel.id)
-        await channel.connect ()
+        await message.channel.send(channel)
+        await channel.id.connect ()
     else:
         await ctx.send('bruh you arent in a vc')
  # Патом как нибудь
