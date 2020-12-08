@@ -102,7 +102,7 @@ async def kiss (message, bot):
     response = get ('https://nekos.life/api/v2/img/kiss')
     json_data = json.loads (response.text)
         
-    us = message.guild.get_member (all_digits (args [0]))
+    us = get_user(all_digits (args [0]))
     embed = discord.Embed (color = 0xff9900, title = f'{message.author} kiss {us.name}. ')
     embed.set_image (url = str(json_data["url"]))
     
