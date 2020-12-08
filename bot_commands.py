@@ -97,14 +97,14 @@ async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
 @add_command ('kiss')
 async def kiss (message, bot):
-    args = get_next (message, 'kiss').split (' ')
+    #args = get_next (message, 'kiss').split (' ')
     
     response = get ('https://nekos.life/api/v2/img/kiss')
     json_data = json.loads (response.text)
         
     
     embed = discord.Embed (color = 0xff9900, title = 'kiss ')
-    embed.set_image (url = str(json_data["url"]))
+    embed.set_image (url = json_data["url"])
     
     await message.channel.send (embed = embed)    
 @add_command ('chat')
