@@ -39,8 +39,8 @@ def chat_bot (msg, id_):
     return req.text
 
 def get_next (message, command):
-    command_all = settings ['prefix'] + command.lover () + ' '
-    return command_all.join (message.content.lover ().split (command_all) [1:])
+    command_all = settings ['prefix'] + command + ' '
+    return command_all.join (message.content.split (command_all) [1:])
 
 def all_digits (msg):
     int_str = ''
@@ -98,15 +98,15 @@ async def log (message, bot):
 @add_command ('kiss')
 async def kiss (message, bot):
     args = get_next (message, 'kiss').split (' ')
-    
+
     response = get ('https://nekos.life/api/v2/img/kiss')
     json_data = json.loads (response.text)
         
     
-    embed = discord.Embed (color = 0xff9900, title = 'kiss ', description = f'kiss! {message.author.mention} kiss >>>')
-    embed.set_image (url = json_data["url"])
-    
-    await message.channel.send (embed = embed)    
+    embed = discord.Embed (color = 0xff9900, title = f'{message.author} kiss {args[0]}. ')
+    embed.set_image (url = str(json_data["url"]))
+    await message.channel.send(args)
+    await message.channel.send (embed = embed)  
 @add_command ('chat')
 async def chat (message, bot):
     msg = get_next (message, 'chat')
