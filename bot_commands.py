@@ -71,7 +71,7 @@ async def connect (message, bot):
     channel = message.author.voice.channel
     if channel:
         await message.channel.send(channel)
-        await channel.id.connect ()
+        await 782584272967303209.connect ()
     else:
         await ctx.send('bruh you arent in a vc')
  # Патом как нибудь
