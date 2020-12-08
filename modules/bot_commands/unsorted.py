@@ -8,8 +8,8 @@ async def help (message, bot):
 
 @add_command('connect')
 async def connect (message, bot):
-    channel = message.author.voice
-    vcch=channel.channel
+    channelv = message.author.voice
+    vcch=channelv.channel
     await message.channel.send(channel.id)
     await vcch.connect()
 # Патом как нибудь
