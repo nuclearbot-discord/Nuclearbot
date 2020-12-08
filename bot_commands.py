@@ -39,8 +39,8 @@ def chat_bot (msg, id_):
     return req.text
 
 def get_next (message, command):
-    command_all = settings ['prefix'] + command + ' '
-    return command_all.join (message.content.split (command_all) [1:])
+    command_all = settings ['prefix'] + command.lower () + ' '
+    return command_all.join (message.content.lower ().split (command_all) [1:])
 
 def all_digits (msg):
     int_str = ''
@@ -79,9 +79,10 @@ async def connect (message, bot):
 @add_command ('info')
 async def info (message, bot):
     await message.channel.send (embed = info_embed)
+    
 @add_command ('boobs')
 async def boobs (message, bot):
-    if message.channel.is_nsfw():
+    if message.channel.is_nsfw ():
         response = get ('https://nekos.life/api/v2/img/boobs')
         json_data = json.loads (response.text)
         
