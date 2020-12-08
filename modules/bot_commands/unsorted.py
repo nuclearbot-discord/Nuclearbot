@@ -1,4 +1,7 @@
 from modules.bot_commands.for_commands import *
+import datetime
+import time
+start_time=time.time()
 
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
@@ -14,7 +17,15 @@ async def connect (message, bot):
     else:
         await ctx.send('bruh you arent in a vc')
  ''' # Патом как нибудь
-
+@add_command('uptime')
+async def uptime(message, bot):
+    current_time = time.time()
+    difference = int(round(current_time - start_time))
+    text = str(datetime.timedelta(seconds=difference))
+    embed = discord.Embed(colour=ctx.message.author.top_role.colour)
+    embed.add_field(name="Uptime", value=text)
+    embed.set_footer(text="Sponsored by altcointrain.com - Choo!!! Choo!!!")
+    messsage.channel.send(embed=embed)
 @add_command ('say')
 async def say (message, bot):
     await message.delete ()
