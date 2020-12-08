@@ -65,7 +65,7 @@ async def help (message, bot):
 @add_command('connect')
 async def connect (message, bot):
     vc = message.author.voice.channel
-    if channel:
+    if vc:
         await message.channel.send(vc.id)
         await vc.connect()
     else:
