@@ -3,7 +3,7 @@ import random
 from random import Random
 from asyncio import sleep
 from datetime import date
-
+import asyncio 
 import discord
 from discord.ext import commands
 from requests import get
