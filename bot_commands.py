@@ -87,7 +87,7 @@ async def boobs (message, bot):
         
     
         embed = discord.Embed (color = 0xff9900, title = 'boobs')
-        embed.set_image (url = str(kson_data["url"]))
+        embed.set_image (url = str(json_data["url"]))
     
         await message.channel.send (embed = embed)    
     else:
