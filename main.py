@@ -1,12 +1,10 @@
 import discord
 from discord.ext import commands
 
-from modules.bot_commands import *
-from modules.style import *
-from modules.db import *
+from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.2 '
+ver = '0.4.3 ГМ&П build (Грёбанные Модули & Папки)'
 rand = Random ().random
 
 intents = discord.Intents.default ()
