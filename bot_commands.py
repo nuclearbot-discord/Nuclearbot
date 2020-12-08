@@ -103,7 +103,7 @@ async def kiss (message, bot):
     json_data = json.loads (response.text)
         
     
-    embed = discord.Embed (color = 0xff9900, title = f'{message.author.mention} kiss {arg[0]}. ')
+    embed = discord.Embed (color = 0xff9900, title = f'{message.author.id} kiss {args[0]}. ')
     embed.set_image (url = str(json_data["url"]))
     
     await message.channel.send (embed = embed)    
