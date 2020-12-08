@@ -9,7 +9,7 @@ async def help (message, bot):
 @add_command('connect')
 async def connect (message, bot):
     voice = message.author.voice
-    voice_channel == voice.channel
+    voice_channel = voice.channel
     await message.channel.send("я дошел")
     await voice_channel.connect()
 # Патом как нибудь
