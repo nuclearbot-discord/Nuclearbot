@@ -1,14 +1,12 @@
 import discord
 from discord.ext import commands
 
-from bot_commands import *
-from style import *
-from db import *
-
-__ver__ = '2.4'
+from modules.bot_commands import *
+from modules.style import *
+from modules.db import *
 
 TOKEN = settings ['token']
-ver = '0.4.2 YIFF, BOOBS'
+ver = '0.4.2 '
 rand = Random ().random
 
 intents = discord.Intents.default ()
@@ -30,7 +28,7 @@ async def on_member_join (member):
 
 @bot.event 
 async def on_ready ():
-    print (': main.py')
+    print (': main.py ...')
     print (f':: {ver}') 
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
