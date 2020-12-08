@@ -65,16 +65,16 @@ async def setcoins (message, bot):
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
 
-''' 
+
 @add_command('connect')
 async def connect (message, bot):
     channel = message.author.voice.channel
     if channel:
         await message.channel.send(channel.id)
-        await bot.connect ()
+        await channel.connect ()
     else:
         await ctx.send('bruh you arent in a vc')
-''' # Патом как нибудь
+ # Патом как нибудь
 
 @add_command ('info')
 async def info (message, bot):
