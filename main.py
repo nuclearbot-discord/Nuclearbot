@@ -8,7 +8,7 @@ from db import *
 __ver__ = '2.4'
 
 TOKEN = settings ['token']
-ver = '0.4.0 id economy test2'
+ver = '0.4.1 VChCT build (Voice Channel Connect Test'
 rand = Random ().random
 
 intents = discord.Intents.default ()

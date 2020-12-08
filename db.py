@@ -1,4 +1,4 @@
-#''' # - Эта хрень нужна мне не удаляй *
+''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
@@ -128,6 +128,9 @@ def dbusrget (*a):
 
 def usrgetc (*a):
     return []
+
+def addcoint (a, b):
+    pass
 
 #'''# Смотри *
 

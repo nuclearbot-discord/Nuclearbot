@@ -50,6 +50,7 @@ def all_digits (msg):
             int_str += char
 
     return int (int_str)
+
 @add_command ('setcoins')
 async def setcoins (message, bot):
      if True:
@@ -58,18 +59,23 @@ async def setcoins (message, bot):
          await message.channel.send(args[0])
          id = all_digits (args[0])
          await message.channel.send(id)
-         addcoint(id, args[1]) 
+         addcoint(id, args[1])
+         
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
+
+''' 
 @add_command('connect')
 async def connect (message, bot):
-    vc = message.author.voice.channel
-    if vc:
-        await message.channel.send(vc.id)
-        await vc.connect()
+    channel = message.author.voice.channel
+    if channel:
+        await message.channel.send(channel.id)
+        await bot.connect ()
     else:
-        await message.channel.send('bruh you arent in a vc')
+        await ctx.send('bruh you arent in a vc')
+''' # Патом как нибудь
+
 @add_command ('info')
 async def info (message, bot):
     await message.channel.send (embed = info_embed)
@@ -162,6 +168,7 @@ async def steam (message, bot):
     else:
         await message.channel.send ('No.')
 
+'''
 @add_command ('fox')
 async def fox (message, bot):
     response = get ('https://some-random-api.ml/img/fox')
@@ -171,6 +178,7 @@ async def fox (message, bot):
     embed.set_image (url = json_data ['link'])
     
     await message.channel.send (embed = embed)
+''' # Уже не нужно
     
 @add_command('profile')
 async def profile (message, bot):
@@ -185,7 +193,22 @@ async def profile (message, bot):
 @add_command ('invite')
 async def invite (message, bot):
     await message.channel.send (settings ['link'])
+
+@add_command ('img')
+async def cat (msg, bot):
+    arg = get_next (msg, 'img')
+    data = {'animal': arg}
+
+    r = get (f'https://some-random-api.ml/img/{arg}')
+    dat = json.loads (r.text)
+
+    url = dat ['link']
     
+    embed = Embed (name = 'Cat')
+    embed.set_image (url = url)
+
+    await msg.channel.send (embed = embed)
+        
 @add_egg ('Пища богов')
 async def doshurak (message, bot):
     embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
@@ -229,3 +252,6 @@ async def logger (msg, bot):
     await send (msg.channel.id)
 
 print (f': bot_commands.py {__ver__}')
+
+if __name__ == '__main__':
+    import main
