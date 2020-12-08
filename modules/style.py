@@ -17,7 +17,7 @@ txt_mine_add                = 'Account added'
 txt_mine_not_add            = 'Account not added'
 txt_hi_before               = 'Hi, it\'s me, '
 txt_hi_after                = '!'
-logson.                     = '''
+logson                      = '''
                 ██████████████░░░░░░░░░░░░░░░░░░
                 ██████████████░░░░░░░░░░░░░░░░░░
                 ██████████████░░░░░░░░░░░░░░░░░░
