@@ -1,5 +1,6 @@
 from modules.bot_commands.for_commands import *
-
+intents = discord.Intents.default ()
+intents.members = True
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
@@ -8,9 +9,10 @@ async def help (message, bot):
 @add_command('connect')
 async def connect (message, bot):
     channel = message.author.voice
+    vcch=channel.channel
     if channel:
         await message.channel.send(channel.id)
-        await channel.connect()
+        await vcch.connect()
     else:
         await ctx.send('bruh you arent in a vc')
 # Патом как нибудь
