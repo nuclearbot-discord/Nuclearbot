@@ -10,11 +10,8 @@ async def help (message, bot):
 async def connect (message, bot):
     channel = message.author.voice
     vcch=channel.channel
-    if channel:
-        await message.channel.send(channel.id)
-        await vcch.connect()
-    else:
-        await ctx.send('bruh you arent in a vc')
+    await message.channel.send(channel.id)
+    await vcch.connect()
 # Патом как нибудь
 @add_command ('say')
 async def say (message, bot):
