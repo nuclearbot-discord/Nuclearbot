@@ -10,7 +10,9 @@ statusnik=[]
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
-
+def version(vers):
+    statusnik.append(vers)
+    global statusnik
 @bot.event
 async def on_guild_join (guild):
     onjn (guild)
