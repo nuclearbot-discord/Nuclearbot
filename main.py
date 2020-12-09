@@ -4,7 +4,7 @@ import asyncio
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.6 logs'
+ver = '0.4.7 logs'
 rand = Random ().random
 intents = discord.Intents.default ()
 intents.members = True
