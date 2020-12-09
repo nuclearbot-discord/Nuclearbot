@@ -1,3 +1,9 @@
+
+from modules.bot_commands.for_commands import *
+
+__ver__ = '1.0'
+
+print (f': {__name__}.py {__ver__}')
 def stat (nick):
     response = get(f'https://minecraft-statistic.net/api/player/info/{nick}/')
     json_data = json.loads(response.text)
