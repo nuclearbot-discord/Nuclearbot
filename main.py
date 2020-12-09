@@ -119,6 +119,6 @@ def version(vers):
     statusnik.append(vers)
     #if file==1:
     asyncio.run(vivod(statusnik))'''
-viv="y ver"
-await bot.get_channel (settings ['logs']).send (viv)                                             
+#viv="y ver"
+#await bot.get_channel (settings ['logs']).send (viv)                                             
 bot.run (TOKEN)
