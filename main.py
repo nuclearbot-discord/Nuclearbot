@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-
+from modules.bot_commands.for_commands import *
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
