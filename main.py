@@ -49,7 +49,7 @@ async def on_ready ():
         #await bot.change_presence (activity = actv_2)
         await sleep (5)
         await bot.get_channel (settings ['logs']).send (f'пинг: {bot.latency}')                                   
-bot.run (TOKEN)
+
 @bot.event 
 async def on_message (message): 
     if message.author.bot:
