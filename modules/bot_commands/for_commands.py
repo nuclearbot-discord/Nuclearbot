@@ -35,4 +35,3 @@ def add_egg (name):
     return adder_
 
 print (f': {__name__}.py {__ver__}')
-
