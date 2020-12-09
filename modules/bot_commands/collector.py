@@ -3,5 +3,6 @@ from modules.bot_commands.img import *
 from modules.bot_commands.easter_eggs_module import *
 from modules.bot_commands.unsorted import *
 
-#reqs = ['sleep', 'Random', 'settings']
-#__all__ = ['commands_dict', 'egg_dict', 'chat_bot', 'settings', *reqs]
+__ver__ = '0.3'
+
+print (f': {__name__}.py {__ver__}')
