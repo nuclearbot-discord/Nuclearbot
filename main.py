@@ -6,7 +6,7 @@ from modules.bot_commands.collector import * # Importing ALL
 TOKEN = settings ['token']
 ver = '0.4.4 logs'
 rand = Random ().random
-
+statusnik=[]
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
@@ -113,7 +113,7 @@ async def on_message (message):
         
         return
 async def vivod(viv):
-    #await bot.get_channel (settings ['logs']).send (*viv)      
+    await bot.get_channel (settings ['logs']).send (*viv)      
     print(*viv)                                           
 def version(ver,file):
     statusnik.append(f'{ver}\n')
