@@ -4,7 +4,7 @@ from discord.ext import commands
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.4 logs'
+ver = '0.4.4 logs дщщз'
 rand = Random ().random
 
 intents = discord.Intents.default ()
