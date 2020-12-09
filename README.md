@@ -2,7 +2,7 @@
 ## Bot
 ### For
 #### Discord
-##### Createn
+##### Created
 ###### at 
 ##### 25
 #### of
