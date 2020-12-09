@@ -1,3 +1,4 @@
+from main import version
 settings = {
     'id': 781404915142492171,
     'prefix': '!',
@@ -10,6 +11,6 @@ settings = {
 }
 
 __ver__ = '4'
-
+version(f': {__name__}.py {__ver__}')
 print (f': {__name__}.py {__ver__}')
 
