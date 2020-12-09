@@ -6,13 +6,12 @@ from modules.bot_commands.collector import * # Importing ALL
 TOKEN = settings ['token']
 ver = '0.4.5 logs'
 rand = Random ().random
-statusnik=[]
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
+statusnik=[]
 def version(vers):
     statusnik.append(vers)
-    global statusnik
 @bot.event
 async def on_guild_join (guild):
     onjn (guild)
@@ -34,6 +33,7 @@ async def on_ready ():
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
     await bot.get_channel (settings ['logs']).send (ready.format(ver))
+    await bot.get_channel (settings ['logs']).send (statusnik)
     await bot.change_presence (
         status = discord.Status.idle
     )
@@ -113,14 +113,5 @@ async def on_message (message):
         except discord.errors.HTTPException:
             pass
         
-        return
-''' async def vivod(viv):
-    #await bot.get_channel (settings ['logs']).send (viv)      
-    print(viv)                                           
-def version(vers):
-    statusnik.append(vers)
-    #if file==1:
-    asyncio.run(vivod(statusnik))'''
-#viv="y ver"
-#await bot.get_channel (settings ['logs']).send (viv)                                             
+        return                                         
 bot.run (TOKEN)
