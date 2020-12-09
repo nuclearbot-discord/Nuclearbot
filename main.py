@@ -4,16 +4,13 @@ from discord.ext import commands
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.4 logs дщщз'
+ver = '0.4.4 logs'
 rand = Random ().random
 
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
-def bg_task():
-    time=10
-    await asyncio.sleep(time)
-    await bot.get_channel (settings ['logs']).send ('test')
+
 @bot.event
 async def on_guild_join (guild):
     onjn (guild)
@@ -31,8 +28,10 @@ async def on_member_join (member):
 async def on_ready ():
     print (': main.py ...')
     print (f':: {ver}') 
+
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
+    await bot.get_channel (settings ['logs']).send (ready.format(ver))
     await bot.change_presence (
         status = discord.Status.idle
     )
@@ -41,6 +40,7 @@ async def on_ready ():
     actv_0 = discord.Streaming (name = txt_status_0,                                 url = 'https://m.twitch.tv/buster')
     actv_1 = discord.Streaming (name = txt_status_1.format (ver),                    url = 'https://m.twitch.tv/buster')
     actv_2 = discord.Streaming (name = txt_status_2.format (str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
+    
     while True:
         await bot.change_presence (activity = actv_0)
         await sleep (5)
@@ -48,7 +48,6 @@ async def on_ready ():
         await sleep (5)
         await bot.change_presence (activity = actv_2)
         await sleep (5)
-                                     
 
 @bot.event 
 async def on_message (message): 
@@ -113,5 +112,5 @@ async def on_message (message):
             pass
         
         return
-                       
+
 bot.run (TOKEN)
