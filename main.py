@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-
+import asyncio
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
