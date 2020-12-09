@@ -32,6 +32,7 @@ async def on_ready ():
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
     await bot.get_channel (settings ['logs']).send (ready.format(ver))
+    readysend(ver)
     await bot.change_presence (
         status = discord.Status.idle
     )
@@ -112,5 +113,6 @@ async def on_message (message):
             pass
         
         return
-
+async def readysend(vers):
+    await bot.get_channel (settings ['logs']).send (ready.format(ver))                                           
 bot.run (TOKEN)
