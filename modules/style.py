@@ -58,4 +58,4 @@ def embed_account_minecraft (email, pasw):
 
 __ver__ = '0.1.3'
 
-print (f': style.py {__ver__}')
+print (f': {__name__}.py {__ver__}')

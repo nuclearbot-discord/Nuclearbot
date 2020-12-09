@@ -11,4 +11,4 @@ settings = {
 
 __ver__ = '4'
 
-print (f': config.py {__ver__}')
+print (f': {__name__}.py {__ver__}')
