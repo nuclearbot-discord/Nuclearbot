@@ -1,4 +1,4 @@
-''' # - Эта хрень нужна мне не удаляй *
+#''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
@@ -137,5 +137,5 @@ def addcoint (a, b):
 __all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give', 'onusr', 'dbusrget', 'usrgetc','addcoint'] # Сюда добавляй все функции
 __ver__ = '0.2.5'
 
-print (f': bd.py {__ver__}')
+print (f': {__name__}.py {__ver__}')
 
