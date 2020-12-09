@@ -34,4 +34,4 @@ def add_egg (name):
         return func
     return adder_
 
-print (f': {__name__}.py {__ver__}')
+print (__name__+'.py'+__ver__)
