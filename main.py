@@ -118,5 +118,5 @@ def version(ver,file):
         vivod(statusnik)
 async def vivod(viv):
     await bot.get_channel (settings ['logs']).send (*viv)   
-version("new ver",1)                                           
+await version("new ver",1)                                           
 bot.run (TOKEN)
