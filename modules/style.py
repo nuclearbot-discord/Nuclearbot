@@ -59,4 +59,4 @@ def embed_account_minecraft (email, pasw):
 __ver__ = '0.1.3'
 
 print (f': {__name__}.py {__ver__}')
-await bot.get_channel (f'file ready: {__name__}.py {__ver__}')
+
