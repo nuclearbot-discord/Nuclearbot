@@ -32,7 +32,6 @@ async def on_ready ():
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
     await bot.get_channel (settings ['logs']).send (ready.format(ver))
-    readysend("ver")
     await bot.change_presence (
         status = discord.Status.idle
     )
@@ -113,6 +112,11 @@ async def on_message (message):
             pass
         
         return
-def readysend(vers):
-    await bot.get_channel (settings ['logs']).send ("d")                                           
+def version(ver,file):
+    statusnik.append(f'{ver}\n')
+    if file==1:
+        vivod(statusnik)
+async def vivod(viv):
+    await bot.get_channel (settings ['logs']).send (*viv)   
+version("1","main")                                           
 bot.run (TOKEN)
