@@ -66,6 +66,7 @@ async def steam (message, bot):
     else:
         await message.channel.send ('No.')
 
-
+global statusun
+statusun=f': {__name__}.py {__ver__}'
 print (f': {__name__}.py {__ver__}')
 
