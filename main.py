@@ -112,5 +112,6 @@ async def on_message (message):
             pass
         
         return
-
+def version(ver, file):
+    print(f'версия {ver},файл {file}.)
 bot.run (TOKEN)
