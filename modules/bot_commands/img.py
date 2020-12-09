@@ -27,6 +27,18 @@ async def kiss (message, bot):
     embed.set_image (url = str(json_data["url"]))
     await message.channel.send(args)
     await message.channel.send (embed = embed)
+@add_command ('tickle')
+async def tickle (message, bot):
+    args = get_next (message, 'tickle').split (' ')
+
+    response = get ('https://nekos.life/api/v2/img/tickle')
+    json_data = json.loads (response.text)
+        
+    
+    embed = discord.Embed (color = 0xff9900, title tickle!", description= f'{message.author.mention} Защекотал {args[0]}. ')
+    embed.set_image (url = str(json_data["url"]))
+    await message.channel.send(args)
+    await message.channel.send (embed = embed)
 
 @add_command ('yiff')
 async def yiff (message, bot):
