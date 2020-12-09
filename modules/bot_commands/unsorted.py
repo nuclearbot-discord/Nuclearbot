@@ -39,7 +39,7 @@ async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
     while True:
         await bot.get_channel (settings ['logs']).send (f'пинг: {bot.latency}')      
-
+        await sleep (5)
 
 @add_command ('invite')
 async def invite (message, bot):
