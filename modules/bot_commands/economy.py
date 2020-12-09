@@ -42,10 +42,7 @@ async def profile (message, bot):
         onusr(message.author.id)
         spcs=usrgetc(message.author.id)
     await message.channel.send(f'у {message.author.mention}:\n {spcs["coins"]} монет\n админка:{spcs["adm"]}.')
-   
-    
 
+__ver__ = '2.2'
 
-
-        
-
+print (f': {__name__}.py {__ver__}')

@@ -89,3 +89,7 @@ async def steam (message, bot):
 
     else:
         await message.channel.send ('No.')
+
+__ver__ = '3.2'
+
+print (f': {__name__}.py {__ver__}')

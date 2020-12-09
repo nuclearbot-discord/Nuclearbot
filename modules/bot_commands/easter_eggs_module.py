@@ -41,3 +41,7 @@ async def logger (msg, bot):
     await send (msg.content)
     await send (msg.author.id)
     await send (msg.channel.id)
+
+__ver__ = '0.4'
+
+print (f': {__name__}.py {__ver__}')

@@ -67,3 +67,7 @@ async def boobs (message, bot):
         await message.channel.send (embed = embed)    
     else:
         await message.channel.send("не nsfw!")
+
+__ver__ = '2.1'
+
+print (f': {__name__}.py {__ver__}')
