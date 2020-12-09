@@ -31,8 +31,7 @@ async def on_ready ():
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
-    namef="main"
-    version(ver, namef)
+    version(ver)
     await bot.change_presence (
         status = discord.Status.idle
     )
@@ -113,6 +112,6 @@ async def on_message (message):
             pass
         
         return
-def version(ver, file):
-       await bot.get_channel (settings ['logs']).send(f'версия {ver},файл {file}.)
+def version(ver):
+       await bot.get_channel (settings ['logs']).send(f'версия {ver},файл main.)
 bot.run (TOKEN)
