@@ -4,7 +4,7 @@ from discord.ext import commands
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.4 NPSN!EE&EF build (No Pls No! Epic Errors &nd Epic Fails build and minecraft)'
+ver = '0.4.4 logs'
 rand = Random ().random
 
 intents = discord.Intents.default ()
