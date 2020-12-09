@@ -10,7 +10,10 @@ rand = Random ().random
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
-
+def bg_task():
+    time=10
+    await asyncio.sleep(time)
+    await bot.get_channel (settings ['logs']).send ('test')
 @bot.event
 async def on_guild_join (guild):
     onjn (guild)
@@ -110,5 +113,5 @@ async def on_message (message):
             pass
         
         return
-
+bot.loop.create_task(bg_task())
 bot.run (TOKEN)
