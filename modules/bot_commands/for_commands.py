@@ -34,3 +34,4 @@ def add_egg (name):
     return adder_
 
 print (f': {__name__}.py {__ver__}')
+await bot.get_channel (f'file ready: {__name__}.py {__ver__}')
