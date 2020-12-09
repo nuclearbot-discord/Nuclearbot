@@ -35,7 +35,7 @@ async def tickle (message, bot):
     json_data = json.loads (response.text)
         
     
-    embed = discord.Embed (color = 0xff9900, title tickle!", description= f'{message.author.mention} Защекотал {args[0]}. ')
+    embed = discord.Embed (color = 0xff9900, title= "tickle!", description= f'{message.author.mention} Защекотал {args[0]}. ')
     embed.set_image (url = str(json_data["url"]))
     await message.channel.send(args)
     await message.channel.send (embed = embed)
