@@ -37,7 +37,7 @@ async def info (message, bot):
 @add_command ('log')
 async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
-
+    await bot.get_channel (settings ['logs']).send (f'пинг: {bot.latency}')      
 
 
 @add_command ('invite')
