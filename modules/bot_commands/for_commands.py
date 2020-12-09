@@ -26,7 +26,7 @@ def add_command (name):
     return adder
 statusnik=[]
 def version(vers):
-    statusnik.append(vers)
+    statusnik.append(f'{vers}\n')
 def add_egg (name): 
     def adder_ (func):
         egg_dict [name] = func
