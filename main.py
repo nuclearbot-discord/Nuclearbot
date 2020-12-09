@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 from modules.bot_commands.collector import * # Importing ALL
-
+from modules.bot_commands.for_commands import statusun # Importing ALL
 TOKEN = settings ['token']
 ver = '0.4.5 logs'
 rand = Random ().random
