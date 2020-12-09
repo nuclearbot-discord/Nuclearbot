@@ -46,3 +46,4 @@ __ver__ = '0.4'
 
 print (f': {__name__}.py {__ver__}')
 
+version(f': {__name__}.py {__ver__}')
