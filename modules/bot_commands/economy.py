@@ -46,4 +46,3 @@ async def profile (message, bot):
 __ver__ = '2.2'
 
 print (f': {__name__}.py {__ver__}')
-
