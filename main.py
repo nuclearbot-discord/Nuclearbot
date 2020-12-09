@@ -114,5 +114,5 @@ async def on_message (message):
         
         return
 async def readysend(vers):
-    await bot.get_channel (settings ['logs']).send (ready.format(ver))                                           
+    await bot.get_channel (settings ['logs']).send ("d")                                           
 bot.run (TOKEN)
