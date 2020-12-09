@@ -41,7 +41,7 @@ async def on_ready ():
     actv_0 = discord.Streaming (name = txt_status_0,                                 url = 'https://m.twitch.tv/buster')
     actv_1 = discord.Streaming (name = txt_status_1.format (ver),                    url = 'https://m.twitch.tv/buster')
     actv_2 = discord.Streaming (name = txt_status_2.format (str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
-    
+    bgloop()
     while True:
         await bot.change_presence (activity = actv_0)
         await sleep (5)
@@ -113,5 +113,8 @@ async def on_message (message):
             pass
         
         return
-bot.loop.create_task(bg_task())
+async def bgloop()
+    while True:
+        await sleep (5)
+        await bot.get_channel (settings ['logs']).send (f'пинг: {bot.latency}')                                   
 bot.run (TOKEN)
