@@ -42,13 +42,14 @@ async def on_ready ():
     actv_2 = discord.Streaming (name = txt_status_2.format (str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
     
     while True:
+        await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
         await bot.change_presence (activity = actv_0)
         await sleep (5)
         await bot.change_presence (activity = actv_1)
         await sleep (5)
         await bot.change_presence (activity = actv_2)
         await sleep (5)
-
+        
 @bot.event 
 async def on_message (message): 
     if message.author.bot:
