@@ -4,7 +4,7 @@ import asyncio
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.6 logs final test'
+ver = '0.4.5 logs'
 rand = Random ().random
 intents = discord.Intents.default ()
 intents.members = True
@@ -29,6 +29,7 @@ async def on_ready ():
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
+    await bot.get_channel (settings ['logs']).send (ready.format(ver))
     await bot.get_channel (settings ['logs']).send (statusnik)
     await bot.change_presence (
         status = discord.Status.idle
