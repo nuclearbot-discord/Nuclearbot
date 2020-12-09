@@ -119,6 +119,6 @@ def version(ver,file):
     statusnik.append(f'{ver}\n')
     if file==1:
         asyncio.run(vivod(statusnik))
-
-#version("new ver",1)                                          
+verr="y ver"
+version(verr ,1)                                          
 bot.run (TOKEN)
