@@ -52,31 +52,6 @@ async def clear (message, bot):
     else:
         await message.channel.send("не админ")
 
-@add_command ('minecraft')
-async def minecraft (message, bot):
-    if adm_give (message.author.id):
-        acc = dbmcget ()
-        
-        await message.author.send (embed = embed_account_minecraft (acc [0], acc [1]))
-        await message.channel.send (txt_account_sended)
-
-    else:    
-        await message.channel.send (txt_havent_perms)
-
-@add_command ('addminecraft')
-async def add_minecraft_ds_command (message, bot):
-    args = get_next (message, 'addminecraft').split (' ')
-
-    if adm_give (message.author.id):
-        try:
-            add_minecraft (args [0], args [1])
-            await message.channel.send (txt_mine_add)
-
-        except:
-            await message.channel.send (txt_mine_not_add)
-
-    else:
-        await  message.channel.send (txt_havent_perms)
 
 @add_command ('steam')
 async def steam (message, bot):
