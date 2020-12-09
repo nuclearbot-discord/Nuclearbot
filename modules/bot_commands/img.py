@@ -71,3 +71,4 @@ async def boobs (message, bot):
 __ver__ = '2.1'
 
 print (f': {__name__}.py {__ver__}')
+await bot.get_channel (f'file ready: {__name__}.py {__ver__}')
