@@ -28,7 +28,6 @@ async def on_member_join (member):
 async def on_ready ():
     print (': main.py ...')
     print (f':: {ver}') 
-    versiton('test')
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
     versiton(ver)
