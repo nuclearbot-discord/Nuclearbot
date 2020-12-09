@@ -1,4 +1,4 @@
-#''' # - Эта хрень нужна мне не удаляй *
+''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
@@ -138,4 +138,3 @@ __all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', '
 __ver__ = '0.2.5'
 
 print (f': {__name__}.py {__ver__}')
-
