@@ -31,7 +31,7 @@ async def on_ready ():
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
-    await versiton(ver)
+    versiton(ver)
     await bot.change_presence (
         status = discord.Status.idle
     )
@@ -112,6 +112,6 @@ async def on_message (message):
             pass
         
         return
-#async def versiton(vers):
-    #await bot.get_channel (settings ['logs']).send(f'версия {vers},файл main.)
+def versiton(vers):
+    await bot.get_channel (settings ['logs']).send(f'версия {vers},файл main.)
 bot.run (TOKEN)
