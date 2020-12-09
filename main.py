@@ -29,7 +29,7 @@ async def on_ready ():
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
-    sps=*statusnik
+    sps=statusnik
     ch=bot.get_channel (settings ['logs'])
     await ch.send (sps)
     await bot.change_presence (
