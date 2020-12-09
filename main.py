@@ -115,10 +115,10 @@ async def on_message (message):
 async def vivod(viv):
     #await bot.get_channel (settings ['logs']).send (viv)      
     print(viv)                                           
-def version(ver):
-    statusnik.append(f'{ver}\n')
+def version(vers):
+    statusnik.append(vers)
     #if file==1:
     asyncio.run(vivod(statusnik))
-#verr="y ver"
-#version(verr)                                          
+verr="y ver"
+vivid=version(verr)                                          
 bot.run (TOKEN)
