@@ -112,6 +112,6 @@ async def on_message (message):
             pass
         
         return
-async def versiton(vers):
-    await bot.get_channel (settings ['logs']).send(f'версия {vers},файл main.)
+#async def versiton(vers):
+    #await bot.get_channel (settings ['logs']).send(f'версия {vers},файл main.)
 bot.run (TOKEN)
