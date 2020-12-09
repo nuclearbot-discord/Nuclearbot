@@ -39,4 +39,4 @@ async def minecraft (message, bot):
         await message.channel.send(stat(nickarg)['msg'])
 
 print (f': {__name__}.py {__ver__}')
-
+await bot.get_channel (f'file ready: {__name__}.py {__ver__}')
