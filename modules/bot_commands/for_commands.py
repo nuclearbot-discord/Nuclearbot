@@ -18,7 +18,8 @@ __ver__ = '0.1'
 
 commands_dict = {}
 egg_dict = {}
-
+def versiton(vers):
+    return f'версия {vers},файл main.
 def add_command (name): 
     def adder (func):
         commands_dict [name] = func
