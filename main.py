@@ -115,8 +115,8 @@ async def on_message (message):
 def version(ver,file):
     statusnik.append(f'{ver}\n')
     if file==1:
-        vivod(statusnik)
-async def vivod(viv):
-    await bot.get_channel (settings ['logs']).send (*viv)   
-version("1","main")                                           
+        #vivod(statusnik)
+#async def vivod(viv):
+    #await bot.get_channel (settings ['logs']).send (*viv)   
+#version("1","main")                                           
 bot.run (TOKEN)
