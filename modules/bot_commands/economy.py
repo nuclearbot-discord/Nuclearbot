@@ -44,5 +44,5 @@ async def profile (message, bot):
     await message.channel.send(f'у {message.author.mention}:\n {spcs["coins"]} монет\n админка:{spcs["adm"]}.')
 
 __ver__ = '2.2'
-
+version(f': {__name__}.py {__ver__}')
 print (f': {__name__}.py {__ver__}')
