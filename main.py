@@ -113,7 +113,7 @@ async def on_message (message):
             pass
         
         return
-async def bgloop()
+def bgloop()
     while True:
         await sleep (5)
         await bot.get_channel (settings ['logs']).send (f'пинг: {bot.latency}')                                   
