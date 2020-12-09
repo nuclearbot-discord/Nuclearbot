@@ -113,7 +113,7 @@ async def on_message (message):
         
         return
 async def vivod(viv):
-    await bot.get_channel (settings ['logs']).send (*viv)      
+    #await bot.get_channel (settings ['logs']).send (*viv)      
     print(*viv)                                           
 def version(ver,file):
     statusnik.append(f'{ver}\n')
