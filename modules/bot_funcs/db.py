@@ -1,9 +1,9 @@
-import random
+from modules.bot_funcs.for_funcs import *		
+# - Эта хрень нужна мне не удаляй *		
+import random		
 from random import Random
-
-from firebase import Firebase
-
-
+from firebase import Firebase	
+from config import settings
 configfb = {
     "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
     "authDomain": "164893195950.firebaseapp.com",
