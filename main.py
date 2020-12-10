@@ -7,7 +7,7 @@ from modules.bot_commands.collector import * # Importing ALL
 from modules.bot_funcs.for_funcs import modules_dict
 
 TOKEN = settings ['token']
-ver = '0.4.8 L&M build (Logs &nd Modules)'
+ver = '0.4.9 L&M build (Logs &nd Modules) jokes'
 __ver__ = '0.3.1' 
 rand = Random ().random
 
