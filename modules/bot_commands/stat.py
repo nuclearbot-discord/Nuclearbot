@@ -6,10 +6,12 @@ def stat (nick):
     response = get (f'https://minecraft-statistic.net/api/player/info/{nick}/')
     json_data = json.loads (response.text)
     return json_data
+'''
 def anec (vark):
     response = get (f'http://rzhunemogu.ru/RandJSON.aspx?CType={vark}')
     json_data = json.loads (response.text)
     return json_data
+'''
 @add_command('minecraft')
 async def minecraft (message, bot):
     args = get_next (message, 'minecraft')
@@ -40,8 +42,9 @@ async def minecraft (message, bot):
 
     else:
         await message.channel.send(stat(nickarg)['msg'])
+                                       '''
 @add_command('anecdot')
 async def anecdot (message, bot):
     await message.channel.send(anec(1)['content']                                       
-print (f': {__name__}.py {__ver__}')
+print (f': {__name__}.py {__ver__}')'''
 
