@@ -1,6 +1,7 @@
 from modules.bot_funcs.for_funcs import *
 
 from modules.bot_funcs.unsorted import *
+from modules.bot_funcs.api import *
 from modules.bot_funcs.db import *
 
 __ver__ = '0.2'

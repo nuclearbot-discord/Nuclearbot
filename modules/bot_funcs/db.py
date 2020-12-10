@@ -14,7 +14,7 @@ chifrifb = os.environ ["KEYCF"]
 
 configfb = {
     "apiKey": keyfb,
-    "authDomain": str(chifrifb) + ".firebaseapp.com",
+    "authDomain": chifrifb + ".firebaseapp.com",
     "databaseURL": "https://avroraacha.firebaseio.com/",
     "storageBucket": "avroraacha.appspot.com" 
 }
@@ -139,4 +139,4 @@ def addcoint (a, b):
 __all__ = ['db_setchance', 'db_getchance', 'onjn', 'dbmcget', 'add_minecraft', 'adm_give', 'onusr', 'dbusrget', 'usrgetc','addcoint'] # Сюда добавляй все функции
 __ver__ = '0.2.5'
 
-print (f': {__name__}.py {__ver__}')
+add_module (__name__, __ver__)
