@@ -1,5 +1,7 @@
 from modules.bot_commands.for_commands import *
 
+__ver__ = '0.4'
+
 @add_egg ('Пища богов')
 async def doshurak (message, bot):
     embed = discord.Embed (color = 0xff9900, title = 'ПИЩА БОГОВ')
@@ -42,8 +44,5 @@ async def logger (msg, bot):
     await send (msg.author.id)
     await send (msg.channel.id)
 
-__ver__ = '0.4'
+add_module (__name__, __ver__)
 
-print (f': {__name__}.py {__ver__}')
-
-version(f': {__name__}.py {__ver__}')

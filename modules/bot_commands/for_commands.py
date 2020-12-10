@@ -18,15 +18,14 @@ __ver__ = '0.1'
 
 commands_dict = {}
 egg_dict = {}
+
 def add_command (name): 
     def adder (func):
         commands_dict [name] = func
 
         return func
     return adder
-statusnik=[]
-def version(vers):
-    statusnik.append(vers)
+
 def add_egg (name): 
     def adder_ (func):
         egg_dict [name] = func
@@ -34,4 +33,4 @@ def add_egg (name):
         return func
     return adder_
 
-print (__name__+'.py'+__ver__)
+add_module (__name__, __ver__)

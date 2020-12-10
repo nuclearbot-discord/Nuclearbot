@@ -1,5 +1,7 @@
 from modules.bot_commands.for_commands import *
 
+__ver__ = '2.2'
+
 @add_command ('setcoins')
 async def setcoins (message, bot):
      if True:
@@ -31,8 +33,6 @@ async def set_chance(message, bot):
             )
         else:
             await message.channel.send ("ты не админ!")
-
-
     
 @add_command('profile')
 async def profile (message, bot):
@@ -43,6 +43,4 @@ async def profile (message, bot):
         spcs=usrgetc(message.author.id)
     await message.channel.send(f'у {message.author.mention}:\n {spcs["coins"]} монет\n админка:{spcs["adm"]}.')
 
-__ver__ = '2.2'
-version(f': {__name__}.py {__ver__}')
-print (f': {__name__}.py {__ver__}')
+add_module (__name__, __ver__)

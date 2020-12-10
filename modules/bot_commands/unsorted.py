@@ -1,26 +1,16 @@
 from modules.bot_commands.for_commands import *
-intents = discord.Intents.default ()
-intents.members = True
+
+__ver__ = '3.2'
+
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
     await message.channel.send (embed = help_embed)
 
-'''
-@add_command('connect')
-async def connect (message, bot):
-    voice = message.author.voice
-    voice_channel = voice.channel
-    await message.channel.send("я дошел")
-    await connect(voice_channel, timeout=60.0, reconnect=True, cls=<class 'discord.voice_client.VoiceClient'>)
-    await message.channel.send("я дошел2")
-'''# Патом как нибудь
 @add_command ('say')
 async def say (message, bot):
     await message.delete ()
     await message.channel.send (get_next (message, 'say'))
-@add_command ('avatar') 	
-async def avatar (message, bot):	
-    await message.channel.send(message.author.avatar_url) 
+    
 @add_command ('chat')
 async def chat (message, bot):
     msg = get_next (message, 'chat')
@@ -30,7 +20,7 @@ async def chat (message, bot):
         await message.channel.send (txt)
 
     except discord.errors.HTTPException:
-        pass
+        await message.channel.send ('...')
     
 @add_command ('info')
 async def info (message, bot):
@@ -39,9 +29,6 @@ async def info (message, bot):
 @add_command ('log')
 async def log (message, bot):
     await message.channel.send (', '.join (list (commands_dict)))
-    while True:
-        await bot.get_channel (settings ['logs']).send (f'пинг: {bot.latency}')      
-        await sleep (5)
 
 @add_command ('invite')
 async def invite (message, bot):
@@ -55,7 +42,6 @@ async def clear (message, bot):
     else:
         await message.channel.send("не админ")
 
-
 @add_command ('steam')
 async def steam (message, bot):
     author = message.author.id
@@ -68,7 +54,14 @@ async def steam (message, bot):
     else:
         await message.channel.send ('No.')
 
-__ver__ = '3.2'
-global statusun
-statusun=f': {__name__}.py {__ver__}'
+'''
+@add_command('connect')
+async def connect (message, bot):
+    voice = message.author.voice
+    voice_channel = voice.channel
+    await message.channel.send("я дошел")
+    await connect(voice_channel, timeout=60.0, reconnect=True, cls=<class 'discord.voice_client.VoiceClient'>)
+    await message.channel.send("я дошел2")
+'''# Патом как нибудь
+
 print (f': {__name__}.py {__ver__}')
