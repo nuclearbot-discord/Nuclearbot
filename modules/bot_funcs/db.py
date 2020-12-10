@@ -1,4 +1,4 @@
-#''' # - Эта хрень нужна мне не удаляй *
+''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
