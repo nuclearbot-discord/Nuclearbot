@@ -1,14 +1,19 @@
+import asyncio
+
 import discord
 from discord.ext import commands
-import asyncio
+
 from modules.bot_commands.collector import * # Importing ALL
 
 TOKEN = settings ['token']
-ver = '0.4.7 logs'
+ver = '0.4.8 L&M build (Logs &nd Modules)'
+__ver__ = '0.3.1' 
 rand = Random ().random
+
 intents = discord.Intents.default ()
 intents.members = True
 bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
+
 @bot.event
 async def on_guild_join (guild):
     onjn (guild)
@@ -24,19 +29,19 @@ async def on_member_join (member):
 
 @bot.event 
 async def on_ready ():
-    print (': main.py ...')
-    print (f':: {ver}') 
+    log_channel = bot.get_channel (settings ['logs'])
+    
+    print (f'\n::: {ver}') 
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
-    await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
-    sps=statusnik
-    ch=bot.get_channel (settings ['logs'])
-    await ch.send ("\n".join (sps))
+    await log_channel.send (f'{logson} пинг: {bot.latency}')
+    await log_channel.send ("\n".join (modules_dict))
+    
     await bot.change_presence (
         status = discord.Status.idle
     )
 
-    #activ_stream = discord.Streaming (name = txt_st atus.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
+    #activ_stream = discord.Streaming (name = txt_status.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
     actv_0 = discord.Streaming (name = txt_status_0,                                 url = 'https://m.twitch.tv/buster')
     actv_1 = discord.Streaming (name = txt_status_1.format (ver),                    url = 'https://m.twitch.tv/buster')
     actv_2 = discord.Streaming (name = txt_status_2.format (str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
@@ -111,5 +116,8 @@ async def on_message (message):
         except discord.errors.HTTPException:
             pass
         
-        return                                         
+        return
+
+add_module (__name__, __ver__)
+    
 bot.run (TOKEN)
