@@ -53,9 +53,7 @@ async def yiff (message, bot):
         await message.channel.send (embed = embed)    
     else:
         await message.channel.send("не nsfw!")
-''':@add_command ('avatar') 
-async def avatar (message, bot):
-    await message.channel.send(message.author.avatar_url¶)'''
+
 @add_command ('boobs')
 async def boobs (message, bot):
     if message.channel.is_nsfw ():
@@ -72,5 +70,4 @@ async def boobs (message, bot):
 
 __ver__ = '2.1'
 
-print (f': {__name__}.py {__ver__}')
-
+add_module (__name__, __ver__)

@@ -64,4 +64,4 @@ async def connect (message, bot):
     await message.channel.send("я дошел2")
 '''# Патом как нибудь
 
-print (f': {__name__}.py {__ver__}')
+add_module (__name__, __ver__)
