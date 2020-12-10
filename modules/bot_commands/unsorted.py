@@ -18,7 +18,9 @@ async def connect (message, bot):
 async def say (message, bot):
     await message.delete ()
     await message.channel.send (get_next (message, 'say'))
-    
+@add_command ('avatar') 	
+async def avatar (message, bot):	
+    await message.channel.send(message.author.avatar_url) 
 @add_command ('chat')
 async def chat (message, bot):
     msg = get_next (message, 'chat')
