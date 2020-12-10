@@ -1,4 +1,6 @@
-#''' # - Эта хрень нужна мне не удаляй *
+from modules.bot_funcs.for_funcs import *
+
+''' # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
