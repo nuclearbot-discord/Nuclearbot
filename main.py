@@ -31,7 +31,7 @@ async def on_ready ():
     await bot.get_channel (settings ['logs']).send (f'{logson} пинг: {bot.latency}')
     sps=statusnik
     ch=bot.get_channel (settings ['logs'])
-    await ch.send (sps)
+    await ch.send (", ".join (sps))
     await bot.change_presence (
         status = discord.Status.idle
     )
