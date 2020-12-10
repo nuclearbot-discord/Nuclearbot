@@ -49,11 +49,11 @@ def onusr(usrid):
     }
     
     db.child("users").child(usrid).set(data)
-'''def setchat (id, chat):
+def setchat (id, chat):
     data  = {
         "shans": db_getchance(id),
         "lang":"eng",
-        "chat": chat'''
+        "chat": chat
 """
 Def addadm(idid):
     data = {
