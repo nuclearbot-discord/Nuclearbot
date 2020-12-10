@@ -17,7 +17,7 @@ bot = commands.Bot (command_prefix = settings ['prefix'], intents = intents)
 
 @bot.event
 async def on_guild_join (guild):
-    onjn (guild)
+    onjn (guild.id)
 
 @bot.event
 async def on_member_join (member):
