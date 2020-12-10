@@ -13,11 +13,14 @@ def chat_bot (msg, id_):
 
     return req.text
 
-def joke (data = 0):
-    response = get (f'http://rzhunemogu.ru/RandJSON.aspx?CType=1')
-    json_data = json.loads (response.text)
-    return json_data ['content']
 
+def joke ():
+    req = get('http://rzhunemogu.ru/RandJSON.aspx?CType=1')
+    return req.text
+    an=anec().split(":")
+    an2=an[~0]
+    an3=an2[1:-1]
+    return an3
 def stat (nick):
     req = get('http://rzhunemogu.ru/RandJSON.aspx?CType=1%27')
     return req.text
