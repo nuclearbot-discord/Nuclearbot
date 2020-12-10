@@ -36,7 +36,7 @@ async def on_ready ():
 
     await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
     await log_channel.send (f'{logson} пинг: {bot.latency}')
-    await log_channel.send ('```' + "\n".join ([f': {i}\n:: {modules_dict [i]}' for i in modules_dict]) + '```')
+    await log_channel.send ('```' + '\n'.join ([f': {i}\n:: {modules_dict [i]}' for i in modules_dict]) + '```')
     
     await bot.change_presence (
         status = discord.Status.idle
