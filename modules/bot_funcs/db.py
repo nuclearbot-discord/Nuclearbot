@@ -1,7 +1,6 @@
 from modules.bot_funcs.for_funcs import *
+# - Эта хрень нужна мне не удаляй *
 
-''' # - Эта хрень нужна мне не удаляй *
-import os
 import random
 from random import Random
 
@@ -9,12 +8,10 @@ from firebase import Firebase
 
 from config import settings
 
-keyfb = os.environ ["KEY"]
-chifrifb = os.environ ["KEYCF"]
 
 configfb = {
-    "apiKey": keyfb,
-    "authDomain": str(chifrifb) + ".firebaseapp.com",
+    "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
+    "authDomain": "164893195950.firebaseapp.com",
     "databaseURL": "https://avroraacha.firebaseio.com/",
     "storageBucket": "avroraacha.appspot.com" 
 }
@@ -49,11 +46,11 @@ def onusr(usrid):
     }
     
     db.child("users").child(usrid).set(data)
-def setchat (id, chat):
+'''def setchat (id, chat):
     data  = {
         "shans": db_getchance(id),
         "lang":"eng",
-        "chat": chat
+        "chat": chat'''
 """
 Def addadm(idid):
     data = {
