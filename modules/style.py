@@ -1,5 +1,7 @@
 from discord import Embed
 
+from modules.bot_funcs.for_funcs import *
+
 # TextID                    = Val
 # Simple TXTs
 txt_status_0                = '!help | Nuclear Bot support'
@@ -21,10 +23,8 @@ txt_hi_after                = '!'
 logson                      = '''
 █▄░█ █░█ ▄▀ █░░ █▀▀ ▄▀▄ █▀▀▄ 
 █░▀█ █░█ █░ █░▄ █▀▀ █▀█ █▐█▀ 
-▀░░▀ ░▀░ ░▀ ▀▀▀ ▀▀▀ ▀░▀ ▀░▀▀ 
+▀░░▀ ░▀░ ░▀ ▀▀▀ ▀▀▀ ▀░▀ ▀░▀▀ ''' 
 
-
-                             ''' 
 # Embeds
 
 help_embed = Embed (
@@ -59,5 +59,5 @@ def embed_account_minecraft (email, pasw):
 
 __ver__ = '0.1.3'
 
-print (f': {__name__}.py {__ver__}')
+add_module (__name__, __ver__)
 
