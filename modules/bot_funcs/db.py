@@ -3,7 +3,7 @@ from modules.bot_funcs.for_funcs import *
 import random		
 from random import Random
 from firebase import Firebase	
-from config import settings
+from modules.config import settings
 configfb = {
     "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
     "authDomain": "164893195950.firebaseapp.com",
