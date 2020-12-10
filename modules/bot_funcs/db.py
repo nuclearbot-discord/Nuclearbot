@@ -1,6 +1,6 @@
 from modules.bot_funcs.for_funcs import *
 
-''' # - Эта хрень нужна мне не удаляй *
+ # - Эта хрень нужна мне не удаляй *
 import os
 import random
 from random import Random
@@ -14,7 +14,7 @@ chifrifb = os.environ ["KEYCF"]
 
 configfb = {
     "apiKey": keyfb,
-    "authDomain": chifrifb + ".firebaseapp.com",
+    "authDomain": str(chifrifb) + ".firebaseapp.com",
     "databaseURL": "https://avroraacha.firebaseio.com/",
     "storageBucket": "avroraacha.appspot.com" 
 }
@@ -38,7 +38,8 @@ def db_getchance (guild_id):
 def onjn(guild2):
     data = {
         "shans": "20",
-        "lang":"eng"
+        "lang":"eng",
+        "chat":"True"
     }
     db.child("timeout").child(guild2.id).set(data)
 def onusr(usrid):
@@ -48,7 +49,11 @@ def onusr(usrid):
     }
     
     db.child("users").child(usrid).set(data)
-
+def setchat (id, chat):
+    data  = {
+        "shans": db_getchance(id),
+        "lang":"eng",
+        "chat": chat
 """
 Def addadm(idid):
     data = {
