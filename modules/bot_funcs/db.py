@@ -1,5 +1,5 @@
 from modules.bot_funcs.for_funcs import *		
-'''# - Эта хрень нужна мне не удаляй *		
+# - Эта хрень нужна мне не удаляй *		
 import random		
 from random import Random
 from firebase import Firebase	
@@ -49,19 +49,19 @@ def onusr(usrid):
     db.child("users").child(usrid).set(data)
 
 
-'''def setchat (id, chat):
-    data  = {
-        "shans": db_getchance(id),
-        "lang":"eng",
-        "chat": chat'''
-"""
-Def addadm(idid):
-    data = {
-        "adm": "True"
+#def setchat (id, chat):
+    #data  = {
+        #"shans": db_getchance(id),
+        #"lang":"eng",
+        #"chat": chat
 
-    }
-    db.child("adms").child(idid).set(data)
-"""
+#def addadm(idid):
+    #data = {
+        #"adm": "True"
+
+    #}
+    #db.child("adms").child(idid).set(data)
+
 
 
 def addcoint(id, coins):
