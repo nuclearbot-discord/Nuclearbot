@@ -14,7 +14,7 @@ chifrifb = os.environ ["KEYCF"]
 
 configfb = {
     "apiKey": keyfb,
-    "authDomain": chifrifb + ".firebaseapp.com",
+    "authDomain": str(chifrifb) + ".firebaseapp.com",
     "databaseURL": "https://avroraacha.firebaseio.com/",
     "storageBucket": "avroraacha.appspot.com" 
 }
