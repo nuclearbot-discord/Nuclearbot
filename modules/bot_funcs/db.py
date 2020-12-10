@@ -1,5 +1,5 @@
 from modules.bot_funcs.for_funcs import *		
-# - Эта хрень нужна мне не удаляй *		
+'''# - Эта хрень нужна мне не удаляй *		
 import random		
 from random import Random
 from firebase import Firebase	
