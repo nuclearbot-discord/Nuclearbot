@@ -54,14 +54,13 @@ async def steam (message, bot):
     else:
         await message.channel.send ('No.')
 
-'''
 @add_command('connect')
 async def connect (message, bot):
     voice = message.author.voice
     voice_channel = voice.channel
     await message.channel.send("я дошел")
-    await connect(voice_channel, timeout=60.0, reconnect=True, cls=<class 'discord.voice_client.VoiceClient'>)
+    await voice_channel.connect()
     await message.channel.send("я дошел2")
-'''# Патом как нибудь
+# Патом как нибудь
 
 add_module (__name__, __ver__)
