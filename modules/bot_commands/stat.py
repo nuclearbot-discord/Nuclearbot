@@ -6,8 +6,8 @@ def stat (nick):
     response = get (f'https://minecraft-statistic.net/api/player/info/{nick}/')
     json_data = json.loads (response.text)
     return json_data
-def anec (variant):
-    response = get (f'ссилка')
+def anec (vark):
+    response = get (f'http://rzhunemogu.ru/RandJSON.aspx?CType={vark}')
     json_data = json.loads (response.text)
     return json_data
 @add_command('minecraft')
