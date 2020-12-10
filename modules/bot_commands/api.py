@@ -34,7 +34,7 @@ async def minecraft (message, bot):
         await message.channel.send(stat(nickarg)['msg'])
 
 @add_command ('joke')
-async def joke_command (msg, bot):
-    await msg.channel.send (joke ())# ['content'])
+async def joke_command (message, bot):
+    await message.channel.send (joke ())# ['content'])
 
 add_module (__name__, __ver__)
