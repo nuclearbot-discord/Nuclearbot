@@ -55,7 +55,7 @@ async def steam (message, bot):
         await message.channel.send ('No.')
 @add_command ("setchat")
 async def setchat (message, bot):
-    args = get_next(message.content, 'setchat').split(' ')
+    args = get_next(message, 'setchat').split(' ')
     print(message)
     print(args)
     print(message.content)
