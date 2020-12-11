@@ -1,3 +1,5 @@
+import discord
+import discord as discord
 from discord import Embed
 
 from modules.bot_funcs.for_funcs import *
@@ -27,11 +29,14 @@ logson                      = '''
 
 # Embeds
 
-help_embed = Embed (
-    title = 'Help',
-    description = "help: !log - all commands\n!help - this command\n!chat - 100% chat bot!",
-    color =  0x45db00
-)
+help_embed = discord.Embed(title="Support server", url="https://discord.gg/UVCAQ5uJRc", colour=discord.Colour(0x624c5c), )
+
+help_embed.set_footer(text="nuclearbot", icon_url="https://cdn.discordapp.com/attachments/786873657942081556/786873942953689119/logo.png")
+help_embed.add_field(name="unsorted (help unsorted)", value="!help\n!img\n!minecraft\n!info\n!invite\n!log\n!setchance ")
+help_embed.add_field(name="nsfw (help nsfw)", value="!nsfw\n!furry")
+help_embed.add_field(name="economy (help economy)", value="!addcoins\n!profile")
+help_embed.add_field(name="emotions (help emotions)", value="!tickle\n!kiss")
+
 
 info_embed = Embed (
     title = 'Info',

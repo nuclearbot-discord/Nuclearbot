@@ -53,13 +53,24 @@ async def steam (message, bot):
 
     else:
         await message.channel.send ('No.')
-
+@add_command ("setchat")
+async def setchat (message, bot):
+    args = get_next(message.content, 'setchat').split(' ')
+    print(message)
+    print(args)
+    print(message.content)
+    if args != '':
+        if args[0]=='true':
+            await setchat('True', message.guild.id)
+        elif args[0]=='false':
+            await setchat('False', message.guild.id)
+        await message.channel.send("слелано")
 @add_command('connect')
 async def connect (message, bot):
     voice = message.author.voice
     voice_channel = voice.channel
     await message.channel.send("я дошел")
-    await voice_channel.connect()
+    await voice_channel.connect(reconnect=True)
     await message.channel.send("я дошел2")
 # Патом как нибудь
 
