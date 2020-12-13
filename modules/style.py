@@ -27,40 +27,11 @@ logson                      = '''
 █░▀█ █░█ █░ █░▄ █▀▀ █▀█ █▐█▀ 
 ▀░░▀ ░▀░ ░▀ ▀▀▀ ▀▀▀ ▀░▀ ▀░▀▀ ''' 
 
-# Embeds
-
-help_embed = discord.Embed(title="Support server", url="https://discord.gg/UVCAQ5uJRc", colour=discord.Colour(0x624c5c), )
-
-help_embed.set_footer(text="nuclearbot", icon_url="https://cdn.discordapp.com/attachments/786873657942081556/786873942953689119/logo.png")
-help_embed.add_field(name="unsorted (help unsorted)", value="!help\n!img\n!minecraft\n!info\n!invite\n!log\n!setchance ")
-help_embed.add_field(name="nsfw (help nsfw)", value="!nsfw\n!furry")
-help_embed.add_field(name="economy (help economy)", value="!addcoins\n!profile")
-help_embed.add_field(name="emotions (help emotions)", value="!tickle\n!kiss")
 
 
-info_embed = Embed (
-    title = 'Info',
-    color = 0x45db00
-)
 
-#Embed generators
 
-def embed_account_minecraft (email, pasw):
-    embed = Embed (
-        title = 'Лицензия Minecraft',
-        color = 0xff0000,
-        description = f'Аккаунт: `{email}` \nПароль: ||`{pasw}`||',
-    )
 
-    embed.set_thumbnail (url = 'https://cdn.discordapp.com/attachments/779025471252856852/780774815153520670/1606221592221_scale_1200.jpg')
-    embed.set_footer (text = 'Все права защищены', icon_url = 'https://cdn.discordapp.com/attachments/779025471252856852/780774814687297586/1604169731070_i.jpg')
-
-    embed.add_field (name = 'А если лицезия не работает?', value = 'Заменим её!')
-    embed.add_field (name = 'А куда это пихать - то?', value = 'В оффициальный [лаунчер](https://www.minecraft.net/ru-ru/download)', inline = True)
-    embed.add_field (name = 'А откуда вы их берете?', value = 'Мы не расскажем, но всё законно')
-    embed.add_field (name = 'А сколька можно получить лицензий?', value = 'Безлимитно, приглашай людей!', inline = True)
-
-    return embed
 
 __ver__ = '0.1.3'
 

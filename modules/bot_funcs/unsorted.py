@@ -5,7 +5,7 @@ from modules.config import settings
 
 def get_next (message, command):
     command_all = settings ['prefix'] + command.lower () + ' '
-    return command_all.join (message.lower ().split (command_all) [1:])
+    return command_all.join (message.content.lower().split (command_all) [1:])
 
 def all_digits (msg):
     int_str = ''

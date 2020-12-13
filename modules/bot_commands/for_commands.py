@@ -8,10 +8,10 @@ import asyncio
 import discord
 from discord.ext import commands
 from requests import get
-
+from modules.bot_funcs.db import *
 from modules.config import settings
 from modules.style import *
-
+import tracemalloc
 from modules.bot_funcs.collector import *
 
 __ver__ = '0.1'

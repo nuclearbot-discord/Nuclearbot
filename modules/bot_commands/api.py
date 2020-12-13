@@ -27,7 +27,7 @@ async def minecraft (message, bot):
         if stat(nickarg)["status"]=="ok":
         # if you encounter a "year is out of range" error the timestamp
         # may be in milliseconds, try `ts /= 1000` in that case
-            lps=datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            lps=datetime.utcfromtimestamp(ts).strftime('%d-%m-%Y.%H:%M')
             await message.channel.send(f'nick: {datamc["name"]}\nвсего играл (часов): {datamc["total_time_play"]}\nонлайн: {onl}\nпоследняя игра: {lps}\nuuid: {uuid}')
 
     else:

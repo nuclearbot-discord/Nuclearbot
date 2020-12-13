@@ -15,20 +15,49 @@ firebase = Firebase(configfb)
 db = firebase.database()
 
 
-def db_setchance(chance, guild_id):
+def db_setchance(chance, chid):
     data = {"shans": chance}
-    db.child("timeout").child(guild_id).set(data)
+    db.child("chances").child(chid).set(data)
 
 
-def db_getchance(guild_id):
-    all_users = db.child("timeout").get()
+def db_getchance(chid):
+    all_users = db.child("chances").get()
 
     for user in all_users.each():
         kkey = user.key()
 
-        if str(kkey) == str(guild_id):
+        if str(kkey) == str(chid):
             a = user.val()
             return a["shans"]
+def db_setchannel(iserv, chid):
+    data = {'channel':chid}
+    db.child("channels").child(iserv).set(data)
+
+
+def db_getchannel(iserv):
+    all_users = db.child("channels").get()
+
+    for user in all_users.each():
+        kkey = user.key()
+
+        if str(kkey) == str(iserv):
+            a = user.val()
+            return a["channel"]
+
+
+def db_getchannelt(iserv):
+    global a
+    a=False
+    all_users = db.child("channels").get()
+    try:
+        for user in all_users.each():
+            kkey = user.key()
+
+            if str(kkey) == str(iserv):
+                a = True
+    except:
+        a=False
+    return a
 
 
 def onjn(guild2):
@@ -47,15 +76,27 @@ def onusr(usrid):
     }
 
     db.child("users").child(usrid).set(data)
+def conins(usrid, servid):
+    data = {
+        usrid: "1"
+    }
 
-
-def setchat (chat, id):
-    chc=db_getchance(id)
-    data  = {
-        "shans": chc,
-        "lang":"eng",
-        "chat": chat}
-    db.child("timeout").child(id).set(data)
+    db.child("lccoins").child(servid).set(data)
+def coinsget(idserv):
+    global res
+    all_usr11 = db.child("lccoins").get()
+    for user in all_usr11.each():
+        if user.key() == idserv:
+            res = user.val()
+    return res
+def coinsgett(idserv):
+    global res
+    res=False
+    all_usr11 = db.child("lccoins").get()
+    for user in all_usr11.each():
+        if user.key() == idserv:
+            res = True
+    return res
 
 #def addadm(idid):
     #data = {
@@ -64,7 +105,12 @@ def setchat (chat, id):
     #}
     #db.child("adms").child(idid).set(data)
 
+def coninss(usrid, servid,coins):
+    data = {
+        usrid: coins
+    }
 
+    db.child("lccoins").child(servid).set(data)
 
 def addcoint(id, coins):
     ctex = usrgetc(id)

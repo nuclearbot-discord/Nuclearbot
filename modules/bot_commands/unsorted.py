@@ -1,9 +1,20 @@
 from modules.bot_commands.for_commands import *
 
+
 __ver__ = '3.2'
 
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
+    help_embed = discord.Embed(title="Support server", url="https://discord.gg/UVCAQ5uJRc",
+                               colour=discord.Colour(0x624c5c), )
+    help_embed.set_author(name=message.author, icon_url=message.author.avatar_url)
+    help_embed.set_footer(text="nuclearbot | "+ str(datetime.now().strftime("%d.%m.%Y %H:%M:%S")),
+                          icon_url="https://cdn.discordapp.com/attachments/786873657942081556/786873942953689119/logo.png")
+    help_embed.add_field(name="unsorted (help unsorted)",
+                         value="!help\n!img\n!minecraft\n!info\n!invite\n!log\n!setchance ")
+    help_embed.add_field(name="nsfw (help nsfw)", value="!nsfw\n!furry")
+    help_embed.add_field(name="economy (help economy)", value="!addcoins\n!profile")
+    help_embed.add_field(name="emotions (help emotions)", value="!tickle\n!kiss")
     await message.channel.send (embed = help_embed)
 
 @add_command ('say')
@@ -21,10 +32,10 @@ async def chat (message, bot):
 
     except discord.errors.HTTPException:
         await message.channel.send ('...')
-    
+
 @add_command ('info')
 async def info (message, bot):
-    await message.channel.send (embed = info_embed)
+    await message.channel.send ("lATER")
     
 @add_command ('log')
 async def log (message, bot):
@@ -53,18 +64,8 @@ async def steam (message, bot):
 
     else:
         await message.channel.send ('No.')
-@add_command ("setchat")
-async def setchat (message, bot):
-    args = get_next(message.content, 'setchat').split(' ')
-    print(message)
-    print(args)
-    print(message.content)
-    if args != '':
-        if args[0]=='true':
-            await setchat('True', message.guild.id)
-        elif args[0]=='false':
-            await setchat('False', message.guild.id)
-        await message.channel.send("слелано")
+
+
 @add_command('connect')
 async def connect (message, bot):
     voice = message.author.voice
