@@ -154,7 +154,7 @@ async def on_message (message):
 
             return
     else:
-        db_setchance(0, message.channel.id)
+        db_setchance('0', str(message.channel.id))
         await message.channel.send('!setchance [канал (опционально)] <шанс>')                                  
 
 add_module (__name__, __ver__)
