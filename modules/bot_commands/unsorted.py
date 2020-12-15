@@ -4,6 +4,16 @@ __ver__ = '3.2'
 
 @add_command ('help') #Пример как делать комманды
 async def help (message, bot):
+    help_embed = discord.Embed(title="Support server", url="https://discord.gg/UVCAQ5uJRc",
+                               colour=discord.Colour(0x624c5c), )
+    help_embed.set_author(name=message.author, icon_url=message.author.avatar_url)
+    help_embed.set_footer(text="nuclearbot | "+ str(datetime.now().strftime("%d.%m.%Y %H:%M:%S")),
+                          icon_url="https://cdn.discordapp.com/attachments/786873657942081556/786873942953689119/logo.png")
+    help_embed.add_field(name="unsorted (help unsorted)",
+                         value="!help\n!img\n!minecraft\n!info\n!invite\n!log\n!setchance ")
+    help_embed.add_field(name="nsfw (help nsfw)", value="!nsfw\n!furry")
+    help_embed.add_field(name="economy (help economy)", value="!addcoins\n!profile")
+    help_embed.add_field(name="emotions (help emotions)", value="!tickle\n!kiss")
     await message.channel.send (embed = help_embed)
 
 @add_command ('say')
