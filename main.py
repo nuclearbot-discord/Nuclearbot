@@ -7,7 +7,7 @@ from modules.bot_funcs.db import db_setchannel, db_getchannel, db_getchannelt
 from modules.bot_funcs.for_funcs import modules_dict
 
 TOKEN = settings ['token']
-ver = '0.4.9 L&M build (Logs &nd Modules) jokes'
+ver = '0.4.9 L&M build (вась, дай апдейт, а?) (Logs &nd Modules) jokes'
 __ver__ = '0.3.1'
 rand = Random ().random
 
