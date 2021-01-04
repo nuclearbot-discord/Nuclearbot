@@ -5,10 +5,9 @@ from discord.ext import commands
 from modules.bot_commands.collector import * # Importing ALL
 from modules.bot_funcs.db import db_setchannel, db_getchannel, db_getchannelt
 from modules.bot_funcs.for_funcs import modules_dict
-from modules.bot_funcs.unsorted import mat
 
 TOKEN = settings ['token']
-ver = '0.5.0 (big update, fixes)'
+ver = '0.4.9 L&M build (вась, дай апдейт, а?) (Logs &nd Modules) jokes'
 __ver__ = '0.3.1'
 rand = Random ().random
 
@@ -25,7 +24,9 @@ async def on_member_join (member):
     if not dbusrget(member.id):
         onusr(member.id)
     #print(member.guild)
+    print(db_getchannelt(member.guild.id))
     if db_getchannelt(member.guild.id):
+        print('okay')
         embed = discord.Embed(title="добро пожаловать к нам!", colour=discord.Colour(0x624c5c))
         embed.set_author(name=member, icon_url=member.avatar_url)
         embed.set_footer(text="nuclearbot | " + str(datetime.now().strftime("%d.%m.%Y %H:%M:%S")),
@@ -35,16 +36,20 @@ async def on_member_join (member):
             .send(embed=embed)
 
     else:
+        print('okay2')
         global isis
         isis = True
         for channel in member.guild.channels:
+            print(channel.type)
             if isis:
                 type=channel.type
                 if str(type).lower() == 'text':
                     db_setchannel(member.guild.id,channel.id)
-
+                    print('finded')
+                    print('lololol')
                     isis=False
-
+                else:
+                    print(channel.type)
         embed = discord.Embed(title="добро пожаловать к нам!", colour=discord.Colour(0x624c5c))
         embed.set_author(name=member, icon_url=member.avatar_url)
         embed.set_footer(text="nuclearbot | " + str(datetime.now().strftime("%d.%m.%Y %H:%M:%S")),
@@ -63,31 +68,32 @@ async def on_ready ():
 
     print (f'\n::: {ver}')
 
-    #await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
-    #await log_channel.send (f'{logson}\nпинг: {bot.latency}')
-    #await log_channel.send ('```' + '\n'.join ([f': {i}\n:: {modules_dict [i]}' for i in modules_dict]) + '```')
+    await bot.get_channel (settings ['channel']).send (txt_bot_online.format (ver))
+    await log_channel.send (f'{logson}\nпинг: {bot.latency}')
+    await log_channel.send ('```' + '\n'.join ([f': {i}\n:: {modules_dict [i]}' for i in modules_dict]) + '```')
 
     await bot.change_presence (
-        status = discord.Status.offline
+        status = discord.Status.idle
     )
 
     #activ_stream = discord.Streaming (name = txt_status.format (ver, str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
-    actv_0 =discord.Activity (type=discord.ActivityType.watching,name = txt_status_0,                                 url = 'https://m.twitch.tv/buster')
-    actv_1 = discord.Activity (type=discord.ActivityType.listening,name = txt_status_1.format (ver),                    url = 'https://m.twitch.tv/buster')
+    actv_0 = discord.Streaming (name = txt_status_0,                                 url = 'https://m.twitch.tv/buster')
+    actv_1 = discord.Streaming (name = txt_status_1.format (ver),                    url = 'https://m.twitch.tv/buster')
     actv_2 = discord.Streaming (name = txt_status_2.format (str (len (bot.guilds))), url = 'https://m.twitch.tv/buster')
 
     while True:
-        await bot.change_presence (activity = actv_0, status=discord.Status("dnd"))
+        await bot.change_presence (activity = actv_0)
         await sleep (5)
-        await bot.change_presence (activity = actv_1, status=discord.Status("idle"))
+        await bot.change_presence (activity = actv_1)
         await sleep (5)
-        await bot.change_presence (activity = actv_2, status=discord.Status("dnd"))
+        await bot.change_presence (activity = actv_2)
         await sleep (5)
+
 @bot.event
 async def on_message (message):
     if message.author.bot:
         return
-    #await mat(message, message.content)
+
     if message.content.lower() == 'help':
         await message.channel.send (
             txt_help_not_command_before + settings ['prefix'] + txt_help_not_command_after
@@ -148,7 +154,8 @@ async def on_message (message):
 
             return
     else:
-        db_setchance(100, message.channel.id)
+        db_setchance('0', str(message.channel.id))
+        await message.channel.send('!setchance [канал (опционально)] <шанс>')                                  
 
 add_module (__name__, __ver__)
 
