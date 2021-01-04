@@ -6,8 +6,8 @@ __ver__ = '1.0'
 async def minecraft (message, bot):
     args = get_next (message, 'minecraft')
     nickarg=args
-    
-    if stat (nickarg) ["status"] == "ok":
+
+    if str(stat (nickarg) ["status"]) == "ok":
         datamc = stat(nickarg)["data"]
         
         if datamc["online"]=="1":

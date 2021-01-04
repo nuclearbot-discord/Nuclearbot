@@ -32,7 +32,7 @@ async def set_chance(message, bot):
             chance = args2[1]#str (all_digits (get_next (message, 'setchance')))
             if args2[1].isdigit():
 
-                db_setchance (chance, all_digits(args2[0]))
+                db_setchance (str(chance), all_digits(args2[0]))
                 await message.channel.send(
                      txt_shance_now_before +' in '+ str(args2[0])+' '+ str(chance) + txt_shance_now_after
                 )
@@ -53,6 +53,7 @@ async def set_chance(message, bot):
                     await message.channel.send("не число!")
 
             else:
+
 
                 await message.channel.send ("ты не админ!")
     else:
@@ -87,11 +88,11 @@ async def setjoinchannel (message, bot):
     args2=list(filter(None, args))
     if message.author.guild_permissions.administrator:
         id =   all_digits(args2[0])  # str (all_digits (get_next (message, 'setchance')))
-        db_setchannel(message.guild.id,id)
+        db_setchannel(message.guild.id,str(id))
     else:
         if adm_give(message.author.id):
             id = all_digits(args2[0])  # str (all_digits (get_next (message, 'setchance')))
-            db_setchannel(message.guild.id, id)
+            db_setchannel(message.guild.id, str(id))
         else:
             await message.channel.send("не админ")
 
@@ -107,6 +108,6 @@ async def profile (message, bot):
     else:
         conins(str(message.author.id), str(message.guild.id))
         spcs=coinsget(str(message.guild.id))[str(message.author.id)]
-    await message.channel.send(f'у {message.author.mention}:\n {spcs} монет\n админка:test.')
+    await message.channel.send(f'у {message.author.mention}:\n {spcs} монет')
 #print(coinsget('1'))
 add_module (__name__, __ver__)

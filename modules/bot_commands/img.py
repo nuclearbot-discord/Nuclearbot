@@ -61,17 +61,18 @@ async def furry (message, bot):
 async def cat (msg, bot):
     arg = get_next (msg, 'img')
     data = {'animal': arg}
+    try:
+        r = get (f'https://some-random-api.ml/img/{arg}')
+        dat = json.loads (r.text)
 
-    r = get (f'https://some-random-api.ml/img/{arg}')
-    dat = json.loads (r.text)
-
-    url = dat ['link']
+        url = dat ['link']
     
-    embed = Embed (name = 'Cat')
-    embed.set_image (url = url)
+        embed = Embed (name = 'Cat')
+        embed.set_image (url = url)
 
-    await msg.channel.send (embed = embed)
-
+        await msg.channel.send (embed = embed)
+    except:
+        await msg.channel.send(f"категории {arg} не существует")
 @add_command ('kiss')
 async def kiss (message, bot):
     args = get_next (message, 'kiss').split (' ')

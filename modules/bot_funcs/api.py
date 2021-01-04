@@ -1,6 +1,6 @@
 import json
 
-from requests import get
+from requests import get, post
 
 from modules.bot_funcs.for_funcs import *
 
@@ -8,10 +8,23 @@ __ver__ = '0.0.2'
 __all__ = ['chat_bot', 'joke', 'stat']
 
 def chat_bot (msg, id_):
-    req = get('https://mol-programmist.ru/bot/index.php?str=%27' + msg + '%27&id=' + id_ [-5:] + '%27')
-    req.encoding = 'utf-8'
 
-    return req.text
+    params={"query":{"ask":"Привет","userid":"654321","key":""}}
+    req=post('https://aiproject.ru/api/',
+               data={"query":json.dumps({"ask":msg,"userid":id_[:-5],"key":""})},
+               )
+    req.encoding='utf-8'
+    print(req.text)
+    print(';;;;;;')
+    jsonka=json.loads(req.text)
+    print(jsonka)
+    if jsonka['status'] == 1:
+        if jsonka['emotion']=='':
+            return jsonka['aiml']
+        else:
+            return jsonka['aiml']+ ' | эмоция: :'+ jsonka["emotion"]+":"
+    else:
+        return jsonka['description']
 
 def joke ():
     req = get('http://rzhunemogu.ru/RandJSON.aspx?CType=1')
