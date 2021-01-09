@@ -4,7 +4,7 @@ from requests import get, post
 
 from modules.bot_funcs.for_funcs import *
 
-__ver__ = '0.0.3 test'
+__ver__ = '0.0.3'
 __all__ = ['chat_bot', 'joke', 'stat']
 
 def chat_bot (msg, id_):
