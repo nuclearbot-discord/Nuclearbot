@@ -1,0 +1,11 @@
+# Nuclearbot
+## Bot
+### For
+#### Discord
+##### Created
+###### at 
+##### 25
+#### of
+### November
+## 2020
+# .
