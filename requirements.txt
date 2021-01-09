@@ -8,4 +8,4 @@ pycrypto
 requests-toolbelt
 PyNaCl
 DateTime
-
+jishaku
