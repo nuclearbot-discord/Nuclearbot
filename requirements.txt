@@ -9,3 +9,4 @@ requests-toolbelt
 PyNaCl
 DateTime
 jishaku
+dpymenus
