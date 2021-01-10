@@ -1,14 +1,15 @@
 from modules.bot_funcs.for_funcs import *		
 # - Эта хрень нужна мне не удаляй *		
 import random		
+import os
 from random import Random
 from firebase import Firebase	
 from modules.config import settings
 configfb = {
-    "apiKey": "AIzaSyC3vGWkRWrBNLuz5YlysXZMZXGy0gT56LA",
-    "authDomain": "164893195950.firebaseapp.com",
-    "databaseURL": "https://avroraacha.firebaseio.com/",
-    "storageBucket": "avroraacha.appspot.com"
+    "apiKey": str(os.environ.get('KEY')),
+    "authDomain": f"{str(os.environ.get('KEYCF')}.firebaseapp.com",
+    "databaseURL": f"https://{os.environ.get('NAMECF')}.firebaseio.com/",
+    "storageBucket": f"{os.environ.get('NAMECF')}.appspot.com"
 }
 
 firebase = Firebase(configfb)
