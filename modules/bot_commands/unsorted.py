@@ -11,7 +11,9 @@ __ver__ = '3.2'
 global _cd
 from discord.voice_client import VoiceClient
 _cd = commands.CooldownMapping.from_cooldown(1.0, 5.0, commands.BucketType.user)
-
+@add_command('botinfo')
+async def botinfo(message, bot):
+    await message.channel.send('github - https://github.com/nuclearbot-discord/Nuclearbot')
 @add_command('help')
 async def help(message, bot):
     ctx=await bot.get_context(message)
