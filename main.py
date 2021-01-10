@@ -10,7 +10,7 @@ from modules.bot_funcs.for_funcs import modules_dict
 from modules.bot_funcs.unsorted import mat
 
 TOKEN = settings['token']
-ver = '0.5.1 no token (big update, fixes)'
+ver = '0.5.1 no fb & token (big update, fixes)'
 __ver__ = '0.3.1'
 rand = Random().random
 intents = discord.Intents.all()
