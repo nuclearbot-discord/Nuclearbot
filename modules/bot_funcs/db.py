@@ -7,7 +7,7 @@ from firebase import Firebase
 from modules.config import settings
 configfb = {
     "apiKey": str(os.environ.get('KEY')),
-    "authDomain": f"{str(os.environ.get('KEYCF')}.firebaseapp.com",
+    "authDomain": f"{os.environ.get('KEYCF')}.firebaseapp.com",
     "databaseURL": f"https://{os.environ.get('NAMECF')}.firebaseio.com/",
     "storageBucket": f"{os.environ.get('NAMECF')}.appspot.com"
 }
