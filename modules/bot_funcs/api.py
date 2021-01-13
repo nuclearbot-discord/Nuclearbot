@@ -21,7 +21,7 @@ def chat_bot (msg, id_):
         else:
             return jsonka['aiml']+ ' | эмоция: :'+ jsonka["emotion"]+":"
     else:
-        return jsonka['description']
+        return jsonka['description'] #desk добавлю окда
 
 def joke ():
     req = get('http://rzhunemogu.ru/RandJSON.aspx?CType=1')
