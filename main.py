@@ -13,8 +13,7 @@ TOKEN = settings['token']
 ver = '0.5.1 no fb & token (big update, fixes)'
 __ver__ = '0.3.1'
 rand = Random().random
-intents = discord.Intents.all()
-intents.members = True
+intents = discord.Intents.default()
 bot = commands.Bot(command_prefix=settings['prefix'], intents=intents)
 
 
