@@ -7,7 +7,7 @@ settings = {
     'channel': 782584270694776852,
     'logs':782584276314488832,
     'site': 'https://nuclearbot.ga/',
-    'token': os.environ.get('TOKEN')#'NzgxNDA0OTE1MTQyNDkyMTcx.X79KCQ.vcdevmaaRYCADgMagz0iAJX7VTo'
+    'token': os.environ.get('TOKEN')
 }
 
 __ver__ = '4'
